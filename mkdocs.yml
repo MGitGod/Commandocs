@@ -1,0 +1,57 @@
+site_name: Command Cheat Sheet
+theme:
+  name: material
+  language: ja
+
+  palette:
+    # ライトモードの設定
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo # ベースのカラー（お好みで変更可能）
+      accent: indigo # アクセントカラー
+      toggle:
+        icon: material/weather-sunny
+        name: ダークモードに切り替え
+
+    # ダークモードの設定
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate # slate がダークモード用のテーマ名です
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: ライトモードに切り替え
+
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes # これを追加！
+    - content.code.copy
+    - search.highlight
+
+plugins:
+  - search
+  - awesome-pages
+
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+
+  - pymdownx.highlight:
+      anchor_linenums: true
+
+  - pymdownx.superfences
+
+  - pymdownx.inlinehilite
+
+  - pymdownx.tabbed:
+      alternate_style: true
+
+  - pymdownx.details
+
+  - pymdownx.tasklist:
+      custom_checkbox: true
