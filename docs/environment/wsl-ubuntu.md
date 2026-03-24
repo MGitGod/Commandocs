@@ -1,51 +1,74 @@
 # WSL (Ubuntu)
 
-WSL（Windows Subsystem for Linux）上のUbuntuで使用する主要コマンドをまとめたリファレンスです。
+WSL（Windows Subsystem for Linux）上の Ubuntu で使用するコマンドをまとめたリファレンスです。
 
 ---
 
 ## インストール・アップデート・アンインストール
 
-### WSL 自体のインストール（PowerShell / Windows側）
+### WSL をインストールする
 
-WSLをWindowsにインストールする。デフォルトはUbuntu。
+=== "PowerShell（Windows 側）"
 
-```powershell
-# WSL と Ubuntu をインストール
-wsl --install
+    ```powershell
+    # デフォルト（Ubuntu）をインストール
+    wsl --install
 
-# ディストリビューションを指定してインストール
-wsl --install -d Ubuntu-22.04
+    # ディストリビューションを指定してインストール
+    wsl --install -d Ubuntu-22.04
 
-# インストール可能なディストリビューション一覧を表示
-wsl --list --online
-```
+    # インストール可能な一覧を表示
+    wsl --list --online
+    ```
 
-**使い方の例：**
+=== "APT（Ubuntu 内）"
 
-```powershell
-# Ubuntu 24.04 をインストールする
-wsl --install -d Ubuntu-24.04
-```
+    ```bash
+    # パッケージリストを更新してからインストール
+    sudo apt update
+    sudo apt install パッケージ名
+    ```
+
+!!! note "説明"
+    PowerShell から `wsl --install` を実行すると WSL 本体と Ubuntu が一括でインストールされます。
+    Ubuntu 内のパッケージ管理には `apt` コマンドを使います。
+
+#### 使用例
+
+=== "PowerShell"
+
+    ```powershell
+    # Ubuntu 24.04 を指定してインストール
+    wsl --install -d Ubuntu-24.04
+    ```
+
+=== "APT"
+
+    ```bash
+    # git と curl をまとめてインストール
+    sudo apt update
+    sudo apt install git curl -y
+    ```
 
 ---
 
-### WSL のアップデート（PowerShell / Windows側）
-
-WSL カーネル・コンポーネントをアップデートする。
+### WSL をアップデートする
 
 ```powershell
 # WSL 本体をアップデート
 wsl --update
 
-# WSL のバージョンを確認
+# バージョンを確認
 wsl --version
 
-# インストール済みディストリビューションの一覧表示
+# インストール済みディストリビューション一覧を確認
 wsl --list --verbose
 ```
 
-**使い方の例：**
+!!! note "説明"
+    `wsl --update` は PowerShell から実行します。Ubuntu 内のパッケージアップデートは `sudo apt upgrade` を使います。
+
+#### 使用例
 
 ```powershell
 # バージョン確認後にアップデート
@@ -55,34 +78,7 @@ wsl --update
 
 ---
 
-### WSL のアンインストール（PowerShell / Windows側）
-
-ディストリビューションを削除する。
-
-```powershell
-# 指定したディストリビューションを登録解除（削除）
-wsl --unregister Ubuntu
-
-# ディストリビューションのエクスポート（バックアップ）
-wsl --export Ubuntu C:\backup\ubuntu.tar
-
-# ディストリビューションのインポート（復元）
-wsl --import Ubuntu C:\WSL\Ubuntu C:\backup\ubuntu.tar
-```
-
-**使い方の例：**
-
-```powershell
-# 削除前にバックアップを取る
-wsl --export Ubuntu D:\backup\ubuntu_backup.tar
-wsl --unregister Ubuntu
-```
-
----
-
-### APT パッケージ管理（Ubuntu内）
-
-Ubuntuのパッケージマネージャ `apt` を使ったインストール・アップデート・アンインストール。
+### APT でパッケージをアップデートする
 
 ```bash
 # パッケージリストを更新
@@ -91,82 +87,107 @@ sudo apt update
 # インストール済みパッケージをアップグレード
 sudo apt upgrade
 
-# update と upgrade を一括実行
+# 更新と適用を一括実行
 sudo apt update && sudo apt upgrade -y
-
-# パッケージをインストール
-sudo apt install パッケージ名
-
-# パッケージをアンインストール（設定ファイルは残す）
-sudo apt remove パッケージ名
-
-# パッケージと設定ファイルを完全に削除
-sudo apt purge パッケージ名
 
 # 不要な依存パッケージを削除
 sudo apt autoremove
 
-# キャッシュを削除
+# ダウンロードキャッシュを削除
 sudo apt clean
-
-# パッケージを検索
-apt search キーワード
-
-# パッケージの詳細情報を表示
-apt show パッケージ名
-
-# インストール済みパッケージ一覧
-apt list --installed
 ```
 
-**使い方の例：**
+!!! note "説明"
+    `apt update` はパッケージリストの更新のみで、実際のアップグレードは行いません。
+    `apt upgrade` と組み合わせて使います。
+
+#### 使用例
 
 ```bash
-# git をインストールする
-sudo apt update
-sudo apt install git -y
+# 定期メンテナンスの一括コマンド
+sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
+```
 
-# vim を完全に削除する
+---
+
+### APT でパッケージをアンインストールする
+
+```bash
+# パッケージを削除（設定ファイルは残す）
+sudo apt remove パッケージ名
+
+# パッケージと設定ファイルを完全削除
+sudo apt purge パッケージ名
+
+# 不要な依存パッケージも削除
+sudo apt purge パッケージ名 && sudo apt autoremove
+```
+
+!!! note "説明"
+    `remove` は設定ファイルを残します。完全に削除したい場合は `purge` を使います。
+
+#### 使用例
+
+```bash
+# vim を設定ファイルごと完全削除
 sudo apt purge vim
 sudo apt autoremove
 ```
 
 ---
 
-### Snap パッケージ管理
+### WSL をアンインストールする
 
-```bash
-# snap パッケージのインストール
-sudo snap install パッケージ名
+```powershell
+# 削除前にバックアップ（tar ファイルとして書き出す）
+wsl --export Ubuntu D:\backup\ubuntu.tar
 
-# snap パッケージの削除
-sudo snap remove パッケージ名
+# ディストリビューションを登録解除（削除）
+wsl --unregister Ubuntu
 
-# インストール済み snap 一覧
-snap list
-
-# snap パッケージのアップデート
-sudo snap refresh
+# バックアップから復元
+wsl --import Ubuntu C:\WSL\Ubuntu D:\backup\ubuntu.tar
 ```
 
-**使い方の例：**
+!!! note "説明"
+    `--unregister` を実行するとディストリビューション内のデータがすべて削除されます。
+    事前に `--export` でバックアップを取っておくことを推奨します。
 
-```bash
-# VS Code を snap でインストール
-sudo snap install code --classic
+#### 使用例
+
+```powershell
+# バックアップを取ってから Ubuntu を削除
+wsl --export Ubuntu D:\backup\ubuntu_$(Get-Date -Format yyyyMMdd).tar
+wsl --unregister Ubuntu
 ```
 
 ---
 
-## 基本コマンド
+## ファイル・ディレクトリ操作
 
-### ディレクトリ操作
+### カレントディレクトリを表示する
 
 ```bash
-# 現在のディレクトリを表示
 pwd
+```
 
-# ディレクトリを移動
+!!! note "説明"
+    Print Working Directory の略。現在いるディレクトリの絶対パスを表示します。
+
+#### 使用例
+
+```bash
+# 移動後に現在地を確認
+cd ~/projects
+pwd
+```
+
+---
+
+### ディレクトリを移動する
+
+```bash
+# 指定ディレクトリへ移動
 cd ディレクトリ名
 
 # ホームディレクトリへ移動
@@ -178,98 +199,23 @@ cd ..
 
 # 直前のディレクトリへ戻る
 cd -
-
-# ディレクトリを作成
-mkdir ディレクトリ名
-
-# 深い階層のディレクトリを一括作成
-mkdir -p 親ディレクトリ/子ディレクトリ/孫ディレクトリ
-
-# ディレクトリを削除（空のディレクトリのみ）
-rmdir ディレクトリ名
-
-# ディレクトリを中身ごと削除
-rm -r ディレクトリ名
-
-# 確認なしで強制削除（注意）
-rm -rf ディレクトリ名
 ```
 
-**使い方の例：**
+!!! note "説明"
+    `cd -` は直前にいたディレクトリへ戻るショートカットです。2つのディレクトリを行き来するときに便利です。
+
+#### 使用例
 
 ```bash
-# projects/myapp/src ディレクトリを一括作成
-mkdir -p ~/projects/myapp/src
-
-# work ディレクトリへ移動して現在地を確認
-cd ~/work && pwd
+# プロジェクトと設定ファイルを行き来する
+cd ~/projects/myapp
+cd ~/.config
+cd -   # ~/projects/myapp に戻る
 ```
 
 ---
 
-### ファイル操作
-
-```bash
-# ファイルを作成（空ファイル）
-touch ファイル名
-
-# ファイルをコピー
-cp コピー元 コピー先
-
-# ディレクトリごとコピー
-cp -r コピー元ディレクトリ コピー先
-
-# ファイルを移動・リネーム
-mv 移動元 移動先
-
-# ファイルを削除
-rm ファイル名
-
-# 複数ファイルを削除
-rm ファイル1 ファイル2
-
-# ファイルの内容を表示
-cat ファイル名
-
-# ファイルの先頭10行を表示
-head ファイル名
-
-# ファイルの先頭N行を表示
-head -n 20 ファイル名
-
-# ファイルの末尾10行を表示
-tail ファイル名
-
-# ファイルの末尾N行を表示
-tail -n 20 ファイル名
-
-# リアルタイムでファイルの末尾を追跡表示
-tail -f ファイル名
-
-# ファイルをページごとに閲覧（q で終了）
-less ファイル名
-
-# ファイルの行数・単語数・バイト数を表示
-wc ファイル名
-
-# 行数のみ表示
-wc -l ファイル名
-```
-
-**使い方の例：**
-
-```bash
-# 設定ファイルをバックアップしてから編集
-cp ~/.bashrc ~/.bashrc.bak
-vim ~/.bashrc
-
-# ログファイルの末尾をリアルタイム監視
-tail -f /var/log/syslog
-```
-
----
-
-### ファイル・ディレクトリの一覧表示
+### ファイル・ディレクトリを一覧表示する
 
 ```bash
 # 一覧表示
@@ -278,91 +224,263 @@ ls
 # 詳細表示（権限・サイズ・日時）
 ls -l
 
-# 隠しファイルも表示
-ls -a
-
-# 詳細 + 隠しファイル
+# 隠しファイルを含む全ファイルを詳細表示
 ls -la
 
 # サイズを人間が読みやすい形式で表示
 ls -lh
 
-# 更新日時順に表示（新しい順）
+# 更新日時順（新しい順）に並べ替え
 ls -lt
 
 # 再帰的に表示
 ls -lR
 
-# ツリー形式で表示（tree コマンドが必要）
+# ツリー形式で表示（要 tree）
 tree
 
 # 深さを指定してツリー表示
 tree -L 2
 ```
 
-**使い方の例：**
+!!! note "説明"
+    `ls -la` は最もよく使われる組み合わせです。`tree` は別途 `sudo apt install tree` でインストールが必要です。
+
+#### 使用例
 
 ```bash
 # ホームディレクトリの全ファイルをサイズ付きで表示
 ls -lah ~
 
-# カレントディレクトリを2階層のツリーで表示
-tree -L 2
+# 2階層のツリーで構成を確認
+tree -L 2 ~/projects
 ```
 
 ---
 
-### テキスト表示・編集
+### ディレクトリを作成する
 
 ```bash
-# 標準出力にテキストを表示
-echo "テキスト"
+# ディレクトリを作成
+mkdir ディレクトリ名
 
-# ファイルへ書き込み（上書き）
-echo "テキスト" > ファイル名
+# 深い階層を一括作成
+mkdir -p 親/子/孫
 
-# ファイルへ追記
-echo "テキスト" >> ファイル名
+# 作成と同時に権限を指定
+mkdir -m 755 ディレクトリ名
+```
+
+!!! note "説明"
+    `-p` オプションを使うと中間ディレクトリが存在しない場合でも一括して作成します。
+    すでに存在しても エラーになりません。
+
+#### 使用例
+
+```bash
+# プロジェクトのディレクトリ構成を一括作成
+mkdir -p ~/projects/myapp/{src,tests,docs}
+ls ~/projects/myapp/
+```
+
+---
+
+### ファイルを作成する
+
+```bash
+# 空ファイルを作成（すでに存在する場合はタイムスタンプを更新）
+touch ファイル名
+
+# ファイルに文字列を書き込んで作成（上書き）
+echo "内容" > ファイル名
+
+# ファイルに追記
+echo "追記内容" >> ファイル名
 
 # 複数行をファイルに書き込む（ヒアドキュメント）
 cat << EOF > ファイル名
 1行目
 2行目
 EOF
-
-# vim でファイルを編集
-vim ファイル名
-
-# nano でファイルを編集
-nano ファイル名
 ```
 
-**使い方の例：**
+!!! note "説明"
+    `>` は上書き、`>>` は追記です。間違えると既存ファイルの内容が消えるため注意してください。
+
+#### 使用例
 
 ```bash
 # README.md を作成して内容を書き込む
 echo "# My Project" > README.md
+echo "" >> README.md
 echo "プロジェクトの説明" >> README.md
 ```
 
 ---
 
-### パーミッション（権限）操作
+### ファイル・ディレクトリをコピーする
 
 ```bash
-# ファイルの権限を変更（数値指定）
+# ファイルをコピー
+cp コピー元 コピー先
+
+# ディレクトリを中身ごとコピー
+cp -r コピー元ディレクトリ コピー先
+
+# タイムスタンプ・権限を保持してコピー
+cp -p コピー元 コピー先
+
+# 更新されたファイルのみコピー
+cp -u コピー元 コピー先
+
+# コピー内容を表示しながらコピー
+cp -v コピー元 コピー先
+```
+
+!!! note "説明"
+    ディレクトリをコピーする場合は必ず `-r`（再帰的）オプションが必要です。
+    `-a` オプションは `-r -p` の機能を兼ねており、シンボリックリンクも保持します。
+
+#### 使用例
+
+```bash
+# 設定ファイルをバックアップしてから編集
+cp ~/.bashrc ~/.bashrc.bak
+vim ~/.bashrc
+
+# ディレクトリを丸ごとバックアップ
+cp -r ~/projects/myapp ~/projects/myapp_backup
+```
+
+---
+
+### ファイル・ディレクトリを移動・リネームする
+
+```bash
+# ファイルを移動
+mv 移動元 移動先ディレクトリ/
+
+# ファイルをリネーム
+mv 古いファイル名 新しいファイル名
+
+# ディレクトリを移動・リネーム
+mv 移動元ディレクトリ 移動先
+
+# 上書き前に確認
+mv -i 移動元 移動先
+```
+
+!!! note "説明"
+    `mv` は移動とリネームどちらにも使います。移動先に同名ファイルが存在する場合、デフォルトで上書きされます。
+
+#### 使用例
+
+```bash
+# ファイルをリネーム
+mv old_name.py new_name.py
+
+# 複数ファイルをまとめてディレクトリへ移動
+mv *.log ~/logs/
+```
+
+---
+
+### ファイル・ディレクトリを削除する
+
+```bash
+# ファイルを削除
+rm ファイル名
+
+# 複数ファイルを削除
+rm ファイル1 ファイル2
+
+# ディレクトリを中身ごと削除
+rm -r ディレクトリ名
+
+# 確認なしで強制削除（注意して使う）
+rm -rf ディレクトリ名
+
+# 空のディレクトリのみ削除
+rmdir ディレクトリ名
+```
+
+!!! note "説明"
+    `rm -rf` は取り消しができないため、特にパスの指定ミスに注意してください。
+    削除前に `ls` でパスを確認する習慣をつけることを推奨します。
+
+#### 使用例
+
+```bash
+# キャッシュディレクトリを削除
+ls -la ~/.cache/myapp   # 削除前に確認
+rm -rf ~/.cache/myapp
+
+# .pyc ファイルをすべて削除
+find . -name "*.pyc" -exec rm {} \;
+```
+
+---
+
+### ファイルの内容を表示する
+
+```bash
+# ファイル全体を表示
+cat ファイル名
+
+# 行番号付きで表示
+cat -n ファイル名
+
+# 先頭 N 行を表示（デフォルト10行）
+head ファイル名
+head -n 20 ファイル名
+
+# 末尾 N 行を表示（デフォルト10行）
+tail ファイル名
+tail -n 20 ファイル名
+
+# リアルタイムで末尾を追跡表示
+tail -f ファイル名
+
+# ページごとに閲覧（q で終了）
+less ファイル名
+
+# 行数・単語数・バイト数を表示
+wc ファイル名
+wc -l ファイル名   # 行数のみ
+```
+
+!!! note "説明"
+    `tail -f` はログファイルのリアルタイム監視によく使います。
+    大きなファイルを全体表示する場合は `less` を使うとスクロールして読めます。
+
+#### 使用例
+
+```bash
+# アプリログをリアルタイム監視
+tail -f /var/log/syslog
+
+# 設定ファイルの行数を確認
+wc -l /etc/nginx/nginx.conf
+```
+
+---
+
+### パーミッションを変更する
+
+```bash
+# 数値でパーミッションを設定
 chmod 755 ファイル名
 
-# ファイルの権限を変更（記号指定）
+# 記号でパーミッションを設定
 chmod u+x ファイル名   # 所有者に実行権限を付与
 chmod g-w ファイル名   # グループの書き込み権限を削除
 chmod o+r ファイル名   # その他ユーザーに読み取り権限を付与
-chmod a+x ファイル名   # 全員に実行権限を付与
+chmod a+x ファイル名   # 全ユーザーに実行権限を付与
 
-# ディレクトリ以下すべての権限を変更
+# ディレクトリ以下すべてを変更
 chmod -R 755 ディレクトリ名
 
-# ファイルの所有者を変更
+# 所有者を変更
 chown ユーザー名 ファイル名
 
 # 所有者とグループを変更
@@ -372,21 +490,29 @@ chown ユーザー名:グループ名 ファイル名
 chown -R ユーザー名 ディレクトリ名
 ```
 
-**使い方の例：**
+!!! note "説明"
+    シェルスクリプトを作成したら `chmod +x スクリプト名` で実行権限を付与します。
+    SSH 秘密鍵は `chmod 600` に設定しないと接続が拒否されます。
+
+#### 使用例
 
 ```bash
 # シェルスクリプトに実行権限を付与
 chmod +x start.sh
+./start.sh
 
-# /var/www を www-data の所有にする
-sudo chown -R www-data:www-data /var/www
+# SSH 秘密鍵のパーミッションを修正
+chmod 600 ~/.ssh/id_ed25519
+
+# Web 公開ディレクトリの所有者を変更
+sudo chown -R www-data:www-data /var/www/html
 ```
 
 ---
 
-## よく使うコマンド
+## テキスト検索・処理
 
-### テキスト検索（grep）
+### ファイル内を検索する（grep）
 
 ```bash
 # ファイル内でパターンを検索
@@ -401,35 +527,43 @@ grep -n "検索文字列" ファイル名
 # マッチしない行を表示
 grep -v "除外文字列" ファイル名
 
-# ディレクトリ内を再帰的に検索
-grep -r "検索文字列" ディレクトリ名
-
-# 再帰検索 + 行番号 + ファイル名
+# ディレクトリを再帰的に検索
 grep -rn "検索文字列" ディレクトリ名
 
 # 正規表現で検索
-grep -E "パターン" ファイル名
+grep -E "パターン1|パターン2" ファイル名
+
+# マッチ行の前後 N 行も表示
+grep -C 3 "検索文字列" ファイル名
+
+# マッチしたファイル名のみ表示
+grep -rl "検索文字列" .
 
 # マッチした件数を表示
 grep -c "検索文字列" ファイル名
-
-# マッチしたファイル名のみ表示
-grep -l "検索文字列" *.txt
 ```
 
-**使い方の例：**
+!!! note "説明"
+    `-rn` の組み合わせはディレクトリ全体を行番号付きで検索する最頻出パターンです。
+    `-E` オプションで `|`（OR）や `+`（1回以上）などの拡張正規表現が使えます。
+
+#### 使用例
 
 ```bash
-# Pythonファイル内の "def " を行番号付きで検索
+# Python ファイルの関数定義を行番号付きで検索
 grep -n "def " app.py
 
-# src/ ディレクトリ内の "import" を再帰検索
-grep -rn "import" ./src/
+# src/ 以下の "TODO" コメントを全ファイルから抽出
+grep -rn "TODO" ./src/
+
+# エラーログからエラー行のみ抽出して件数を確認
+grep -c "ERROR" app.log
+grep -n "ERROR" app.log | tail -20
 ```
 
 ---
 
-### ファイル検索（find）
+### ファイル・ディレクトリを検索する（find）
 
 ```bash
 # ファイル名で検索
@@ -438,280 +572,139 @@ find 検索パス -name "ファイル名"
 # 拡張子で検索
 find . -name "*.py"
 
-# ディレクトリのみ検索
-find . -type d -name "ディレクトリ名"
-
 # ファイルのみ検索
 find . -type f -name "*.txt"
 
-# 更新日時が N 日以内のファイルを検索
-find . -mtime -3
+# ディレクトリのみ検索
+find . -type d -name "config"
 
-# サイズが N MB 以上のファイルを検索
+# N 日以内に更新されたファイルを検索
+find . -mtime -7
+
+# N MB 以上のファイルを検索
 find . -size +10M
-
-# 検索結果に対してコマンドを実行
-find . -name "*.log" -exec rm {} \;
-
-# 検索結果を xargs に渡す
-find . -name "*.py" | xargs grep "main"
 
 # 空ファイルを検索
 find . -empty
+
+# 検索結果にコマンドを実行
+find . -name "*.log" -exec rm {} \;
+
+# 検索結果を xargs に渡す
+find . -name "*.py" | xargs grep "import"
+
+# 最大検索深度を指定
+find . -maxdepth 2 -name "*.json"
 ```
 
-**使い方の例：**
+!!! note "説明"
+    `-exec` はマッチしたファイルごとにコマンドを実行します。末尾の `\;` は必須です。
+    大量のファイルを処理する場合は `xargs` の方が高速です。
+
+#### 使用例
 
 ```bash
-# カレントディレクトリ以下の .pyc ファイルをすべて削除
+# .pyc ファイルをすべて検索して削除
 find . -name "*.pyc" -exec rm {} \;
 
-# 更新日時が7日以内の .log ファイルを一覧表示
-find /var/log -name "*.log" -mtime -7
+# 7日以内に更新されたログファイルを一覧表示
+find /var/log -name "*.log" -mtime -7 -ls
+
+# 10MB 以上のファイルをサイズ順に表示
+find ~ -size +10M -type f | xargs ls -lh | sort -k5 -rh
 ```
 
 ---
 
-### プロセス管理
+### テキストを置換する（sed）
 
 ```bash
-# 実行中のプロセスを表示
-ps
+# 文字列を置換（最初にマッチした箇所のみ）
+sed 's/置換前/置換後/' ファイル名
 
-# すべてのプロセスを表示
-ps aux
+# 全箇所を置換
+sed 's/置換前/置換後/g' ファイル名
 
-# プロセスをリアルタイム監視
-top
+# ファイルを直接書き換え
+sed -i 's/置換前/置換後/g' ファイル名
 
-# より見やすいプロセスモニタ（要インストール）
-htop
+# 特定行を削除
+sed '3d' ファイル名
 
-# プロセス名で検索
-pgrep プロセス名
+# 範囲行を削除
+sed '2,5d' ファイル名
 
-# プロセスを終了（PIDを指定）
-kill PID
+# 特定行のみ表示
+sed -n '5,10p' ファイル名
 
-# 強制終了
-kill -9 PID
+# 空行を削除
+sed '/^$/d' ファイル名
 
-# プロセス名で終了
-pkill プロセス名
-
-# バックグラウンドでコマンドを実行
-コマンド &
-
-# バックグラウンドジョブ一覧表示
-jobs
-
-# バックグラウンドジョブをフォアグラウンドに戻す
-fg %ジョブ番号
-
-# フォアグラウンドをバックグラウンドに送る
-bg %ジョブ番号
+# 行頭に文字を追加
+sed 's/^/  /' ファイル名
 ```
 
-**使い方の例：**
+!!! note "説明"
+    `-i` オプションはファイルを直接書き換えます。バックアップを作成するには `-i.bak` とすると
+    `.bak` 拡張子で元ファイルが保存されます。
+
+#### 使用例
 
 ```bash
-# Python スクリプトをバックグラウンドで実行
-python3 server.py &
+# 設定ファイルのホスト名を一括置換（バックアップ付き）
+sed -i.bak 's/localhost/192.168.1.10/g' config.yaml
 
-# "python" という名前のプロセスを全終了
-pkill python
+# 空行とコメント行を除いて表示
+sed '/^$/d; /^#/d' /etc/nginx/nginx.conf
 ```
 
 ---
 
-### ネットワーク
+### フィールドを抽出・集計する（awk）
 
 ```bash
-# IPアドレスを確認
-ip addr
-ip a
-
-# ネットワークインターフェース情報（非推奨だが頻出）
-ifconfig
-
-# 疎通確認
-ping ホスト名またはIPアドレス
-
-# N回だけ ping を送る
-ping -c 4 google.com
-
-# ルートトレース
-traceroute ホスト名
-
-# ポートが開いているか確認
-nc -zv ホスト名 ポート番号
-
-# 開いているポートを確認
-ss -tuln
-
-# netstat（要 net-tools）
-netstat -tuln
-
-# URLからファイルをダウンロード
-wget URL
-
-# バックグラウンドでダウンロード
-wget -b URL
-
-# curl でデータ取得
-curl URL
-
-# curl でレスポンスヘッダーも表示
-curl -i URL
-
-# curl でPOSTリクエスト
-curl -X POST -d "data=value" URL
-
-# DNS 名前解決を確認
-nslookup ドメイン名
-dig ドメイン名
-```
-
-**使い方の例：**
-
-```bash
-# google.com に4回 ping を送る
-ping -c 4 google.com
-
-# ファイルをダウンロードして保存
-wget https://example.com/file.tar.gz
-
-# REST API にGETリクエストを送る
-curl -s https://api.example.com/data | python3 -m json.tool
-```
-
----
-
-### アーカイブ・圧縮
-
-```bash
-# tar.gz を作成
-tar -czf アーカイブ名.tar.gz 対象ディレクトリ
-
-# tar.gz を展開
-tar -xzf アーカイブ名.tar.gz
-
-# tar.gz を指定ディレクトリに展開
-tar -xzf アーカイブ名.tar.gz -C 展開先ディレクトリ
-
-# アーカイブの内容を確認（展開しない）
-tar -tzf アーカイブ名.tar.gz
-
-# zip を作成
-zip -r アーカイブ名.zip 対象ディレクトリ
-
-# zip を展開
-unzip アーカイブ名.zip
-
-# zip を指定ディレクトリに展開
-unzip アーカイブ名.zip -d 展開先
-
-# gzip で圧縮（元ファイルは削除される）
-gzip ファイル名
-
-# gzip を展開
-gunzip ファイル名.gz
-```
-
-**使い方の例：**
-
-```bash
-# project/ を圧縮してバックアップ
-tar -czf project_backup_$(date +%Y%m%d).tar.gz ./project/
-
-# 展開して内容を確認
-tar -tzf project_backup_20250101.tar.gz
-```
-
----
-
-### ユーザー・グループ管理
-
-```bash
-# 現在のユーザー名を表示
-whoami
-
-# ユーザーIDとグループ情報を表示
-id
-
-# ログイン中のユーザー一覧
-who
-
-# スーパーユーザーに切り替え
-sudo su
-
-# 別ユーザーに切り替え
-su - ユーザー名
-
-# ユーザーを追加
-sudo adduser ユーザー名
-
-# ユーザーを削除（ホームディレクトリも削除）
-sudo deluser --remove-home ユーザー名
-
-# ユーザーをグループに追加
-sudo usermod -aG グループ名 ユーザー名
-
-# グループ一覧
-cat /etc/group
-
-# パスワード変更
-passwd
-
-# 他ユーザーのパスワード変更（root権限）
-sudo passwd ユーザー名
-```
-
-**使い方の例：**
-
-```bash
-# 現在のユーザーを docker グループに追加
-sudo usermod -aG docker $USER
-
-# 変更を反映させるため再ログイン後に確認
-id
-```
-
----
-
-## 上級者向けコマンド
-
-### テキスト処理（awk / sed / cut / sort / uniq）
-
-```bash
-# awk: 区切り文字でフィールドを抽出
+# 空白区切りで特定フィールドを抽出
 awk '{print $1}' ファイル名
 
-# 区切り文字を指定
+# 区切り文字を指定してフィールドを抽出
 awk -F':' '{print $1}' /etc/passwd
 
 # 条件付き出力
 awk '$3 > 1000 {print $1, $3}' ファイル名
 
-# sed: 文字列の置換
-sed 's/置換前/置換後/' ファイル名
+# 行番号を付けて出力
+awk '{print NR, $0}' ファイル名
 
-# sed: 全箇所を置換（g オプション）
-sed 's/置換前/置換後/g' ファイル名
+# 合計を計算
+awk '{sum += $1} END {print sum}' ファイル名
 
-# sed: ファイルを直接書き換え
-sed -i 's/置換前/置換後/g' ファイル名
+# 列数を表示
+awk '{print NF}' ファイル名 | sort -u
 
-# sed: 特定行を削除
-sed '3d' ファイル名
+# 特定フィールドを結合して出力
+awk -F':' '{print $1 "@" $3}' /etc/passwd
+```
 
-# sed: 範囲行を削除
-sed '2,5d' ファイル名
+!!! note "説明"
+    `$1` `$2` はフィールド番号（1始まり）、`$0` は行全体、`NR` は行番号、`NF` はフィールド数を表します。
+    `-F` で区切り文字を指定します（デフォルトは空白）。
 
-# cut: 区切り文字で特定列を抽出
-cut -d':' -f1 /etc/passwd
+#### 使用例
 
-# sort: 並べ替え
+```bash
+# /etc/passwd からユーザー名一覧を取得
+awk -F':' '{print $1}' /etc/passwd
+
+# アクセスログの IP アドレス別アクセス数ランキング上位10件
+awk '{print $1}' access.log | sort | uniq -c | sort -rn | head -10
+```
+
+---
+
+### 並べ替え・重複処理をする（sort / uniq）
+
+```bash
+# アルファベット順に並べ替え
 sort ファイル名
 
 # 数値として並べ替え
@@ -720,167 +713,302 @@ sort -n ファイル名
 # 逆順に並べ替え
 sort -r ファイル名
 
-# 重複行を削除（sort後に使う）
-sort ファイル名 | uniq
+# 人間が読みやすい数値で並べ替え（K, M, G 対応）
+sort -h ファイル名
 
-# 重複行のみ表示
-sort ファイル名 | uniq -d
+# 特定フィールドを基準に並べ替え
+sort -k2 ファイル名
+
+# 重複行を削除（sort 後に使う）
+sort ファイル名 | uniq
 
 # 重複回数を表示
 sort ファイル名 | uniq -c
+
+# 重複行のみ表示
+sort ファイル名 | uniq -d
 ```
 
-**使い方の例：**
+!!! note "説明"
+    `uniq` は連続した重複のみ除去するため、必ず `sort` と組み合わせて使います。
+    `uniq -c` でカウントした結果に再度 `sort -rn` をかけるとランキングが作れます。
+
+#### 使用例
 
 ```bash
-# /etc/passwd からユーザー名一覧を取得
-awk -F':' '{print $1}' /etc/passwd
-
-# access.log の中の "ERROR" を "WARNING" に一括置換
-sed -i 's/ERROR/WARNING/g' access.log
-
-# ログのIPアドレス列を抽出してアクセス数上位10件を表示
+# ログから重複を除いたユニーク IP を取得してカウント
 cut -d' ' -f1 access.log | sort | uniq -c | sort -rn | head -10
+
+# ファイルの重複行を削除して上書き保存
+sort ファイル名 | uniq > 一時ファイル && mv 一時ファイル ファイル名
 ```
 
 ---
 
-### パイプとリダイレクト
+## プロセス管理
+
+### 実行中のプロセスを確認する
 
 ```bash
-# パイプ: コマンドの出力を次のコマンドへ渡す
-コマンド1 | コマンド2
+# 現在のシェルのプロセスを表示
+ps
 
-# 標準出力をファイルへ書き込み（上書き）
-コマンド > ファイル名
+# すべてのプロセスを表示
+ps aux
 
-# 標準出力をファイルへ追記
-コマンド >> ファイル名
+# プロセス名で絞り込む
+ps aux | grep プロセス名
 
-# 標準エラー出力をファイルへ書き込み
-コマンド 2> エラーログ.txt
+# リアルタイム監視
+top
 
-# 標準出力と標準エラー出力を同じファイルへ
-コマンド > ファイル名 2>&1
+# より見やすいリアルタイム監視（要インストール）
+htop
 
-# 出力を捨てる（表示しない）
-コマンド > /dev/null
+# プロセス名から PID を取得
+pgrep プロセス名
 
-# エラーも捨てる
-コマンド > /dev/null 2>&1
-
-# tee: 出力をファイルと標準出力の両方へ
-コマンド | tee ファイル名
-
-# tee で追記
-コマンド | tee -a ファイル名
-
-# xargs: 前のコマンドの出力をコマンドの引数に渡す
-echo "hello world" | xargs echo
-find . -name "*.txt" | xargs wc -l
+# ツリー形式でプロセスを表示
+pstree
 ```
 
-**使い方の例：**
+!!! note "説明"
+    `top` は `q` で終了します。`htop` は `sudo apt install htop` でインストールできます。
+    `ps aux | grep プロセス名` でプロセスの PID を確認してから `kill` に渡す使い方が一般的です。
+
+#### 使用例
 
 ```bash
-# pip list の出力をファイルに保存しながら表示
-pip list | tee requirements_list.txt
+# Python プロセスの PID を確認して終了する
+ps aux | grep python3
+pgrep python3
 
-# エラーログを別ファイルに保存
-python3 app.py > output.log 2> error.log
-```
-
----
-
-### シェルスクリプト
-
-```bash
-# スクリプトファイルの先頭（シバン行）
-#!/bin/bash
-
-# 変数の定義と使用
-NAME="World"
-echo "Hello, $NAME"
-
-# コマンドの出力を変数に代入
-DATE=$(date +%Y-%m-%d)
-echo "今日の日付: $DATE"
-
-# if 文
-if [ 条件 ]; then
-  echo "真"
-elif [ 別の条件 ]; then
-  echo "別の真"
-else
-  echo "偽"
-fi
-
-# for ループ
-for i in 1 2 3 4 5; do
-  echo "番号: $i"
-done
-
-# ファイル一覧をループ
-for file in *.txt; do
-  echo "処理中: $file"
-done
-
-# while ループ
-COUNT=0
-while [ $COUNT -lt 5 ]; do
-  echo "カウント: $COUNT"
-  COUNT=$((COUNT + 1))
-done
-
-# 関数定義
-greet() {
-  echo "Hello, $1"
-}
-greet "Alice"
-
-# 終了コードを確認
-コマンド
-echo "終了コード: $?"
-```
-
-**使い方の例：**
-
-```bash
-# バックアップスクリプトの例
-#!/bin/bash
-TARGET="$HOME/projects"
-DEST="$HOME/backups"
-DATE=$(date +%Y%m%d_%H%M%S)
-mkdir -p "$DEST"
-tar -czf "$DEST/backup_$DATE.tar.gz" "$TARGET"
-echo "バックアップ完了: backup_$DATE.tar.gz"
+# htop をインストールしてリアルタイム監視
+sudo apt install htop -y
+htop
 ```
 
 ---
 
-### SSH
+### プロセスを終了する
+
+```bash
+# PID を指定してシグナルを送る（デフォルト: SIGTERM 正常終了）
+kill PID
+
+# 強制終了（SIGKILL）
+kill -9 PID
+
+# プロセス名で終了
+pkill プロセス名
+
+# プロセス名で強制終了
+pkill -9 プロセス名
+
+# シグナル一覧を確認
+kill -l
+```
+
+!!! note "説明"
+    `kill -9` は強制終了のため、プロセスがデータを保存する機会がありません。
+    まず通常の `kill` を試してから、応答がない場合に `-9` を使うのが安全です。
+
+#### 使用例
+
+```bash
+# 応答しなくなった Python スクリプトを終了
+pgrep -la python3          # PID を確認
+kill $(pgrep python3)      # 正常終了を試みる
+kill -9 $(pgrep python3)   # 応答がなければ強制終了
+```
+
+---
+
+### バックグラウンドでコマンドを実行する
+
+```bash
+# バックグラウンドで実行
+コマンド &
+
+# ジョブ一覧を表示
+jobs
+
+# バックグラウンドジョブをフォアグラウンドに戻す
+fg %ジョブ番号
+
+# フォアグラウンドのジョブをバックグラウンドに送る（先に Ctrl+z で一時停止）
+bg %ジョブ番号
+
+# ターミナルを閉じてもプロセスを継続する
+nohup コマンド &
+
+# screen でセッションを維持する（要インストール）
+screen
+screen -S セッション名
+screen -ls              # セッション一覧
+screen -r セッション名  # セッションに再接続
+```
+
+!!! note "説明"
+    `nohup` はターミナルを閉じてもプロセスを継続させます。出力は `nohup.out` に保存されます。
+    長時間のスクリプトには `screen` や `tmux` の使用を推奨します。
+
+#### 使用例
+
+```bash
+# 重いスクリプトをバックグラウンドで実行してログに保存
+nohup python3 heavy_script.py > output.log 2>&1 &
+echo "PID: $!"
+tail -f output.log
+```
+
+---
+
+## ネットワーク
+
+### 疎通確認をする（ping）
+
+```bash
+# 疎通確認（Ctrl+c で停止）
+ping ホスト名またはIP
+
+# 送信回数を指定
+ping -c 4 ホスト名
+
+# 送信間隔を指定（秒）
+ping -i 0.5 ホスト名
+
+# ルートを確認
+traceroute ホスト名
+
+# ポートが開いているか確認
+nc -zv ホスト名 ポート番号
+
+# 開いているポートを確認
+ss -tuln
+```
+
+!!! note "説明"
+    `ping -c 4` は4回だけ送信して終了します。ネットワーク接続確認の基本コマンドです。
+    `ss -tuln` でリッスン中のポートを確認できます（古いシステムでは `netstat -tuln`）。
+
+#### 使用例
+
+```bash
+# Google のサーバーに4回 ping を送る
+ping -c 4 google.com
+
+# ローカルの 8080 ポートが開いているか確認
+nc -zv localhost 8080
+```
+
+---
+
+### ファイルをダウンロードする（wget）
+
+```bash
+# ファイルをダウンロード
+wget URL
+
+# ファイル名を指定してダウンロード
+wget -O 保存ファイル名 URL
+
+# バックグラウンドでダウンロード
+wget -b URL
+
+# 再試行回数を指定
+wget --tries=3 URL
+
+# 再開可能なダウンロード
+wget -c URL
+
+# ディレクトリごとダウンロード
+wget -r -np URL
+```
+
+!!! note "説明"
+    `-c` オプションで途中で中断したダウンロードを再開できます。
+    大きなファイルのダウンロードに便利です。
+
+#### 使用例
+
+```bash
+# ファイルをダウンロードして保存
+wget https://example.com/archive.tar.gz
+
+# 途中で中断したダウンロードを再開
+wget -c https://example.com/large-file.iso
+```
+
+---
+
+### HTTP リクエストを送る（curl）
+
+```bash
+# GET リクエスト
+curl URL
+
+# レスポンスヘッダーも表示
+curl -i URL
+
+# ヘッダーのみ表示
+curl -I URL
+
+# ファイルに保存
+curl -o ファイル名 URL
+
+# POST リクエスト（フォームデータ）
+curl -X POST -d "key=value" URL
+
+# POST リクエスト（JSON）
+curl -X POST -H "Content-Type: application/json" -d '{"key":"value"}' URL
+
+# 認証ヘッダーを付けてリクエスト
+curl -H "Authorization: Bearer トークン" URL
+
+# リダイレクトを追う
+curl -L URL
+
+# 詳細な通信ログを表示
+curl -v URL
+
+# レスポンスを JSON として整形表示
+curl -s URL | python3 -m json.tool
+```
+
+!!! note "説明"
+    API のテストやデバッグに広く使われます。`-s` は進捗表示を抑制するサイレントモードです。
+    `-H` でカスタムヘッダーを追加できます。
+
+#### 使用例
+
+```bash
+# REST API に GET リクエストを送って JSON を整形表示
+curl -s https://api.github.com/users/octocat | python3 -m json.tool
+
+# Bearer 認証付きの POST リクエスト
+curl -X POST \
+  -H "Authorization: Bearer mytoken" \
+  -H "Content-Type: application/json" \
+  -d '{"title":"テスト"}' \
+  https://api.example.com/items
+```
+
+---
+
+### SSH 接続する
 
 ```bash
 # SSH 接続
-ssh ユーザー名@ホスト名またはIPアドレス
-
-# 鍵ファイルを指定して接続
-ssh -i 秘密鍵ファイル ユーザー名@ホスト名
+ssh ユーザー名@ホスト名またはIP
 
 # ポートを指定して接続
 ssh -p ポート番号 ユーザー名@ホスト名
 
-# SSH 鍵ペアを生成（Ed25519推奨）
-ssh-keygen -t ed25519 -C "コメント"
+# 鍵ファイルを指定して接続
+ssh -i ~/.ssh/秘密鍵ファイル ユーザー名@ホスト名
 
-# 公開鍵をリモートホストに登録
-ssh-copy-id ユーザー名@ホスト名
-
-# SSH エージェントに鍵を追加
-eval $(ssh-agent)
-ssh-add ~/.ssh/id_ed25519
-
-# リモートホストでコマンドを実行
+# リモートでコマンドを実行して終了
 ssh ユーザー名@ホスト名 "実行するコマンド"
 
 # ローカルポートフォワーディング
@@ -891,33 +1019,122 @@ scp ローカルファイル ユーザー名@ホスト名:リモートパス
 
 # リモートからファイルを取得
 scp ユーザー名@ホスト名:リモートファイル ローカルパス
+
+# ディレクトリを転送
+scp -r ローカルディレクトリ ユーザー名@ホスト名:リモートパス
 ```
 
-**使い方の例：**
+!!! note "説明"
+    初回接続時はホストの指紋確認が求められます。`yes` と入力すると `~/.ssh/known_hosts` に登録されます。
+    鍵認証を使うとパスワード認証より安全で利便性も高まります。
+
+#### 使用例
 
 ```bash
-# Ed25519 の SSH 鍵を生成
+# SSH 鍵を生成してリモートサーバーに登録
 ssh-keygen -t ed25519 -C "mypc@work"
+ssh-copy-id user@192.168.1.10
+ssh user@192.168.1.10   # パスワードなしで接続できることを確認
 
-# GitHub に公開鍵を登録する前に内容を確認
-cat ~/.ssh/id_ed25519.pub
+# ポートフォワーディングでリモートの DB に接続
+ssh -L 5432:localhost:5432 user@remote-server
 ```
 
 ---
 
-### systemd サービス管理
+## アーカイブ・圧縮
+
+### tar.gz を作成・展開する
 
 ```bash
-# サービスの起動
+# tar.gz を作成
+tar -czf アーカイブ名.tar.gz 対象ディレクトリ
+
+# tar.gz を展開
+tar -xzf アーカイブ名.tar.gz
+
+# 指定ディレクトリに展開
+tar -xzf アーカイブ名.tar.gz -C 展開先ディレクトリ
+
+# アーカイブの内容を確認（展開しない）
+tar -tzf アーカイブ名.tar.gz
+
+# bzip2 で圧縮（高圧縮率）
+tar -cjf アーカイブ名.tar.bz2 対象ディレクトリ
+
+# xz で圧縮（最高圧縮率）
+tar -cJf アーカイブ名.tar.xz 対象ディレクトリ
+```
+
+!!! note "説明"
+    `-c` で作成、`-x` で展開、`-t` で内容確認です。`-z` が gzip、`-j` が bzip2、`-J` が xz 圧縮に対応します。
+    `-v` を追加すると処理中のファイル名が表示されます。
+
+#### 使用例
+
+```bash
+# 日付付きバックアップを作成
+tar -czf project_$(date +%Y%m%d).tar.gz ./project/
+
+# 展開前に内容を確認してから展開
+tar -tzf archive.tar.gz
+tar -xzf archive.tar.gz -C ~/tmp/
+```
+
+---
+
+### zip を作成・展開する
+
+```bash
+# zip を作成
+zip -r アーカイブ名.zip 対象ディレクトリ
+
+# zip を展開
+unzip アーカイブ名.zip
+
+# 指定ディレクトリに展開
+unzip アーカイブ名.zip -d 展開先
+
+# zip の内容を確認（展開しない）
+unzip -l アーカイブ名.zip
+
+# パスワード付き zip を作成
+zip -r -e アーカイブ名.zip 対象ディレクトリ
+```
+
+!!! note "説明"
+    Windows との互換性が必要な場合は `zip` を使います。Linux 間でのやり取りは `tar.gz` の方が一般的です。
+
+#### 使用例
+
+```bash
+# Windows に渡すファイルを zip で圧縮
+zip -r report_$(date +%Y%m%d).zip ./report/
+
+# 展開先ディレクトリを指定して解凍
+unzip report.zip -d ~/downloads/report/
+```
+
+---
+
+## システム管理
+
+### サービスを操作する（systemctl）
+
+```bash
+# サービスを起動
 sudo systemctl start サービス名
 
-# サービスの停止
+# サービスを停止
 sudo systemctl stop サービス名
 
-# サービスの再起動
+# サービスを再起動
 sudo systemctl restart サービス名
 
-# サービスの状態確認
+# 設定を再読み込み（プロセスは再起動しない）
+sudo systemctl reload サービス名
+
+# サービスの状態を確認
 sudo systemctl status サービス名
 
 # 自動起動を有効化
@@ -926,32 +1143,24 @@ sudo systemctl enable サービス名
 # 自動起動を無効化
 sudo systemctl disable サービス名
 
-# 設定ファイルを再読み込み（再起動なし）
-sudo systemctl reload サービス名
-
-# デーモンの設定を再読み込み
+# デーモン設定を再読み込み（Unit ファイル変更後）
 sudo systemctl daemon-reload
 
-# 全サービスの一覧
+# 全サービス一覧を表示
 systemctl list-units --type=service
 
 # 失敗したサービスを確認
 systemctl --failed
-
-# ジャーナルログを確認
-journalctl -u サービス名
-
-# リアルタイムでログを追跡
-journalctl -u サービス名 -f
-
-# 最新N行を表示
-journalctl -u サービス名 -n 100
 ```
 
-**使い方の例：**
+!!! note "説明"
+    `enable` を付けないとシステム再起動後にサービスが起動しません。
+    新しいサービスを追加した場合は `daemon-reload` で設定を反映させてから `enable` します。
+
+#### 使用例
 
 ```bash
-# nginx を起動して自動起動を有効化
+# nginx を起動して自動起動を有効化し、状態を確認
 sudo systemctl start nginx
 sudo systemctl enable nginx
 sudo systemctl status nginx
@@ -959,50 +1168,145 @@ sudo systemctl status nginx
 
 ---
 
-### ディスク・ストレージ管理
+### ジャーナルログを確認する（journalctl）
 
 ```bash
-# ディスク使用量を確認（人間が読みやすい形式）
+# 全ログを表示
+journalctl
+
+# 特定サービスのログを表示
+journalctl -u サービス名
+
+# リアルタイムでログを追跡
+journalctl -u サービス名 -f
+
+# 最新 N 行を表示
+journalctl -u サービス名 -n 100
+
+# 今日のログのみ表示
+journalctl -u サービス名 --since today
+
+# 指定日時以降のログを表示
+journalctl --since "2025-01-01 00:00:00"
+
+# エラーレベル以上のログのみ表示
+journalctl -p err
+
+# ログのディスク使用量を確認
+journalctl --disk-usage
+```
+
+!!! note "説明"
+    `-f` でリアルタイム追跡、`-u` でサービス名を指定します。`-p err` はエラー以上のログのみ表示するフィルタです。
+
+#### 使用例
+
+```bash
+# nginx のエラーログをリアルタイム監視
+journalctl -u nginx -f
+
+# 直近1時間のエラーを確認
+journalctl -p err --since "1 hour ago"
+```
+
+---
+
+### ディスク使用量を確認する
+
+```bash
+# マウント済みファイルシステムの使用量を確認
 df -h
 
-# ファイルシステムごとに表示
+# ファイルシステムの種類も表示
 df -hT
 
 # ディレクトリのサイズを確認
 du -sh ディレクトリ名
 
 # サブディレクトリのサイズを一覧表示
-du -sh ./*/
+du -sh ./*
 
 # サイズ順に表示
-du -sh ./* | sort -h
+du -sh ~/* | sort -rh
 
-# ディスク全体の使用量（深さ1）
+# 1階層の使用量を表示
 du -h --max-depth=1 /
 
-# ブロックデバイスの一覧
+# ブロックデバイス一覧
 lsblk
 
 # マウント状況を確認
 mount | grep -E "^/dev"
-
-# ファイルシステム情報の確認
-sudo fdisk -l
 ```
 
-**使い方の例：**
+!!! note "説明"
+    `df` はファイルシステム全体の空き容量、`du` は特定のディレクトリのサイズを調べます。
+    `du -sh ~/* | sort -rh` でホームディレクトリの容量を食っているものを特定できます。
+
+#### 使用例
 
 ```bash
 # ホームディレクトリの容量上位を確認
 du -sh ~/* | sort -rh | head -10
+
+# ディスク全体の空き容量を確認
+df -h /
 ```
 
 ---
 
-### 環境変数とシェル設定
+### ユーザーを管理する
 
 ```bash
-# 環境変数を一覧表示
+# 現在のユーザー名を表示
+whoami
+
+# ユーザー ID とグループ情報を表示
+id
+
+# ユーザーを追加
+sudo adduser ユーザー名
+
+# ユーザーを削除（ホームディレクトリも削除）
+sudo deluser --remove-home ユーザー名
+
+# ユーザーをグループに追加
+sudo usermod -aG グループ名 ユーザー名
+
+# 別ユーザーに切り替え
+su - ユーザー名
+
+# スーパーユーザーに切り替え
+sudo su
+
+# パスワードを変更
+passwd
+
+# ログイン中のユーザー一覧
+who
+```
+
+!!! note "説明"
+    グループへの追加（`usermod -aG`）は再ログイン後に有効になります。
+    `docker` グループへの追加は `sudo` なしで Docker を使うためによく行います。
+
+#### 使用例
+
+```bash
+# 現在のユーザーを docker グループに追加して確認
+sudo usermod -aG docker $USER
+# 再ログインしてから確認
+id
+```
+
+---
+
+## 環境設定
+
+### 環境変数を設定する
+
+```bash
+# 環境変数の一覧を表示
 env
 printenv
 
@@ -1014,47 +1318,149 @@ printenv PATH
 # 環境変数を設定（現在のシェルのみ）
 export 変数名=値
 
-# PATH に追加
+# PATH にパスを追加
 export PATH="$PATH:/新しいパス"
 
 # 環境変数を削除
 unset 変数名
 
-# alias を確認
+# シェル設定ファイルを再読み込み
+source ~/.bashrc
+```
+
+!!! note "説明"
+    `export` で設定した変数は現在のセッションのみ有効です。永続化するには `~/.bashrc` に記述して `source ~/.bashrc` で反映させます。
+
+#### 使用例
+
+```bash
+# API キーを環境変数に設定して使用（~/.bashrc に追記する例）
+echo 'export OPENAI_API_KEY="your-api-key-here"' >> ~/.bashrc
+source ~/.bashrc
+echo $OPENAI_API_KEY
+```
+
+---
+
+### alias を定義する
+
+```bash
+# alias の一覧を確認
 alias
 
 # alias を定義
 alias ll='ls -la'
 alias ..='cd ..'
+alias ...='cd ../..'
+alias grep='grep --color=auto'
 
 # alias を削除
 unalias ll
 
-# シェルの設定ファイルを再読み込み
+# alias を永続化（~/.bashrc に追記）
+echo "alias ll='ls -la'" >> ~/.bashrc
 source ~/.bashrc
-. ~/.bashrc
 ```
 
-**使い方の例：**
+!!! note "説明"
+    alias はシェルを再起動すると消えます。永続化するには `~/.bashrc` に記述します。
+    よく使うコマンドを短縮したり、`rm` に `-i` を付けて安全にするのに使います。
+
+#### 使用例
 
 ```bash
-# よく使うディレクトリへの alias を定義して即反映
-echo "alias proj='cd ~/projects'" >> ~/.bashrc
+# よく使う alias をまとめて ~/.bashrc に追記
+cat << 'EOF' >> ~/.bashrc
+alias ll='ls -la'
+alias la='ls -a'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias grep='grep --color=auto'
+EOF
 source ~/.bashrc
-proj
 ```
 
 ---
 
-## 知ってると便利なコマンド
+### シェルスクリプトを作成する
 
-### 履歴・ショートカット
+```bash
+#!/bin/bash
+# スクリプトの基本構文
+
+# 変数の定義と使用
+NAME="World"
+echo "Hello, $NAME"
+
+# コマンドの出力を変数に代入
+DATE=$(date +%Y-%m-%d)
+echo "今日の日付: $DATE"
+
+# if 文
+if [ "$1" = "hello" ]; then
+  echo "こんにちは"
+elif [ "$1" = "bye" ]; then
+  echo "さようなら"
+else
+  echo "引数: $1"
+fi
+
+# for ループ（ファイル一覧）
+for file in *.txt; do
+  echo "処理中: $file"
+done
+
+# while ループ
+COUNT=0
+while [ "$COUNT" -lt 5 ]; do
+  echo "カウント: $COUNT"
+  COUNT=$((COUNT + 1))
+done
+
+# 関数定義
+greet() {
+  echo "Hello, $1"
+}
+greet "Alice"
+
+# 終了コードを確認
+ls /nonexistent 2>/dev/null
+echo "終了コード: $?"
+```
+
+!!! note "説明"
+    スクリプトファイルを作成したら `chmod +x スクリプト名.sh` で実行権限を付与します。
+    `$1` `$2` はコマンドライン引数、`$0` はスクリプト自身のパスを表します。
+
+#### 使用例
+
+```bash
+# バックアップスクリプトを作成して実行
+cat << 'EOF' > backup.sh
+#!/bin/bash
+TARGET="$HOME/projects"
+DEST="$HOME/backups"
+DATE=$(date +%Y%m%d_%H%M%S)
+mkdir -p "$DEST"
+tar -czf "$DEST/backup_$DATE.tar.gz" "$TARGET"
+echo "完了: $DEST/backup_$DATE.tar.gz"
+EOF
+
+chmod +x backup.sh
+./backup.sh
+```
+
+---
+
+## 便利なコマンド
+
+### コマンド履歴を操作する
 
 ```bash
 # コマンド履歴を表示
 history
 
-# 履歴の最新N件を表示
+# 最新 N 件を表示
 history 20
 
 # 履歴番号を指定して実行
@@ -1063,132 +1469,119 @@ history 20
 # 直前のコマンドを再実行
 !!
 
-# 直前のコマンドの引数を再利用（最後の引数）
+# 直前のコマンドの最後の引数を使う
 !$
 
 # 文字列で始まる直近のコマンドを実行
 !git
 
-# 履歴をインクリメンタル検索（Ctrl+r）
-# （キーボードで Ctrl を押しながら r を押す）
+# 履歴をインクリメンタル検索
+# （Ctrl を押しながら r を押す）
 
 # 画面をクリア
 clear
-
-# コマンドの実行場所を確認
-which コマンド名
-whereis コマンド名
-
-# コマンドの種類を確認
-type コマンド名
-
-# コマンドのマニュアルを表示
-man コマンド名
-
-# コマンドの簡単な説明を表示
-whatis コマンド名
-
-# キーワードでマニュアルを検索
-man -k キーワード
 ```
 
-**使い方の例：**
+!!! note "説明"
+    `Ctrl` を押しながら `r` でインクリメンタル検索ができます。部分文字列を入力すると一致するコマンドが表示され、`Enter` で実行します。
+
+#### 使用例
 
 ```bash
-# git コマンドのパスを確認
-which git
+# 直前の sudo コマンドを再実行
+sudo apt install vim
+!!   # 同じコマンドを再実行
 
-# ls コマンドのマニュアルを確認
-man ls
+# 直前の引数を使い回す
+ls -la ~/projects/myapp
+cd !$   # ~/projects/myapp に移動
 ```
 
 ---
 
-### 日時・時間
+### システム情報を確認する
 
 ```bash
-# 現在日時を表示
-date
-
-# フォーマット指定で表示
-date +"%Y-%m-%d %H:%M:%S"
-
-# 日付のみ
-date +%Y%m%d
-
-# Unix タイムスタンプを表示
-date +%s
-
-# コマンドの実行時間を計測
-time コマンド
-
-# システム稼働時間を表示
-uptime
-
-# カレンダーを表示
-cal
-
-# 指定月のカレンダー
-cal 3 2026
-```
-
-**使い方の例：**
-
-```bash
-# スクリプトのバックアップファイルに日付を付ける
-cp app.py app_$(date +%Y%m%d).py
-
-# スクリプトの実行時間を計測
-time python3 heavy_script.py
-```
-
----
-
-### システム情報
-
-```bash
-# OS情報を表示
+# OS・カーネル情報を表示
 uname -a
 
 # ディストリビューション情報を確認
 cat /etc/os-release
 lsb_release -a
 
-# CPU情報を確認
-cat /proc/cpuinfo
+# CPU 情報を確認
 lscpu
 
 # メモリ使用状況を確認
 free -h
 
-# カーネルバージョンを確認
-uname -r
+# システム稼働時間を確認
+uptime
 
 # ホスト名を確認
 hostname
 
-# ホスト名を変更
-sudo hostnamectl set-hostname 新しいホスト名
+# コマンドの実行時間を計測
+time コマンド
 
-# 起動メッセージを確認
-dmesg | tail -20
-
-# ハードウェア情報
-sudo lshw -short
+# コマンドのパスを確認
+which コマンド名
 ```
 
-**使い方の例：**
+!!! note "説明"
+    `uname -a` と `cat /etc/os-release` で OS の詳細情報をほぼすべて確認できます。
+    `time コマンド` はスクリプトやプログラムのパフォーマンス測定に便利です。
+
+#### 使用例
 
 ```bash
-# OS・カーネル・アーキテクチャを一括確認
-uname -a
-cat /etc/os-release
-free -h
+# システム情報を一括確認
+echo "=== OS ===" && uname -a
+echo "=== Distro ===" && cat /etc/os-release | grep PRETTY_NAME
+echo "=== Memory ===" && free -h
+echo "=== CPU ===" && lscpu | grep "Model name"
 ```
 
 ---
 
-### ジョブ・スケジュール（cron）
+### ファイルの差分を確認する（diff）
+
+```bash
+# 2つのファイルの差分を表示
+diff ファイル1 ファイル2
+
+# 差分を統一フォーマットで表示（patch に使いやすい形式）
+diff -u ファイル1 ファイル2
+
+# ディレクトリ同士の差分を表示
+diff -r ディレクトリ1 ディレクトリ2
+
+# 差分を無視するオプション
+diff -i ファイル1 ファイル2   # 大文字小文字を無視
+diff -b ファイル1 ファイル2   # 空白の違いを無視
+diff -B ファイル1 ファイル2   # 空行の違いを無視
+
+# カラー表示（colordiff 要インストール）
+colordiff ファイル1 ファイル2
+```
+
+!!! note "説明"
+    `diff -u` の出力は `patch` コマンドでそのまま適用できるパッチ形式です。
+    `colordiff` は `sudo apt install colordiff` でインストールできます。
+
+#### 使用例
+
+```bash
+# 設定ファイルの変更前後を比較
+diff -u ~/.bashrc.bak ~/.bashrc
+
+# 2つのディレクトリの構成を比較
+diff -r ./config_v1/ ./config_v2/
+```
+
+---
+
+### 定期実行を設定する（cron）
 
 ```bash
 # crontab を編集
@@ -1199,147 +1592,112 @@ crontab -l
 
 # crontab を削除
 crontab -r
-
-# cron の書式
-# 分 時 日 月 曜日 コマンド
-# 0 2 * * * /path/to/script.sh     # 毎日2時0分に実行
-# */5 * * * * コマンド              # 5分ごとに実行
-# 0 9 * * 1-5 コマンド             # 平日9時0分に実行
-# @reboot コマンド                  # 起動時に実行
-# @daily コマンド                   # 毎日1回実行
-
-# at コマンドで一回限りのスケジュール
-echo "コマンド" | at 10:00
-echo "コマンド" | at now + 1 hour
-
-# at のジョブ一覧
-atq
-
-# at のジョブを削除
-atrm ジョブ番号
 ```
 
-**使い方の例：**
+!!! note "説明"
+    cron の書式は `分 時 日 月 曜日 コマンド` の順です。
+    よく使うパターンを以下に示します。
+
+    | 書式 | 意味 |
+    | --- | --- |
+    | `0 2 * * *` | 毎日 2:00 に実行 |
+    | `*/5 * * * *` | 5分ごとに実行 |
+    | `0 9 * * 1-5` | 平日 9:00 に実行 |
+    | `0 0 1 * *` | 毎月1日 0:00 に実行 |
+    | `@reboot` | 起動時に実行 |
+    | `@daily` | 毎日1回実行 |
+
+#### 使用例
 
 ```bash
-# 毎日午前2時にバックアップを実行する cron を登録
+# crontab を編集して毎日2時にバックアップを実行
 crontab -e
-# エディタが開いたら以下を追記:
+# 以下を追記:
 # 0 2 * * * /home/user/backup.sh >> /home/user/backup.log 2>&1
+
+# 設定を確認
+crontab -l
 ```
 
 ---
 
-### 便利なコマンド集
+### ファイルのハッシュ値を確認する
 
 ```bash
-# コマンドのエイリアスを確認（全体）
-alias
+# MD5 ハッシュを計算
+md5sum ファイル名
 
-# コマンドの出力を行数付きで表示
-cat -n ファイル名
-nl ファイル名
+# SHA256 ハッシュを計算（推奨）
+sha256sum ファイル名
 
-# 2つのファイルの差分を表示
-diff ファイル1 ファイル2
+# SHA512 ハッシュを計算
+sha512sum ファイル名
 
-# 差分をカラー表示（colordiff が必要）
-colordiff ファイル1 ファイル2
+# 文字列のハッシュを計算
+echo -n "文字列" | sha256sum
 
-# ファイルの種類を確認
-file ファイル名
-
-# バイナリファイルを16進数で確認
-xxd ファイル名 | head
-
-# シンボリックリンクを作成
-ln -s リンク先 リンク名
-
-# シンボリックリンクの実体を確認
-readlink -f シンボリックリンク名
-
-# コマンドを一定間隔で繰り返し実行
-watch -n 2 コマンド   # 2秒ごとに実行
-
-# テキストを整形して表示
-column -t ファイル名
-
-# 乱数を生成
-echo $RANDOM
-
-# UUID を生成
-uuidgen
-
-# QRコードを表示（qrencode が必要）
-echo "テキスト" | qrencode -t UTF8
-
-# スリープ（待機）
-sleep 秒数
-
-# コマンドの説明を確認（tldr が必要）
-tldr コマンド名
-```
-
-**使い方の例：**
-
-```bash
-# 2つの設定ファイルの差分を確認
-diff ~/.bashrc ~/.bashrc.bak
-
-# ディスク使用量を2秒ごとに監視
-watch -n 2 df -h
-
-# シンボリックリンクを作成
-ln -s ~/projects/myapp/src ~/src
-```
-
----
-
-### テキスト変換・エンコーディング
-
-```bash
 # Base64 エンコード
 echo "テキスト" | base64
 
 # Base64 デコード
 echo "エンコード済み文字列" | base64 -d
+```
 
-# URL エンコード（Python を利用）
-python3 -c "import urllib.parse; print(urllib.parse.quote('エンコードしたいテキスト'))"
+!!! note "説明"
+    ダウンロードしたファイルの整合性確認に使います。公式サイトに記載されたハッシュ値と一致するか確認します。
 
+#### 使用例
+
+```bash
+# ダウンロードファイルのハッシュ値を確認
+sha256sum ubuntu-24.04.iso
+# 公式サイトの値と比較して一致すれば OK
+```
+
+---
+
+### テキストを変換・整形する
+
+```bash
 # JSON を整形表示（python3）
 echo '{"key":"value"}' | python3 -m json.tool
 
-# JSON を整形表示（jq が必要）
+# JSON を整形表示（jq 要インストール）
 cat data.json | jq .
+
+# 特定フィールドを抽出（jq）
+cat data.json | jq '.key'
 
 # 文字コードを確認
 file -i ファイル名
 
-# 文字コードを変換（iconv）
+# 文字コードを変換
 iconv -f SHIFT_JIS -t UTF-8 入力ファイル > 出力ファイル
 
-# 改行コードを変換（dos2unix / unix2dos）
+# Windows 改行コードを Linux 形式に変換
 dos2unix ファイル名
+
+# Linux 改行コードを Windows 形式に変換
 unix2dos ファイル名
 
-# 文字列のハッシュ値を計算
-echo -n "文字列" | md5sum
-echo -n "文字列" | sha256sum
-
-# ファイルのハッシュ値を確認
-md5sum ファイル名
-sha256sum ファイル名
+# 列を揃えて表示
+column -t ファイル名
 ```
 
-**使い方の例：**
+!!! note "説明"
+    `dos2unix` は Windows からコピーしたスクリプトが正常に動かない場合の修正によく使います。
+    `jq` は `sudo apt install jq` でインストールできます。
+
+#### 使用例
 
 ```bash
-# Windows からコピーしたファイルの改行コードを変換
-dos2unix script.sh
+# API レスポンスを整形して確認
+curl -s https://api.github.com/users/octocat | python3 -m json.tool
 
-# APIレスポンスのJSONを整形して表示
-curl -s https://api.example.com | python3 -m json.tool
+# Windows で作成したスクリプトの改行コードを変換して実行
+dos2unix start.sh
+chmod +x start.sh
+./start.sh
 ```
 
 ---
@@ -1351,27 +1709,13 @@ curl -s https://api.example.com | python3 -m json.tool
 | オプション | 説明 |
 | --- | --- |
 | `-l` | 詳細表示（権限・サイズ・日時） |
-| `-a` | 隠しファイルを含む全ファイル表示 |
+| `-a` | 隠しファイルを含む全ファイルを表示 |
 | `-h` | ファイルサイズを人間が読みやすい形式で表示 |
-| `-t` | 更新日時順に並べ替え |
+| `-t` | 更新日時順（新しい順）に並べ替え |
 | `-r` | 逆順に並べ替え |
 | `-S` | ファイルサイズ順に並べ替え |
 | `-R` | サブディレクトリも再帰的に表示 |
 | `-1` | 1行に1ファイルずつ表示 |
-| `-d` | ディレクトリ自体の情報を表示 |
-
----
-
-### cp オプション
-
-| オプション | 説明 |
-| --- | --- |
-| `-r` | ディレクトリを再帰的にコピー |
-| `-p` | タイムスタンプ・権限を保持 |
-| `-i` | 上書き前に確認 |
-| `-v` | コピー内容を表示 |
-| `-u` | 更新されたファイルのみコピー |
-| `-a` | `-r -p` + シンボリックリンクを保持（アーカイブモード） |
 
 ---
 
@@ -1390,7 +1734,7 @@ curl -s https://api.example.com | python3 -m json.tool
 | `-A N` | マッチ行の後 N 行も表示 |
 | `-B N` | マッチ行の前 N 行も表示 |
 | `-C N` | マッチ行の前後 N 行を表示 |
-| `--color` | マッチ部分を色付きで表示 |
+| `--color` | マッチ部分をカラー表示 |
 
 ---
 
@@ -1398,12 +1742,11 @@ curl -s https://api.example.com | python3 -m json.tool
 
 | オプション | 説明 |
 | --- | --- |
-| `-name` | ファイル名で検索（大文字小文字区別） |
+| `-name` | ファイル名で検索（大文字小文字区別あり） |
 | `-iname` | ファイル名で検索（大文字小文字区別なし） |
 | `-type f` | ファイルのみ検索 |
 | `-type d` | ディレクトリのみ検索 |
 | `-type l` | シンボリックリンクのみ検索 |
-| `-mtime N` | N 日前に更新されたファイル |
 | `-mtime -N` | N 日以内に更新されたファイル |
 | `-size +NM` | N MB 以上のファイル |
 | `-empty` | 空のファイル・ディレクトリ |
@@ -1423,7 +1766,7 @@ curl -s https://api.example.com | python3 -m json.tool
 | `-j` | bzip2 で圧縮・展開 |
 | `-J` | xz で圧縮・展開 |
 | `-f ファイル名` | アーカイブファイル名を指定 |
-| `-v` | 詳細表示 |
+| `-v` | 詳細表示（処理中のファイル名を表示） |
 | `-C ディレクトリ` | 展開先ディレクトリを指定 |
 
 ---
@@ -1432,10 +1775,10 @@ curl -s https://api.example.com | python3 -m json.tool
 
 | 数値 | 意味 |
 | --- | --- |
-| `777` | 所有者・グループ・その他 すべて読み書き実行可 |
-| `755` | 所有者は読み書き実行可、グループ・その他は読み・実行可 |
-| `644` | 所有者は読み書き可、グループ・その他は読み取りのみ |
-| `600` | 所有者のみ読み書き可（SSH秘密鍵等に使用） |
+| `777` | 全ユーザーが読み書き実行可 |
+| `755` | 所有者は読み書き実行可、それ以外は読み・実行のみ |
+| `644` | 所有者は読み書き可、それ以外は読み取りのみ |
+| `600` | 所有者のみ読み書き可（SSH 秘密鍵に使用） |
 | `700` | 所有者のみ読み書き実行可 |
 | `400` | 所有者のみ読み取り可（読み取り専用） |
 
@@ -1443,18 +1786,16 @@ curl -s https://api.example.com | python3 -m json.tool
 
 ## 設定
 
-### WSL の設定ファイル（Windows側）
+### .wslconfig を設定する
 
-`C:\Users\ユーザー名\.wslconfig` に記述する（WSL2全体の設定）。
+`C:\Users\ユーザー名\.wslconfig` に記述します（WSL2 全体の設定）。
 
 ```ini
-# C:\Users\ユーザー名\.wslconfig
-
 [wsl2]
 # 割り当てメモリ（例: 8GB）
 memory=8GB
 
-# 割り当てCPUコア数
+# 割り当て CPU コア数
 processors=4
 
 # スワップサイズ
@@ -1462,47 +1803,40 @@ swap=2GB
 
 # ローカルホストフォワーディングを有効化
 localhostForwarding=true
-
-# カーネルのカスタムパスを指定（省略可）
-# kernel=C:\\path\\to\\custom\\kernel
 ```
 
-変更後、WSLを再起動して反映させる。
+!!! note "説明"
+    変更後は PowerShell から `wsl --shutdown` で WSL を再起動して反映させます。
+
+#### 使用例
 
 ```powershell
-# PowerShell で WSL を終了・再起動
+# WSL を再起動して設定を反映
 wsl --shutdown
 wsl
 ```
 
 ---
 
-### WSL ディストリビューションの設定ファイル
+### wsl.conf を設定する
 
-Ubuntu内の `/etc/wsl.conf` に記述する（個別ディストリビューションの設定）。
+Ubuntu 内の `/etc/wsl.conf` に記述します（個別ディストリビューションの設定）。
 
 ```ini
-# /etc/wsl.conf
-
 [automount]
-# Windows のドライブを自動マウント
+# Windows ドライブを自動マウント
 enabled = true
 root = /mnt/
 options = "metadata,umask=22,fmask=11"
-mountFsTab = true
 
 [network]
 # ホスト名を指定
 hostname = my-ubuntu
-
-# /etc/hosts を自動生成
 generateHosts = true
-
-# /etc/resolv.conf を自動生成
 generateResolvConf = true
 
 [interop]
-# Windows のコマンドを WSL から実行可能にする
+# Windows コマンドを WSL から実行可能にする
 enabled = true
 appendWindowsPath = true
 
@@ -1511,27 +1845,28 @@ appendWindowsPath = true
 default = ユーザー名
 
 [boot]
-# WSL 起動時にコマンドを実行（WSL2のみ）
+# WSL 起動時にコマンドを実行（WSL2 のみ）
 command = "service cron start"
 ```
 
-設定後、WSLを再起動して反映させる。
+!!! note "説明"
+    変更後は PowerShell から `wsl --shutdown` で WSL を再起動して反映させます。
+
+#### 使用例
 
 ```bash
-# Ubuntu内から再起動（WSL2）
-wsl.exe --shutdown
+# /etc/wsl.conf を作成・編集
+sudo vim /etc/wsl.conf
 ```
 
 ---
 
-### .bashrc の設定例
+### .bashrc を設定する
 
-`~/.bashrc` に記述する（ログインシェルの設定）。
+`~/.bashrc` に記述します。シェル起動時に自動で読み込まれます。
 
 ```bash
-# ~/.bashrc の設定例
-
-# ---- エイリアス ----
+# ---- alias ----
 alias ll='ls -la'
 alias la='ls -a'
 alias l='ls -CF'
@@ -1551,7 +1886,6 @@ export EDITOR=vim
 export LANG=ja_JP.UTF-8
 
 # ---- プロンプトのカスタマイズ ----
-# ユーザー名@ホスト名:カレントディレクトリ $ の形式
 export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # ---- 履歴の設定 ----
@@ -1559,22 +1893,22 @@ export HISTSIZE=10000
 export HISTFILESIZE=20000
 export HISTCONTROL=ignoredups:ignorespace
 shopt -s histappend
-
-# ---- 補完を有効化 ----
-if [ -f /etc/bash_completion ]; then
-  . /etc/bash_completion
-fi
 ```
 
-変更後に反映させる。
+!!! note "説明"
+    変更後は `source ~/.bashrc` で現在のシェルに反映させます。再起動時は自動的に読み込まれます。
+
+#### 使用例
 
 ```bash
+# .bashrc を編集して反映
+vim ~/.bashrc
 source ~/.bashrc
 ```
 
 ---
 
-### Git の初期設定
+### Git 初期設定をする
 
 ```bash
 # ユーザー名とメールアドレスを設定
@@ -1587,31 +1921,46 @@ git config --global core.editor vim
 # デフォルトブランチ名を設定
 git config --global init.defaultBranch main
 
-# 改行コードの自動変換を無効化（Linux環境推奨）
+# 改行コードの自動変換を設定（Linux 環境推奨）
 git config --global core.autocrlf input
 
-# 設定内容を確認
+# 設定を確認
 git config --global --list
 
-# 設定ファイルをエディタで開く
+# 設定ファイルを直接編集
 git config --global --edit
+```
+
+!!! note "説明"
+    `git config --global` の設定は `~/.gitconfig` に保存されます。
+    リポジトリごとに設定を変えたい場合は `--global` を外して実行します（`.git/config` に保存）。
+
+#### 使用例
+
+```bash
+# 初期設定を一括実行
+git config --global user.name "Taro Yamada"
+git config --global user.email "taro@example.com"
+git config --global core.editor vim
+git config --global init.defaultBranch main
+git config --global --list
 ```
 
 ---
 
-### Python 環境の設定（uv 使用）
+### Python 環境を設定する（uv）
 
 ```bash
 # uv をインストール
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# uv を PATH に追加（インストール後に実行）
+# インストール後に PATH を反映
 source ~/.bashrc
 
-# 新しい Python プロジェクトを作成
+# 新しいプロジェクトを作成
 uv init プロジェクト名
 
-# Python のバージョンを指定して作成
+# Python バージョンを指定して作成
 uv init --python 3.12 プロジェクト名
 
 # 仮想環境を作成
@@ -1632,14 +1981,15 @@ uv remove パッケージ名
 # 依存関係をインストール
 uv sync
 
-# Python スクリプトを実行
+# スクリプトを実行
 uv run python スクリプト名.py
-
-# インストール済みパッケージを確認
-uv pip list
 ```
 
-**使い方の例：**
+!!! note "説明"
+    `uv` は Rust 製の高速な Python パッケージマネージャです。
+    `pip` より大幅に高速で、仮想環境と依存関係を統合的に管理できます。
+
+#### 使用例
 
 ```bash
 # FastAPI プロジェクトを作成してサーバーを起動
@@ -1651,23 +2001,16 @@ uv run uvicorn main:app --reload
 
 ---
 
-### vim の基本設定
+### .vimrc を設定する
 
-`~/.vimrc` に記述する。
+`~/.vimrc` に記述します。
 
 ```vim
-" ~/.vimrc
-
 " 行番号を表示
 set number
 
-" 相対行番号を表示
-set relativenumber
-
 " タブをスペースに変換
 set expandtab
-
-" タブのスペース数
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -1688,9 +2031,6 @@ syntax on
 " ファイルタイプの自動検出
 filetype plugin indent on
 
-" カラースキームを設定
-colorscheme desert
-
 " バックスペースの動作を設定
 set backspace=indent,eol,start
 
@@ -1699,11 +2039,95 @@ set clipboard=unnamedplus
 
 " ステータスラインを常に表示
 set laststatus=2
+```
 
-" コマンドモードの補完を有効化
-set wildmenu
+!!! note "説明"
+    `set clipboard=unnamedplus` で vim のヤンク（コピー）がシステムクリップボードと連携します。
+    WSL 環境では `xclip` または `xsel` のインストールが必要な場合があります。
+
+#### 使用例
+
+```bash
+# .vimrc を作成・編集
+vim ~/.vimrc
+
+# クリップボード連携に必要なパッケージをインストール
+sudo apt install xclip -y
 ```
 
 ---
 
-*このドキュメントは WSL (Ubuntu) のコマンドリファレンスとしてまとめたものです。各コマンドの詳細は `man コマンド名` で確認できます。*
+## 頻出コマンド早引き
+
+```bash
+# ---- ファイル・ディレクトリ操作 ----
+pwd                          # 現在のディレクトリを表示
+ls -la                       # 詳細一覧（隠しファイル含む）
+cd ~                         # ホームへ移動
+cd -                         # 直前のディレクトリへ戻る
+mkdir -p 親/子/孫            # 階層ごとディレクトリを作成
+cp -r 元 先                  # ディレクトリをコピー
+mv 元 先                     # 移動またはリネーム
+rm -rf ディレクトリ          # ディレクトリを強制削除（注意）
+touch ファイル名             # 空ファイルを作成
+cat -n ファイル名            # 行番号付きで内容表示
+tail -f ログファイル         # ログをリアルタイム監視
+less ファイル名              # ページングして閲覧
+
+# ---- 検索 ----
+grep -rn "文字列" ./         # ディレクトリ内を再帰検索
+find . -name "*.py"          # ファイルを拡張子で検索
+find . -mtime -7             # 7日以内に更新されたファイル
+
+# ---- パッケージ管理（APT）----
+sudo apt update && sudo apt upgrade -y   # 一括アップデート
+sudo apt install パッケージ名 -y        # インストール
+sudo apt purge パッケージ名             # 完全削除
+
+# ---- プロセス管理 ----
+ps aux | grep プロセス名     # プロセスを検索
+kill -9 PID                  # プロセスを強制終了
+コマンド &                   # バックグラウンドで実行
+nohup コマンド &             # セッション終了後も継続
+
+# ---- ネットワーク ----
+ping -c 4 google.com         # 疎通確認
+curl -s URL | python3 -m json.tool   # API レスポンスを整形表示
+ss -tuln                     # リッスン中のポートを確認
+
+# ---- アーカイブ ----
+tar -czf archive.tar.gz ./dir/   # tar.gz を作成
+tar -xzf archive.tar.gz          # tar.gz を展開
+tar -tzf archive.tar.gz          # 内容を確認
+
+# ---- システム情報 ----
+df -h                        # ディスク空き容量
+free -h                      # メモリ使用状況
+du -sh ~/* | sort -rh        # ホームの容量ランキング
+uname -a                     # OS・カーネル情報
+
+# ---- サービス管理 ----
+sudo systemctl start サービス名    # 起動
+sudo systemctl enable サービス名   # 自動起動を有効化
+sudo systemctl status サービス名   # 状態確認
+journalctl -u サービス名 -f        # ログをリアルタイム監視
+
+# ---- テキスト処理 ----
+sed -i 's/旧/新/g' ファイル名              # 一括置換
+awk -F':' '{print $1}' /etc/passwd        # フィールド抽出
+sort ファイル名 | uniq -c | sort -rn       # 出現回数ランキング
+diff -u ファイル1 ファイル2               # 差分確認
+
+# ---- よく使う組み合わせ ----
+sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
+du -sh ~/* | sort -rh | head -10
+find . -name "*.pyc" -exec rm {} \;
+grep -rn "TODO" ./src/
+```
+
+!!! info "公式ドキュメント"
+    - [WSL ドキュメント（Microsoft）](https://learn.microsoft.com/ja-jp/windows/wsl/)
+    - [Ubuntu マニュアルページ](https://manpages.ubuntu.com/)
+    - [GNU Coreutils マニュアル](https://www.gnu.org/software/coreutils/manual/)
+    - [Bash リファレンスマニュアル](https://www.gnu.org/software/bash/manual/)
+    - [uv ドキュメント](https://docs.astral.sh/uv/)

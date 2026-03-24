@@ -1,138 +1,187 @@
 # Python
 
+Python の公式インタープリタ・パッケージマネージャ（`pip` / `uv`）のコマンドを体系的にまとめたリファレンスです。
+
 ---
 
 ## インストール・アップデート・アンインストール
 
-### Python 本体のインストール
+### Python をインストールする
 
-#### Windows（winget）
+=== "Windows（winget）"
+
+    ```bash
+    winget install Python.Python.3
+    ```
+
+=== "macOS（Homebrew）"
+
+    ```bash
+    brew install python
+    ```
+
+=== "Ubuntu / Debian"
+
+    ```bash
+    sudo apt update && sudo apt install python3 python3-pip
+    ```
+
+=== "pyenv（バージョン管理）"
+
+    ```bash
+    # pyenv 本体をインストール
+    curl https://pyenv.run | bash
+
+    # 特定バージョンをインストール
+    pyenv install 3.12.0
+
+    # グローバルバージョンを設定
+    pyenv global 3.12.0
+
+    # ディレクトリ単位で設定
+    pyenv local 3.11.5
+    ```
+
+!!! note "説明"
+    OS ごとのパッケージマネージャで Python 本体をインストールします。
+    `pyenv` を使うと複数バージョンを切り替えて管理できます。
+
+#### 使用例
 
 ```bash
-winget install Python.Python.3
-```
-
-#### macOS（Homebrew）
-
-```bash
-brew install python
-```
-
-#### Ubuntu / Debian
-
-```bash
-sudo apt update && sudo apt install python3 python3-pip
-```
-
-#### pyenv（バージョン管理ツール）
-
-```bash
-# pyenv のインストール（Linux / macOS）
-curl https://pyenv.run | bash
-
-# 特定バージョンのインストール
-pyenv install 3.12.0
-
-# グローバルバージョンの設定
-pyenv global 3.12.0
-
-# ローカル（ディレクトリ単位）バージョンの設定
-pyenv local 3.11.5
-```
-
-### バージョン確認
-
-```bash
+# インストール後にバージョンを確認
 python --version
 python3 --version
 ```
 
-**使い方の例：**
+---
 
-```text
-$ python --version
-Python 3.12.0
-```
-
-### pip のインストール・アップデート
+### pip をアップデートする
 
 ```bash
-# pip 自体をアップデート
 python -m pip install --upgrade pip
+```
 
-# pip のバージョン確認
+!!! note "説明"
+    pip 自体のバージョンを最新に更新します。`python -m pip` 形式で呼び出すと、現在の仮想環境に紐づいた pip が確実に使われます。
+
+#### 使用例
+
+```bash
+# アップデートしてバージョンを確認
+python -m pip install --upgrade pip
 pip --version
 ```
 
-### uv（高速パッケージマネージャ）のインストール
+---
+
+### uv をインストールする
 
 ```bash
-# uv のインストール（推奨）
 curl -Lsf https://astral.sh/uv/install.sh | sh
+```
 
-# バージョン確認
+!!! note "説明"
+    Rust 製の高速パッケージマネージャです。`pip` より大幅に高速で、仮想環境管理・ロックファイル生成・Python バージョン管理も一本化できます。
+
+#### 使用例
+
+```bash
+# インストール後にバージョン確認
 uv --version
-```
 
-### パッケージのインストール（pip）
-
-```bash
-# 1件インストール
-pip install requests
-
-# バージョン指定
-pip install requests==2.31.0
-
-# requirements.txt から一括インストール
-pip install -r requirements.txt
-
-# ローカルパッケージのインストール（開発用）
-pip install -e .
-```
-
-### パッケージのインストール（uv）
-
-```bash
-# プロジェクトへのパッケージ追加
+# プロジェクトを初期化して使い始める
+uv init myapp
+cd myapp
 uv add requests
-
-# バージョン指定
-uv add requests==2.31.0
-
-# 開発用依存として追加
-uv add --dev pytest
-
-# requirements.txt から同期
-uv sync
 ```
 
-### パッケージのアップデート
+---
+
+### パッケージをインストールする
+
+```bash
+# pip
+pip install パッケージ名
+
+# uv（推奨）
+uv add パッケージ名
+```
+
+!!! note "説明"
+    `pip install` は単体インストール、`uv add` はプロジェクトの `pyproject.toml` に依存として記録しながらインストールします。
+
+#### 使用例
+
+```bash
+# pip でインストール
+pip install requests
+pip install "requests==2.31.0"
+pip install -r requirements.txt
+pip install -e .              # 開発用（編集可能モード）
+
+# uv でインストール
+uv add requests
+uv add "requests==2.31.0"
+uv add --dev pytest           # 開発用依存として追加
+```
+
+---
+
+### パッケージをアップデートする
+
+```bash
+# pip
+pip install --upgrade パッケージ名
+
+# uv
+uv sync --upgrade
+```
+
+!!! note "説明"
+    `pip install -U`（`--upgrade` の省略形）で特定パッケージを更新します。`uv sync --upgrade` はロックファイルを再解決してすべてを最新化します。
+
+#### 使用例
 
 ```bash
 # pip：1件アップデート
 pip install --upgrade requests
 
-# pip：全パッケージアップデート（pip-review 使用）
-pip install pip-review
-pip-review --auto
+# pip：更新可能なパッケージ一覧を確認
+pip list --outdated
 
-# uv：全パッケージを最新に同期
+# uv：全パッケージを最新化
 uv sync --upgrade
 ```
 
-### パッケージのアンインストール
+---
+
+### パッケージをアンインストールする
 
 ```bash
-# pip：1件削除
+# pip
+pip uninstall パッケージ名
+
+# uv
+uv remove パッケージ名
+```
+
+!!! note "説明"
+    `pip uninstall` はインタラクティブに確認を求めます。`-y` フラグで確認をスキップできます。
+
+#### 使用例
+
+```bash
+# pip：確認あり
 pip uninstall requests
 
-# pip：確認なしで削除
+# pip：確認なし（-y）
 pip uninstall -y requests
 
 # pip：requirements.txt のパッケージを一括削除
 pip uninstall -r requirements.txt -y
 
-# uv：パッケージ削除
+# uv：プロジェクトから削除
 uv remove requests
 ```
 
@@ -140,120 +189,142 @@ uv remove requests
 
 ## 基本コマンド
 
-### スクリプトの実行
+### スクリプトを実行する
 
 ```bash
 python script.py
-python3 script.py
 ```
 
-**使い方の例：**
+!!! note "説明"
+    `.py` ファイルを Python インタープリタで実行します。`python3` コマンドが必要な環境もあります。
+
+#### 使用例
 
 ```bash
 python hello.py
-# → Hello, World!
+python3 hello.py
+
+# 引数を渡して実行
+python script.py 引数1 引数2
+
+# 環境変数を設定して実行
+PYTHONPATH=./lib python script.py
 ```
 
-### インタラクティブシェル（REPL）の起動
+---
+
+### インタラクティブシェル（REPL）を起動する
 
 ```bash
 python
-python3
 ```
 
-**使い方の例：**
+!!! note "説明"
+    引数なしで `python` を起動すると対話シェル（REPL）が開きます。コードを1行ずつ実行して結果を確認できます。終了は `exit()` または `quit()`。
+
+#### 使用例
 
 ```text
 $ python
->>> print("Hello")
-Hello
+>>> print("Hello, World!")
+Hello, World!
 >>> 1 + 2
 3
+>>> import sys; sys.version
+'3.12.0 ...'
 >>> exit()
 ```
 
-### モジュールとして実行
+---
+
+### モジュールをスクリプトとして実行する
 
 ```bash
 python -m モジュール名
 ```
 
-**使い方の例：**
+!!! note "説明"
+    `-m` フラグでインストール済みモジュールをコマンドとして実行します。標準ライブラリのツールをワンコマンドで使えます。
+
+#### 使用例
 
 ```bash
-# HTTP サーバーを起動（ポート8000）
+# 静的ファイルサーバーを起動（ポート 8000）
 python -m http.server 8000
 
 # JSON を整形して表示
-echo '{"key":"value"}' | python -m json.tool
+echo '{"a":1,"b":2}' | python -m json.tool
 
-# pip をモジュールとして実行
+# pip をモジュールとして実行（仮想環境で確実に使う）
 python -m pip install requests
+
+# pdb デバッガを起動
+python -m pdb script.py
+
+# cProfile でプロファイリング
+python -m cProfile -s cumulative script.py
 ```
 
-### ワンライナー（1行コードの実行）
+---
+
+### ワンライナーを実行する
 
 ```bash
 python -c "コード"
 ```
 
-**使い方の例：**
+!!! note "説明"
+    `-c` フラグで1行のコードをコマンドラインから直接実行します。シェルスクリプトとの組み合わせに便利です。
+
+#### 使用例
 
 ```bash
 python -c "print('Hello')"
 python -c "import sys; print(sys.version)"
 python -c "print(sum(range(1, 101)))"
+python -c "import os; print(os.getcwd())"
 ```
 
-### ヘルプの表示
+---
+
+### ヘルプを表示する
+
+```bash
+python --help
+```
+
+!!! note "説明"
+    コマンドラインオプション一覧を表示します。REPL 内では `help()` 関数で組み込み関数・モジュールのドキュメントを確認できます。
+
+#### 使用例
 
 ```bash
 # コマンドラインオプション一覧
 python --help
 
-# 組み込み関数・クラスのヘルプ（REPL内）
-help(print)
-help(list)
-help("keywords")
+# REPL 内でのヘルプ確認
+python -c "help(print)"
+python -c "help(list)"
 ```
 
 ---
 
 ## よく使うコマンド
 
-### パッケージ一覧の確認
+### 仮想環境を作成・有効化する
 
 ```bash
-# インストール済み一覧
-pip list
-
-# requirements.txt 形式で出力
-pip freeze
-
-# requirements.txt として保存
-pip freeze > requirements.txt
+python -m venv .venv
+source .venv/bin/activate
 ```
 
-### パッケージ情報の確認
+!!! note "説明"
+    プロジェクト専用の独立した Python 環境を作成します。有効化することで、そのプロジェクトにだけパッケージをインストールできます。
+
+#### 使用例
 
 ```bash
-pip show requests
-```
-
-**使い方の例：**
-
-```text
-$ pip show requests
-Name: requests
-Version: 2.31.0
-Location: /usr/lib/python3/dist-packages
-Requires: certifi, charset-normalizer, idna, urllib3
-```
-
-### 仮想環境の作成・有効化・無効化
-
-```bash
-# 仮想環境の作成
+# 仮想環境を作成
 python -m venv .venv
 
 # 有効化（Linux / macOS）
@@ -266,179 +337,390 @@ source .venv/bin/activate
 deactivate
 ```
 
-**使い方の例：**
+---
+
+### uv でプロジェクトを管理する
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install requests
-deactivate
-```
-
-### uv による仮想環境管理
-
-```bash
-# プロジェクト初期化（pyproject.toml 生成）
-uv init myproject
-
-# 仮想環境を作成して依存をインストール
+uv init プロジェクト名
 uv sync
-
-# uv 環境内でコマンド実行
 uv run python script.py
-uv run pytest
 ```
 
-### スクリプトへの引数渡し
+!!! note "説明"
+    `uv init` で `pyproject.toml` を生成し、`uv sync` で依存パッケージをインストールします。`uv run` で仮想環境内のコマンドを実行します。
+
+#### 使用例
 
 ```bash
-python script.py 引数1 引数2
+# プロジェクトを初期化
+uv init myapp
+cd myapp
+
+# パッケージを追加して同期
+uv add fastapi
+uv add --dev pytest ruff mypy
+
+# スクリプトを実行
+uv run python main.py
+
+# テストを実行
+uv run pytest -v
+
+# 依存ツリーを確認
+uv tree
 ```
 
-**使い方の例：**
+---
+
+### パッケージ一覧を確認する
 
 ```bash
-python greet.py Alice 25
+pip list
+pip freeze
 ```
 
-```python
-# greet.py
-import sys
+!!! note "説明"
+    `pip list` はインストール済みパッケージを表形式で表示します。`pip freeze` は `requirements.txt` 形式で出力します。
 
-# コマンドライン引数を受け取る
-name = sys.argv[1]
-age = sys.argv[2]
-print(f"こんにちは、{name}さん（{age}歳）！")
-```
-
-### スクリプトのパス確認・検索
+#### 使用例
 
 ```bash
-# Python 本体のパス
-which python
-which python3
+# インストール済み一覧
+pip list
 
-# インストール先ディレクトリ
-python -c "import site; print(site.getsitepackages())"
+# 更新可能なパッケージ一覧
+pip list --outdated
+
+# requirements.txt 形式で表示
+pip freeze
+
+# requirements.txt として保存
+pip freeze > requirements.txt
+
+# requirements.txt からインストール
+pip install -r requirements.txt
 ```
 
-### タイムゾーン・ロケールの確認
+---
+
+### パッケージ情報を確認する
 
 ```bash
-python -c "import locale; print(locale.getlocale())"
-python -c "import time; print(time.tzname)"
+pip show パッケージ名
+```
+
+!!! note "説明"
+    パッケージのバージョン・依存関係・インストール場所を確認します。`pip check` で依存関係の整合性チェックもできます。
+
+#### 使用例
+
+```bash
+pip show requests
+pip show --verbose requests
+
+# 依存関係の整合性をチェック
+pip check
+```
+
+---
+
+### スクリプト実行後に REPL を起動する
+
+```bash
+python -i script.py
+```
+
+!!! note "説明"
+    スクリプトを実行した後、そのスコープを保ったまま REPL に入ります。変数やオブジェクトをインタラクティブに検査するのに便利です。
+
+#### 使用例
+
+```bash
+python -i script.py
+
+# スクリプト内で定義した変数をそのまま使える
+>>> print(my_variable)
+>>> some_function()
+```
+
+---
+
+### JSON を整形する
+
+```bash
+echo 'JSON文字列' | python -m json.tool
+```
+
+!!! note "説明"
+    標準ライブラリの `json.tool` モジュールで JSON を整形・検証します。API レスポンスの確認などに便利です。
+
+#### 使用例
+
+```bash
+# 標準入力から整形
+echo '{"name":"Alice","age":30}' | python -m json.tool
+
+# ファイルから整形
+python -m json.tool data.json
+
+# インデント幅を指定
+python -m json.tool --indent 2 data.json
+```
+
+---
+
+### HTTP サーバーを起動する
+
+```bash
+python -m http.server ポート番号
+```
+
+!!! note "説明"
+    カレントディレクトリを静的ファイルサーバーとして公開します。HTML の確認やファイル共有に手軽に使えます。
+
+#### 使用例
+
+```bash
+# ポート 8000 で起動（デフォルト）
+python -m http.server
+
+# ポートを指定
+python -m http.server 3000
+
+# ループバックアドレスにのみバインド（外部に公開しない）
+python -m http.server 8000 --bind 127.0.0.1
 ```
 
 ---
 
 ## 上級者向けコマンド
 
-### プロファイリング（処理時間計測）
+### cProfile でプロファイリングする
 
 ```bash
-# cProfile で処理時間を計測
 python -m cProfile script.py
+```
 
-# ソート順を指定（cumulative：累積時間順）
+!!! note "説明"
+    関数ごとの呼び出し回数・実行時間を計測します。ボトルネック特定に使います。`-s` でソート順を指定できます。
+
+#### 使用例
+
+```bash
+# 累積時間順にソートして表示
 python -m cProfile -s cumulative script.py
 
 # 結果をファイルに保存
 python -m cProfile -o output.prof script.py
 
-# pstats で保存結果を分析
-python -m pstats output.prof
+# 上位20件だけ確認
+python -m cProfile -s cumulative script.py | head -20
 ```
 
-**使い方の例：**
+---
 
-```bash
-python -m cProfile -s cumulative heavy_script.py | head -20
-```
-
-### timeit（小さなコードの速度計測）
+### timeit で速度を計測する
 
 ```bash
 python -m timeit "コード"
 ```
 
-**使い方の例：**
+!!! note "説明"
+    小さなコードスニペットの実行時間を統計的に計測します。複数回実行して最良・平均値を算出します。
+
+#### 使用例
 
 ```bash
 python -m timeit "'-'.join(str(n) for n in range(100))"
+python -m timeit "'-'.join([str(n) for n in range(100)])"
+
+# 実行回数を指定
 python -m timeit -n 1000 "sum(range(1000))"
+
+# セットアップコードを指定
+python -m timeit -s "import re" "re.match('[0-9]+', '123')"
 ```
 
-### pdb（デバッガの起動）
+---
+
+### pdb でデバッグする
 
 ```bash
 python -m pdb script.py
 ```
 
-**使い方の例（主な pdb コマンド）：**
+!!! note "説明"
+    Python 標準のコマンドラインデバッガです。ブレークポイント設定・ステップ実行・変数確認ができます。
+
+#### 使用例
+
+```bash
+python -m pdb script.py
+```
 
 ```text
 (Pdb) n        # 次の行へ（ステップオーバー）
-(Pdb) s        # 関数内に入る（ステップイン）
+(Pdb) s        # 関数内へ入る（ステップイン）
 (Pdb) c        # 次のブレークポイントまで実行
 (Pdb) p 変数名  # 変数の値を表示
 (Pdb) l        # 現在行周辺のソースを表示
-(Pdb) q        # 終了
+(Pdb) b 行番号  # ブレークポイントを設定
+(Pdb) q        # デバッガを終了
 ```
 
-### コードのコンパイル（.pyc 生成）
+---
 
-```bash
-# 単一ファイル
-python -m py_compile script.py
-
-# ディレクトリ以下を一括コンパイル
-python -m compileall ./src
-```
-
-### 逆コンパイル・逆アセンブル
+### dis でバイトコードを確認する
 
 ```bash
 python -m dis script.py
 ```
 
-**使い方の例：**
+!!! note "説明"
+    Python ソースコードをバイトコード（CPython の内部命令）に変換して表示します。最適化の研究やコードの挙動理解に使います。
+
+#### 使用例
 
 ```bash
-python -c "import dis; dis.dis(lambda x: x + 1)"
+python -m dis script.py
+
+# REPL でも使える
+python -c "import dis; dis.dis(lambda x: x * 2)"
 ```
 
-### zipapp（スクリプトを zip に固める）
+---
+
+### compileall でコンパイルする
+
+```bash
+python -m compileall ディレクトリ
+```
+
+!!! note "説明"
+    `.py` ファイルをバイトコード（`.pyc`）にコンパイルします。初回インポート時間の短縮に使います。
+
+#### 使用例
+
+```bash
+# ディレクトリ以下を一括コンパイル
+python -m compileall ./src
+
+# 単一ファイルをコンパイル
+python -m py_compile script.py
+```
+
+---
+
+### pydoc でドキュメントを生成・確認する
+
+```bash
+python -m pydoc モジュール名
+```
+
+!!! note "説明"
+    Python モジュールのドキュメントをターミナルや HTML で表示します。`-p` でローカルサーバーを起動できます。
+
+#### 使用例
+
+```bash
+# ターミナルに表示
+python -m pydoc os
+python -m pydoc requests
+
+# HTML ファイルとして出力
+python -m pydoc -w os
+
+# ローカルサーバーで全モジュールを閲覧
+python -m pydoc -p 8080
+```
+
+---
+
+### zipapp でスクリプトをまとめる
+
+```bash
+python -m zipapp ディレクトリ -o 出力ファイル.pyz -m "モジュール:関数"
+```
+
+!!! note "説明"
+    Python スクリプトをひとつの `.pyz` ファイルに固めて配布可能にします。
+
+#### 使用例
 
 ```bash
 python -m zipapp myapp/ -o myapp.pyz -m "main:main"
 python myapp.pyz
 ```
 
-### AST（抽象構文木）の確認
+---
+
+### mypy で型チェックする
 
 ```bash
-python -c "import ast; print(ast.dump(ast.parse('x = 1 + 2')))"
+uv run mypy script.py
 ```
 
-### unittest の実行
+!!! note "説明"
+    静的型チェッカーです。型アノテーションを検証してバグを事前に検出します。`--strict` で厳格モードになります。
+
+#### 使用例
 
 ```bash
-# カレントディレクトリ以下のテストを自動検出して実行
-python -m unittest discover
+uv add --dev mypy
 
-# 特定ファイルを実行
-python -m unittest test_module.py
-
-# 詳細表示
-python -m unittest -v test_module
+uv run mypy script.py
+uv run mypy --strict script.py
+uv run mypy ./src
 ```
 
-### pytest の実行（uv 経由）
+---
+
+### ruff でコードを整形・チェックする
+
+```bash
+uv run ruff check .
+uv run ruff format .
+```
+
+!!! note "説明"
+    Rust 製の高速リンター＆フォーマッタです。`flake8` / `isort` / `black` の役割を一本化できます。
+
+#### 使用例
+
+```bash
+uv add --dev ruff
+
+# リント（コードチェック）
+uv run ruff check .
+
+# 自動修正
+uv run ruff check --fix .
+
+# フォーマット
+uv run ruff format .
+
+# 変更内容をプレビュー（実際には変更しない）
+uv run ruff format --diff .
+```
+
+---
+
+### pytest でテストを実行する
+
+```bash
+uv run pytest
+```
+
+!!! note "説明"
+    Python の標準的なテストフレームワークです。`tests/` ディレクトリや `test_*.py` を自動検出して実行します。
+
+#### 使用例
 
 ```bash
 uv add --dev pytest
 
-# テスト実行
+# 全テストを実行
 uv run pytest
 
 # 詳細表示
@@ -449,161 +731,225 @@ uv run pytest tests/test_main.py
 
 # 失敗したテストだけ再実行
 uv run pytest --lf
-```
 
-### 型チェック（mypy）
-
-```bash
-uv add --dev mypy
-uv run mypy script.py
-uv run mypy --strict script.py
-```
-
-### コードフォーマット（ruff）
-
-```bash
-uv add --dev ruff
-
-# フォーマット
-uv run ruff format .
-
-# リント（コードチェック）
-uv run ruff check .
-
-# 自動修正
-uv run ruff check --fix .
-```
-
-### ドキュメント生成（pydoc）
-
-```bash
-# ターミナルに表示
-python -m pydoc モジュール名
-
-# HTML を生成
-python -m pydoc -w モジュール名
-
-# ローカルサーバーで閲覧（ポート指定）
-python -m pydoc -p 8080
+# カバレッジ付きで実行
+uv add --dev pytest-cov
+uv run pytest --cov=src
 ```
 
 ---
 
 ## 知ってると便利なコマンド
 
-### 環境変数の確認（os.environ）
-
-```bash
-python -c "import os; print(os.environ.get('PATH'))"
-python -c "import os; [print(k, '=', v) for k, v in os.environ.items()]"
-```
-
-### Pythonのパスを確認
-
-```bash
-python -c "import sys; print('\n'.join(sys.path))"
-```
-
-### JSON のフォーマット（整形）
-
-```bash
-# 標準入力から
-echo '{"a":1,"b":2}' | python -m json.tool
-
-# ファイルから
-python -m json.tool data.json
-
-# インデント幅を指定
-python -m json.tool --indent 2 data.json
-```
-
-### HTTP サーバー（静的ファイルを手軽に配信）
-
-```bash
-# デフォルトポート 8000
-python -m http.server
-
-# ポートを指定
-python -m http.server 3000
-
-# バインドするアドレスを指定
-python -m http.server 8000 --bind 127.0.0.1
-```
-
-### SMTP デバッグサーバー（メール送信のテスト）
-
-```bash
-python -m smtpd -n -c DebuggingServer localhost:1025
-```
-
-### Base64 エンコード・デコード
-
-```bash
-# エンコード
-python -c "import base64; print(base64.b64encode(b'hello').decode())"
-
-# デコード
-python -c "import base64; print(base64.b64decode('aGVsbG8=').decode())"
-```
-
-### カレンダーの表示
-
-```bash
-python -m calendar
-
-# 特定の年月
-python -c "import calendar; print(calendar.month(2025, 4))"
-```
-
-### UUID の生成
+### UUID を生成する
 
 ```bash
 python -c "import uuid; print(uuid.uuid4())"
 ```
 
-### ハッシュ値の生成
+!!! note "説明"
+    衝突しないランダムな識別子（UUID v4）を生成します。データベースの主キーやセッション ID に使われます。
+
+#### 使用例
+
+```bash
+python -c "import uuid; print(uuid.uuid4())"
+# → e3b0c442-98fc-1c14-9afb-f4c8996fb924
+
+# 複数生成
+python -c "import uuid; [print(uuid.uuid4()) for _ in range(5)]"
+```
+
+---
+
+### ランダム文字列を生成する
+
+```bash
+python -c "import secrets; print(secrets.token_hex(32))"
+```
+
+!!! note "説明"
+    暗号学的に安全なランダム文字列を生成します。`secrets` モジュールはパスワードやトークン生成に適しています。
+
+#### 使用例
+
+```bash
+# 16進数文字列（32バイト = 64文字）
+python -c "import secrets; print(secrets.token_hex(32))"
+
+# URL セーフ文字列
+python -c "import secrets; print(secrets.token_urlsafe(32))"
+
+# ランダムなパスワード（英数字 + 記号）
+python -c "
+import secrets, string
+chars = string.ascii_letters + string.digits + string.punctuation
+print(''.join(secrets.choice(chars) for _ in range(20)))
+"
+```
+
+---
+
+### ハッシュ値を計算する
+
+```bash
+python -c "import hashlib; print(hashlib.sha256(b'データ').hexdigest())"
+```
+
+!!! note "説明"
+    `hashlib` モジュールで MD5・SHA-256 などのハッシュ値を計算します。ファイルの整合性チェックに使います。
+
+#### 使用例
 
 ```bash
 python -c "import hashlib; print(hashlib.md5(b'hello').hexdigest())"
 python -c "import hashlib; print(hashlib.sha256(b'hello').hexdigest())"
+
+# ファイルのハッシュを計算
+python -c "
+import hashlib
+with open('file.txt', 'rb') as f:
+    print(hashlib.sha256(f.read()).hexdigest())
+"
 ```
 
-### パッケージの依存関係を表示
+---
+
+### Base64 エンコード・デコードする
 
 ```bash
-pip show --verbose requests
-pip check  # 依存関係の不整合チェック
+python -c "import base64; print(base64.b64encode(b'テキスト').decode())"
 ```
 
-### 標準ライブラリの場所を確認
+!!! note "説明"
+    バイナリデータを ASCII テキストに変換します。メール添付やデータ URI などで使われます。
+
+#### 使用例
 
 ```bash
+# エンコード
+python -c "import base64; print(base64.b64encode(b'hello').decode())"
+# → aGVsbG8=
+
+# デコード
+python -c "import base64; print(base64.b64decode('aGVsbG8=').decode())"
+# → hello
+```
+
+---
+
+### Python のパスを確認する
+
+```bash
+python -c "import sys; print('\n'.join(sys.path))"
+```
+
+!!! note "説明"
+    モジュール検索パスの一覧を表示します。インポートエラーが起きたときに確認します。
+
+#### 使用例
+
+```bash
+# モジュール検索パス
+python -c "import sys; print('\n'.join(sys.path))"
+
+# Python 本体の場所
+which python
+
+# 標準ライブラリの場所
 python -c "import os; print(os.__file__)"
-python -c "import json; print(json.__file__)"
+
+# site-packages の場所
+python -c "import site; print(site.getsitepackages())"
 ```
 
-### インタラクティブシェルをより快適に（IPython）
+---
+
+### 環境変数を確認する
+
+```bash
+python -c "import os; print(os.environ.get('変数名'))"
+```
+
+!!! note "説明"
+    `os.environ` で環境変数にアクセスします。`.get()` を使うと、変数が存在しない場合に `None` を返せます。
+
+#### 使用例
+
+```bash
+python -c "import os; print(os.environ.get('PATH'))"
+python -c "import os; print(os.environ.get('PYTHONPATH', '未設定'))"
+
+# 全環境変数を一覧表示
+python -c "import os; [print(f'{k}={v}') for k, v in sorted(os.environ.items())]"
+```
+
+---
+
+### カレンダーを表示する
+
+```bash
+python -m calendar
+```
+
+!!! note "説明"
+    標準ライブラリの `calendar` モジュールで年間・月間カレンダーをターミナルに表示します。
+
+#### 使用例
+
+```bash
+# 今年のカレンダーを表示
+python -m calendar
+
+# 特定の年月を表示
+python -c "import calendar; print(calendar.month(2025, 12))"
+```
+
+---
+
+### SMTP デバッグサーバーを起動する
+
+```bash
+python -m smtpd -n -c DebuggingServer localhost:1025
+```
+
+!!! note "説明"
+    受信したメールをターミナルに出力するだけのダミー SMTP サーバーです。メール送信機能の開発・テストに使います。
+
+#### 使用例
+
+```bash
+# デバッグ用 SMTP サーバーを起動
+python -m smtpd -n -c DebuggingServer localhost:1025
+
+# アプリ側で localhost:1025 に送信すると、ターミナルに内容が表示される
+```
+
+---
+
+### IPython でリッチな REPL を使う
+
+```bash
+uv run ipython
+```
+
+!!! note "説明"
+    標準 REPL を拡張した対話環境です。シンタックスハイライト・自動補完・マジックコマンドが使えます。
+
+#### 使用例
 
 ```bash
 uv add ipython
 uv run ipython
 ```
 
-### ファイル内容をバイト単位で処理
-
-```bash
-python -c "
-with open('file.txt', 'rb') as f:
-    data = f.read()
-    print(len(data), 'bytes')
-"
-```
-
-### ランダム文字列の生成
-
-```bash
-python -c "import secrets; print(secrets.token_hex(16))"
-python -c "import secrets; print(secrets.token_urlsafe(16))"
+```text
+# よく使うマジックコマンド（IPython 内）
+%timeit sum(range(1000))   # 速度計測
+%run script.py             # スクリプト実行
+%history                   # コマンド履歴
+%who                       # 定義済み変数一覧
+%pwd                       # カレントディレクトリ
 ```
 
 ---
@@ -612,114 +958,115 @@ python -c "import secrets; print(secrets.token_urlsafe(16))"
 
 ### `python` コマンドの主要オプション
 
-| オプション | 説明 | 使い方の例 |
-| --- | --- | --- |
-| `-c コード` | 1行のコードを直接実行 | `python -c "print(1+1)"` |
-| `-m モジュール` | モジュールをスクリプトとして実行 | `python -m http.server` |
-| `-i` | スクリプト実行後にREPLを起動 | `python -i script.py` |
-| `-u` | 標準出力・標準エラーをバッファなしに | `python -u script.py` |
-| `-v` | インポートされたモジュールを詳細表示 | `python -v script.py` |
-| `-vv` | より詳細なトレース表示 | `python -vv script.py` |
-| `-O` | アサーションを無効化して最適化 | `python -O script.py` |
-| `-OO` | docstring も削除して最適化 | `python -OO script.py` |
-| `-B` | `.pyc` ファイルを生成しない | `python -B script.py` |
-| `-S` | `site.py` の自動インポートを無効化 | `python -S script.py` |
-| `-E` | 環境変数（PYTHONPATH等）を無視 | `python -E script.py` |
-| `-W フィルタ` | 警告フィルタを設定 | `python -W ignore script.py` |
-| `-X オプション` | 実装固有オプションを有効化 | `python -X utf8 script.py` |
-| `--version` | バージョンを表示 | `python --version` |
-| `--help` | ヘルプを表示 | `python --help` |
+| オプション | 説明 |
+| --- | --- |
+| `-c コード` | 1行のコードを直接実行 |
+| `-m モジュール` | モジュールをスクリプトとして実行 |
+| `-i` | スクリプト実行後に REPL を起動 |
+| `-u` | 標準出力・標準エラーをバッファなしに |
+| `-v` | インポートされたモジュールを詳細表示 |
+| `-vv` | より詳細なトレース表示 |
+| `-O` | アサーションを無効化して最適化 |
+| `-OO` | docstring も削除して最適化 |
+| `-B` | `.pyc` ファイルを生成しない |
+| `-S` | `site.py` の自動インポートを無効化 |
+| `-E` | 環境変数（PYTHONPATH 等）を無視 |
+| `-W フィルタ` | 警告フィルタを設定 |
+| `-X utf8` | UTF-8 モードを有効化 |
+| `--version` | バージョンを表示 |
+| `--help` | ヘルプを表示 |
 
 ### `pip` コマンドの主要オプション
 
-| オプション | 説明 | 使い方の例 |
-| --- | --- | --- |
-| `install` | パッケージをインストール | `pip install requests` |
-| `install -U` | アップグレードしながらインストール | `pip install -U requests` |
-| `install -r` | requirements.txt から一括インストール | `pip install -r requirements.txt` |
-| `install -e` | 編集可能モードでインストール（開発用） | `pip install -e .` |
-| `install --no-cache-dir` | キャッシュを使わずインストール | `pip install --no-cache-dir requests` |
-| `install --user` | ユーザーディレクトリにインストール | `pip install --user requests` |
-| `uninstall` | アンインストール | `pip uninstall requests` |
-| `uninstall -y` | 確認なしでアンインストール | `pip uninstall -y requests` |
-| `list` | インストール済みパッケージ一覧 | `pip list` |
-| `list --outdated` | 更新可能なパッケージ一覧 | `pip list --outdated` |
-| `show` | パッケージの詳細情報 | `pip show requests` |
-| `freeze` | requirements.txt 形式で出力 | `pip freeze > requirements.txt` |
-| `check` | 依存関係の整合性チェック | `pip check` |
-| `search` | PyPI でパッケージを検索 | `pip search requests` |
-| `download` | パッケージをダウンロードのみ | `pip download requests -d ./pkgs` |
-| `wheel` | wheel ファイルを生成 | `pip wheel requests` |
-| `cache list` | キャッシュ一覧を表示 | `pip cache list` |
-| `cache purge` | キャッシュを全削除 | `pip cache purge` |
+| サブコマンド | 説明 |
+| --- | --- |
+| `install パッケージ` | パッケージをインストール |
+| `install -U パッケージ` | アップグレードしながらインストール |
+| `install -r requirements.txt` | requirements.txt から一括インストール |
+| `install -e .` | 編集可能モードでインストール（開発用） |
+| `install --no-cache-dir` | キャッシュを使わずインストール |
+| `install --user` | ユーザーディレクトリにインストール |
+| `uninstall パッケージ` | アンインストール |
+| `uninstall -y パッケージ` | 確認なしでアンインストール |
+| `list` | インストール済みパッケージ一覧 |
+| `list --outdated` | 更新可能なパッケージ一覧 |
+| `show パッケージ` | パッケージの詳細情報 |
+| `freeze` | requirements.txt 形式で出力 |
+| `check` | 依存関係の整合性チェック |
+| `download パッケージ` | ダウンロードのみ（インストールしない） |
+| `cache list` | キャッシュ一覧を表示 |
+| `cache purge` | キャッシュを全削除 |
 
 ### `uv` コマンドの主要オプション
 
-| オプション | 説明 | 使い方の例 |
-| --- | --- | --- |
-| `uv init` | プロジェクトを初期化 | `uv init myapp` |
-| `uv add` | 依存パッケージを追加 | `uv add requests` |
-| `uv add --dev` | 開発用パッケージを追加 | `uv add --dev pytest` |
-| `uv remove` | パッケージを削除 | `uv remove requests` |
-| `uv sync` | 環境を pyproject.toml に同期 | `uv sync` |
-| `uv sync --upgrade` | 全パッケージを最新に更新して同期 | `uv sync --upgrade` |
-| `uv run` | uv 環境内でコマンド実行 | `uv run python script.py` |
-| `uv pip install` | pip 互換のインストール | `uv pip install requests` |
-| `uv pip freeze` | pip freeze 相当の出力 | `uv pip freeze` |
-| `uv python install` | Python バージョンをインストール | `uv python install 3.12` |
-| `uv python list` | 利用可能な Python 一覧 | `uv python list` |
-| `uv lock` | ロックファイルを生成・更新 | `uv lock` |
-| `uv tree` | 依存ツリーを表示 | `uv tree` |
-| `uv cache clean` | キャッシュを削除 | `uv cache clean` |
+| サブコマンド | 説明 |
+| --- | --- |
+| `uv init` | プロジェクトを初期化 |
+| `uv add パッケージ` | 依存パッケージを追加 |
+| `uv add --dev パッケージ` | 開発用パッケージを追加 |
+| `uv remove パッケージ` | パッケージを削除 |
+| `uv sync` | 環境を pyproject.toml に同期 |
+| `uv sync --upgrade` | 全パッケージを最新化して同期 |
+| `uv run コマンド` | uv 環境内でコマンド実行 |
+| `uv pip install` | pip 互換のインストール |
+| `uv pip freeze` | pip freeze 相当の出力 |
+| `uv python install 3.12` | Python バージョンをインストール |
+| `uv python list` | 利用可能な Python 一覧 |
+| `uv lock` | ロックファイルを生成・更新 |
+| `uv tree` | 依存ツリーを表示 |
+| `uv cache clean` | キャッシュを削除 |
+
+### 環境変数一覧
+
+| 環境変数 | 説明 |
+| --- | --- |
+| `PYTHONPATH` | モジュール検索パスを追加 |
+| `PYTHONSTARTUP` | REPL 起動時に実行するスクリプトのパス |
+| `PYTHONDONTWRITEBYTECODE` | `1` にすると `.pyc` ファイルを生成しない |
+| `PYTHONUNBUFFERED` | `1` にすると出力のバッファリングを無効化 |
+| `PYTHONIOENCODING` | 標準入出力のエンコーディングを設定 |
+| `PYTHONUTF8` | `1` にすると UTF-8 モードを有効化 |
+| `PIP_DEFAULT_TIMEOUT` | pip のタイムアウト秒数 |
+| `PIP_INDEX_URL` | デフォルトのパッケージインデックス URL |
+| `UV_PYTHON` | uv で使用する Python バージョン |
 
 ---
 
 ## 設定
 
-### 環境変数による設定
-
-| 環境変数 | 説明 | 設定例 |
-| --- | --- | --- |
-| `PYTHONPATH` | モジュール検索パスを追加 | `export PYTHONPATH=/mylib:$PYTHONPATH` |
-| `PYTHONSTARTUP` | REPL 起動時に実行するスクリプト | `export PYTHONSTARTUP=~/.pythonrc` |
-| `PYTHONDONTWRITEBYTECODE` | `.pyc` ファイルを生成しない | `export PYTHONDONTWRITEBYTECODE=1` |
-| `PYTHONUNBUFFERED` | 出力のバッファリングを無効化 | `export PYTHONUNBUFFERED=1` |
-| `PYTHONIOENCODING` | 標準入出力のエンコーディングを設定 | `export PYTHONIOENCODING=utf-8` |
-| `PYTHONUTF8` | UTF-8 モードを有効化（Python 3.7+） | `export PYTHONUTF8=1` |
-| `VIRTUAL_ENV` | 仮想環境のパス（自動設定） | （仮想環境有効化時に自動設定） |
-| `PIP_DEFAULT_TIMEOUT` | pip のタイムアウト秒数 | `export PIP_DEFAULT_TIMEOUT=60` |
-| `PIP_INDEX_URL` | デフォルトのパッケージインデックス URL | `export PIP_INDEX_URL=https://pypi.org/simple/` |
-| `UV_PYTHON` | uv で使用する Python バージョン | `export UV_PYTHON=3.12` |
-
-### `pip.ini` / `pip.conf` の設定
-
-**場所（Linux / macOS）：** `~/.config/pip/pip.conf`
-
-**場所（Windows）：** `%APPDATA%\pip\pip.ini`
+### pip.conf を設定する
 
 ```ini
 [global]
-# タイムアウトを設定（秒）
+# タイムアウト（秒）
 timeout = 60
 
-# デフォルトインデックスを変更
+# デフォルトインデックス URL
 index-url = https://pypi.org/simple/
 
-# 追加のインデックスを設定
+# 追加インデックス（プライベートリポジトリ）
 extra-index-url = https://private.example.com/simple/
 
-# キャッシュディレクトリを変更
+# キャッシュディレクトリ
 cache-dir = /tmp/pip-cache
 
-# デフォルトで --user を有効化
-user = yes
-
 [install]
-# インストール時は常にアップグレード確認
 upgrade = false
 ```
 
-### `pyproject.toml` の設定（uv プロジェクト）
+!!! note "説明"
+    `pip.conf`（Linux / macOS）または `pip.ini`（Windows）に設定を書くと、毎回オプションを指定しなくて済みます。
+
+#### ファイルの場所
+
+```text
+Linux / macOS : ~/.config/pip/pip.conf
+Windows       : %APPDATA%\pip\pip.ini
+```
+
+---
+
+### pyproject.toml を設定する
 
 ```toml
 [project]
@@ -738,7 +1085,6 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-# 開発用依存パッケージ
 dev = [
     "pytest>=8.0.0",
     "mypy>=1.9.0",
@@ -746,77 +1092,81 @@ dev = [
 ]
 
 [tool.uv]
-# uv の設定
 dev-dependencies = [
     "pytest>=8.0.0",
 ]
 
 [tool.ruff]
-# ruff リンターの設定
+# リンター設定
 line-length = 88
 target-version = "py311"
 
 [tool.mypy]
-# mypy 型チェックの設定
+# 型チェック設定
 python_version = "3.11"
 strict = true
 
 [tool.pytest.ini_options]
-# pytest の設定
+# テスト設定
 testpaths = ["tests"]
 addopts = "-v"
 ```
 
-### `.python-version` ファイル（pyenv / uv）
+!!! note "説明"
+    `uv init` で生成される設定ファイルです。`pip` / `mypy` / `ruff` / `pytest` の設定を1ファイルにまとめられます。
+
+#### 使用例
+
+```bash
+# pyproject.toml を元に環境を同期
+uv sync
+
+# 開発用依存も含めて同期
+uv sync --all-extras
+```
+
+---
+
+### .python-version を設定する
 
 ```text
 3.12.0
 ```
 
+!!! note "説明"
+    `pyenv local` や `uv` が参照するバージョン指定ファイルです。プロジェクトルートに置くと、そのディレクトリで自動的に指定バージョンが使われます。
+
+#### 使用例
+
 ```bash
-# pyenv でローカルバージョンを設定（.python-version が自動生成される）
+# pyenv でローカルバージョンを設定（.python-version を自動生成）
 pyenv local 3.12.0
 
-# uv でも .python-version を参照
+# uv も .python-version を参照して Python を選択
 uv run python --version
 ```
 
-### `sitecustomize.py`（起動時に自動実行）
+---
 
-**場所：** `site-packages/sitecustomize.py`
-
-```python
-# Python 起動時に自動で実行されるカスタマイズ
-import sys
-
-# デフォルトエンコーディングを UTF-8 に設定（Python 3.7 以前向け）
-# sys.stdout.reconfigure(encoding='utf-8')
-
-# デバッグ用：起動時にメッセージを表示
-print("[sitecustomize] Python が起動しました", file=sys.stderr)
-```
-
-### REPL 起動時の自動実行スクリプト（`PYTHONSTARTUP`）
+### PYTHONSTARTUP で REPL をカスタマイズする
 
 ```bash
-# ~/.bashrc または ~/.zshrc に追加
+# ~/.bashrc または ~/.zshrc に追記
 export PYTHONSTARTUP=~/.pythonrc
 ```
 
 ```python
 # ~/.pythonrc
-# REPL をより便利にする設定
-
 import readline
 import rlcompleter
+import os
+import atexit
+from pprint import pprint  # noqa: F401（REPL 内でそのまま使えるようにしておく）
 
 # タブ補完を有効化
 readline.parse_and_bind("tab: complete")
 
-# 履歴ファイルを設定
-import os
-import atexit
-
+# コマンド履歴をファイルに保存
 histfile = os.path.join(os.path.expanduser("~"), ".python_history")
 try:
     readline.read_history_file(histfile)
@@ -825,74 +1175,73 @@ except FileNotFoundError:
 
 atexit.register(readline.write_history_file, histfile)
 
-# よく使うモジュールを事前インポート
-import os
-import sys
-from pprint import pprint
-
 print("Python REPL 準備完了（tab補完・履歴保存 有効）")
 ```
 
----
+!!! note "説明"
+    `PYTHONSTARTUP` に指定したスクリプトは REPL 起動時に自動で実行されます。補完・履歴・よく使うインポートを自動化できます。
 
-## 頻出コマンド早見表
+#### 使用例
 
 ```bash
-# バージョン確認
-python --version
-
-# スクリプト実行
-python script.py
-
-# ワンライナー実行
-python -c "print('Hello')"
-
-# モジュールとして実行
-python -m http.server 8000
-
-# 仮想環境の作成
-python -m venv .venv
-
-# 仮想環境の有効化（Linux / macOS）
-source .venv/bin/activate
-
-# uv でプロジェクト初期化
-uv init myapp
-
-# uv でパッケージ追加
-uv add requests
-
-# uv でスクリプト実行
-uv run python script.py
-
-# pip でパッケージインストール
-pip install requests
-
-# pip 一覧表示
-pip list
-
-# pip 情報表示
-pip show requests
-
-# requirements.txt に書き出し
-pip freeze > requirements.txt
-
-# requirements.txt からインストール
-pip install -r requirements.txt
-
-# テスト実行（pytest）
-uv run pytest -v
-
-# JSON 整形
-echo '{"a":1}' | python -m json.tool
-
-# cProfile でプロファイリング
-python -m cProfile -s cumulative script.py
-
-# pdb でデバッグ
-python -m pdb script.py
+# 設定後に REPL を起動すると自動でカスタマイズが適用される
+python
+# → Python REPL 準備完了（tab補完・履歴保存 有効）
 ```
 
 ---
 
-### 最終更新：2026年3月23日
+## 頻出コマンド早引き
+
+```bash
+# ── バージョン確認 ────────────────────────────────────────
+python --version
+
+# ── スクリプト実行 ────────────────────────────────────────
+python script.py
+python -m モジュール名
+python -c "print('Hello')"
+python -i script.py            # 実行後に REPL を起動
+
+# ── 仮想環境 ──────────────────────────────────────────────
+python -m venv .venv
+source .venv/bin/activate      # 有効化（Linux / macOS）
+deactivate                     # 無効化
+
+# ── uv ────────────────────────────────────────────────────
+uv init myapp
+uv add requests
+uv add --dev pytest ruff mypy
+uv sync
+uv run python script.py
+uv run pytest -v
+uv tree
+
+# ── pip ───────────────────────────────────────────────────
+pip install requests
+pip install -r requirements.txt
+pip freeze > requirements.txt
+pip list --outdated
+pip show requests
+pip uninstall -y requests
+
+# ── デバッグ・計測 ────────────────────────────────────────
+python -m pdb script.py
+python -m cProfile -s cumulative script.py
+python -m timeit "sum(range(1000))"
+
+# ── 便利ツール ────────────────────────────────────────────
+python -m http.server 8000
+echo '{"a":1}' | python -m json.tool
+python -c "import uuid; print(uuid.uuid4())"
+python -c "import secrets; print(secrets.token_urlsafe(32))"
+```
+
+!!! info "公式ドキュメント"
+    - [Python 公式ドキュメント（日本語）](https://docs.python.org/ja/3/)
+    - [pip ドキュメント](https://pip.pypa.io/en/stable/)
+    - [uv ドキュメント](https://docs.astral.sh/uv/)
+    - [pyenv GitHub](https://github.com/pyenv/pyenv)
+    - [ruff ドキュメント](https://docs.astral.sh/ruff/)
+    - [mypy ドキュメント](https://mypy.readthedocs.io/en/stable/)
+    - [pytest ドキュメント](https://docs.pytest.org/en/stable/)
