@@ -13,38 +13,163 @@ Claude Code は Anthropic が開発したターミナル上で動作するエー
 
 ### インストール
 
-Node.js（v18以上）と npm が必要です。
+公式推奨は**ネイティブインストーラー**です。
+`npm install -g` による方法は **deprecated（非推奨）** になりました。
+
+=== "macOS / Linux"
+
+    ターミナルで以下のコマンドを実行します（[claude.ai/download](https://claude.ai/download) のページにも記載されています）。
+
+    ```bash
+    curl -fsSL https://claude.ai/install.sh | sh
+    ```
+
+    !!! note "自動アップデート対応"
+        ネイティブインストーラーでインストールした場合、バックグラウンドで自動更新されます。
+
+=== "macOS（Homebrew）"
+
+    ```bash
+    brew install claude-code
+    ```
+
+    !!! warning "Homebrew は自動更新なし"
+        手動で更新してください。
+
+        ```bash
+        brew upgrade claude-code
+        ```
+
+=== "Windows（PowerShell）"
+
+    Git for Windows が必要です。先にインストールしておいてください。
+
+    ```powershell
+    irm https://claude.ai/install.ps1 | iex
+    ```
+
+    CMD の場合は以下のコマンドを使います。
+
+    ```cmd
+    powershell -Command "irm https://claude.ai/install.ps1 | iex"
+    ```
+
+    !!! note "自動アップデート対応"
+        ネイティブインストーラーでインストールした場合、バックグラウンドで自動更新されます。
+
+=== "Windows（WinGet）"
+
+    ```powershell
+    winget install Anthropic.ClaudeCode
+    ```
+
+    !!! warning "WinGet は自動更新なし"
+        手動で更新してください。
+
+        ```powershell
+        winget upgrade Anthropic.ClaudeCode
+        ```
+
+=== "WSL"
+
+    WSL 1・WSL 2 どちらも対応しています（WSL 2 推奨）。
+    WSL 上では macOS / Linux と同じコマンドを使います。
+
+    ```bash
+    curl -fsSL https://claude.ai/install.sh | sh
+    ```
+
+    !!! info "WSL 2 と Sandbox"
+        WSL 2 では Bash ツールのサンドボックス機能（セキュリティ強化）が利用できます。WSL 1 は非対応です。
+
+インストール後はバージョン確認でセットアップを確認できます。
 
 ```bash
-npm install -g @anthropic-ai/claude-code
-```
-
-WSL（Ubuntu）環境の場合も同じコマンドを使用します。
-
-```bash
-# バージョン確認
 claude --version
 claude -v
+
+# インストール状態の診断
+claude doctor
+```
+
+既存の npm インストールをネイティブへ移行するには以下を実行します。
+
+```bash
+claude install
 ```
 
 ### アップデート
+
+ネイティブインストールの場合はバックグラウンドで自動更新されます。手動でも実行できます。
 
 ```bash
 claude update
 ```
 
-セッション内でも更新可能です。
+Homebrew・WinGet でインストールした場合は自動更新されません。
 
 ```bash
-# セッション内で更新を確認・適用
+# Homebrew の場合
+brew upgrade claude-code
+
+# WinGet の場合
+winget upgrade Anthropic.ClaudeCode
+```
+
+セッション内でリリースノートを確認することもできます。
+
+```text
 /release-notes
 ```
 
 ### アンインストール
 
-```bash
-npm uninstall -g @anthropic-ai/claude-code
-```
+=== "macOS / Linux / WSL"
+
+    ```bash
+    # バイナリとバージョンファイルを削除
+    rm -f ~/.local/bin/claude
+    rm -rf ~/.local/share/claude
+
+    # 設定・履歴も含めて完全削除する場合
+    rm -rf ~/.claude
+    rm -f ~/.claude.json
+
+    # プロジェクト固有の設定を削除する場合（プロジェクトルートで実行）
+    rm -rf .claude
+    rm -f .mcp.json
+    ```
+
+=== "Windows"
+
+    ```powershell
+    # バイナリを削除
+    Remove-Item -Path "$env:USERPROFILE\.local\bin\claude.exe" -Force
+    Remove-Item -Path "$env:USERPROFILE\.local\share\claude" -Recurse -Force
+
+    # 設定・履歴も含めて完全削除する場合
+    Remove-Item -Path "$env:USERPROFILE\.claude" -Recurse -Force
+    Remove-Item -Path "$env:USERPROFILE\.claude.json" -Force
+
+    # プロジェクト固有の設定を削除する場合（プロジェクトルートで実行）
+    Remove-Item -Path ".claude" -Recurse -Force
+    Remove-Item -Path ".mcp.json" -Force
+    ```
+
+=== "Homebrew"
+
+    ```bash
+    brew uninstall claude-code
+    ```
+
+=== "WinGet"
+
+    ```powershell
+    winget uninstall Anthropic.ClaudeCode
+    ```
+
+!!! warning "設定削除に注意"
+    設定ファイルを削除すると、許可ツール設定・MCP サーバー設定・セッション履歴がすべて消えます。バイナリだけ削除して設定を残すこともできます。
 
 ---
 
