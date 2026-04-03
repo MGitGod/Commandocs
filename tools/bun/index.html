@@ -1,0 +1,4622 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../terminal/warp/">
+      
+      
+        <link rel="next" href="../git/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Bun - CommanDocs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bun" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../.." title="CommanDocs" class="md-header__button md-logo" aria-label="CommanDocs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CommanDocs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Bun
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="ダークモードに切り替え"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="ダークモードに切り替え" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="ライトモードに切り替え"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="ライトモードに切り替え" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  CommanDocs
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ai/claude-code-cli/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../editor/vim/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Editor
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../environment/docker-compose/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Environment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../framework/hono/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Framework
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../languages/nodejs-npm/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Languages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../private/memo/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Private
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../terminal/bash/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Terminal
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CommanDocs" class="md-nav__button md-logo" aria-label="CommanDocs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CommanDocs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CommanDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/claude-code-cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/gemini-cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gemini CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/ollama/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ollama CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Editor
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Editor
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../editor/vim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../editor/vscode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VSCode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Environment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../environment/docker-compose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Compose
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../environment/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../environment/wsl-ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WSL (Ubuntu)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Framework
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Framework
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../framework/hono/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hono
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Languages
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Languages
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/nodejs-npm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Node.js / npm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Private
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Private
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../private/memo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    非公開メモ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terminal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Terminal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminal/bash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminal/cmd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows CMD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminal/lazyvim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LazyVim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminal/linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminal/powershell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PowerShell
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminal/tmux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    tmux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminal/warp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Warp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bun
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bun
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インストール・アップデート・アンインストール
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="インストール・アップデート・アンインストール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インストール
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アップデート
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="アップデート">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        特定バージョンへの更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        カナリア（開発版）への更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アンインストール
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本コマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基本コマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ヘルプを表示する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ヘルプを表示する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        サブコマンドのヘルプ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バージョンを確認する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        プロジェクトを初期化する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="プロジェクトを初期化する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        非対話モードで即時初期化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        スクリプトを実行する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="スクリプトを実行する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ファイルを直接実行する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ファイルを直接実行する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パッケージ管理コマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パッケージ管理コマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パッケージをインストールする
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パッケージをインストールする">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パッケージを追加する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パッケージを追加する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パッケージを削除する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パッケージを削除する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パッケージを更新する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パッケージを更新する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インストール済みパッケージ一覧を確認する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="インストール済みパッケージ一覧を確認する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lockfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lockfile を確認・管理する
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        テストコマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="テストコマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        テストを実行する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="テストを実行する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ビルドコマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ビルドコマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ビルドを実行する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ビルドを実行する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実行・スクリプト関連コマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実行・スクリプト関連コマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bunx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パッケージのバイナリを実行する（bunx）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パッケージのバイナリを実行する（bunx）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bun-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シェルスクリプトを実行する（Bun Shell）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="シェルスクリプトを実行する（Bun Shell）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        上級者向けコマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="上級者向けコマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実行可能ファイルを作成する（コンパイル）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実行可能ファイルを作成する（コンパイル）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ワークスペースを管理する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ワークスペースを管理する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        キャッシュを管理する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        依存関係ツリーを確認する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パッケージのパスを確認する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パッケージのパスを確認する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        trust（信頼済みスクリプト）を管理する
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        知ってると便利なコマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="知ってると便利なコマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ホットリロードで実行する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ホットリロードで実行する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ウォッチモードで実行する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ウォッチモードで実行する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        環境変数ファイルを指定して実行する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="環境変数ファイルを指定して実行する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TypeScript の型チェックを行う
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パッケージ情報を確認する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シェバン付きスクリプトを作成する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="シェバン付きスクリプトを作成する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実行権限を付与して直接実行
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        REPL（対話モード）を使う
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="REPL（対話モード）を使う">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        よく使うオプション
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="よく使うオプション">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        グローバルオプション
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bun-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bun install のオプション一覧
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bun-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bun build のオプション一覧
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bun-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bun test のオプション一覧
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bunfigtoml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定（bunfig.toml）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="設定（bunfig.toml）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本設定例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        レジストリを変更する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        テスト設定例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        頻出コマンド早引き
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git / GitHub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mkdocs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MkDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    uv
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インストール・アップデート・アンインストール
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="インストール・アップデート・アンインストール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インストール
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アップデート
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="アップデート">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        特定バージョンへの更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        カナリア（開発版）への更新
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アンインストール
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本コマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基本コマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ヘルプを表示する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ヘルプを表示する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        サブコマンドのヘルプ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バージョンを確認する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        プロジェクトを初期化する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="プロジェクトを初期化する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        非対話モードで即時初期化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        スクリプトを実行する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="スクリプトを実行する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ファイルを直接実行する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ファイルを直接実行する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パッケージ管理コマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パッケージ管理コマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パッケージをインストールする
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パッケージをインストールする">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パッケージを追加する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パッケージを追加する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パッケージを削除する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パッケージを削除する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パッケージを更新する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パッケージを更新する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インストール済みパッケージ一覧を確認する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="インストール済みパッケージ一覧を確認する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lockfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lockfile を確認・管理する
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        テストコマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="テストコマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        テストを実行する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="テストを実行する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ビルドコマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ビルドコマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ビルドを実行する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ビルドを実行する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実行・スクリプト関連コマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実行・スクリプト関連コマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bunx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パッケージのバイナリを実行する（bunx）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パッケージのバイナリを実行する（bunx）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bun-shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シェルスクリプトを実行する（Bun Shell）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="シェルスクリプトを実行する（Bun Shell）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        上級者向けコマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="上級者向けコマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実行可能ファイルを作成する（コンパイル）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実行可能ファイルを作成する（コンパイル）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ワークスペースを管理する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ワークスペースを管理する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        キャッシュを管理する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        依存関係ツリーを確認する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パッケージのパスを確認する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パッケージのパスを確認する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trust" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        trust（信頼済みスクリプト）を管理する
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        知ってると便利なコマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="知ってると便利なコマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ホットリロードで実行する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ホットリロードで実行する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ウォッチモードで実行する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ウォッチモードで実行する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        環境変数ファイルを指定して実行する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="環境変数ファイルを指定して実行する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typescript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TypeScript の型チェックを行う
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パッケージ情報を確認する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シェバン付きスクリプトを作成する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="シェバン付きスクリプトを作成する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実行権限を付与して直接実行
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        REPL（対話モード）を使う
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="REPL（対話モード）を使う">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        よく使うオプション
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="よく使うオプション">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        グローバルオプション
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bun-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bun install のオプション一覧
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bun-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bun build のオプション一覧
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bun-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bun test のオプション一覧
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bunfigtoml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定（bunfig.toml）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="設定（bunfig.toml）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本設定例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        レジストリを変更する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        テスト設定例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        頻出コマンド早引き
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="bun">Bun<a class="headerlink" href="#bun" title="Permanent link">&para;</a></h1>
+<p>Bun は JavaScript / TypeScript のオールインワンツールキットです。<br />
+パッケージマネージャー・バンドラー・テストランナー・ランタイムをすべて含んでいます。</p>
+<hr />
+<h2 id="_1">インストール・アップデート・アンインストール<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">インストール<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS / Linux</label><label for="__tabbed_1_2">npm 経由</label><label for="__tabbed_1_3">Homebrew（macOS）</label><label for="__tabbed_1_4">Windows（PowerShell）</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://bun.sh/install<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>bun
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>brew<span class="w"> </span>tap<span class="w"> </span>oven-sh/bun
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>brew<span class="w"> </span>install<span class="w"> </span>bun
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">powershell</span> <span class="n">-c</span> <span class="s2">&quot;irm bun.sh/install.ps1 | iex&quot;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">インストール確認</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>bun<span class="w"> </span>--version
+</code></pre></div>
+</div>
+<hr />
+<h3 id="_3">アップデート<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>bun<span class="w"> </span>upgrade
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>Bun 自体を最新バージョンに更新します。</p>
+</div>
+<h4 id="_4">特定バージョンへの更新<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>bun<span class="w"> </span>upgrade<span class="w"> </span>--version<span class="w"> </span><span class="m">1</span>.1.0
+</code></pre></div>
+<h4 id="_5">カナリア（開発版）への更新<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>bun<span class="w"> </span>upgrade<span class="w"> </span>--canary
+</code></pre></div>
+<hr />
+<h3 id="_6">アンインストール<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">macOS / Linux</label><label for="__tabbed_2_2">Homebrew（macOS）</label><label for="__tabbed_2_3">npm 経由でインストールした場合</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>rm<span class="w"> </span>-rf<span class="w"> </span>~/.bun
+</code></pre></div>
+<p><code>.bashrc</code> / <code>.zshrc</code> から以下の行も削除してください：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">BUN_INSTALL</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.bun&quot;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$BUN_INSTALL</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>brew<span class="w"> </span>uninstall<span class="w"> </span>bun
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>npm<span class="w"> </span>uninstall<span class="w"> </span>-g<span class="w"> </span>bun
+</code></pre></div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="_7">基本コマンド<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h3 id="_8">ヘルプを表示する<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>bun<span class="w"> </span>--help
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>使用可能なすべてのコマンドとオプションの一覧を表示します。</p>
+</div>
+<h4 id="_9">サブコマンドのヘルプ<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>bun<span class="w"> </span>install<span class="w"> </span>--help
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>bun<span class="w"> </span>run<span class="w"> </span>--help
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>bun<span class="w"> </span>build<span class="w"> </span>--help
+</code></pre></div>
+<hr />
+<h3 id="_10">バージョンを確認する<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>bun<span class="w"> </span>--version
+</code></pre></div>
+<hr />
+<h3 id="_11">プロジェクトを初期化する<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>bun<span class="w"> </span>init
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>対話形式で <code>package.json</code> と <code>tsconfig.json</code> を生成します。</p>
+</div>
+<h4 id="_12">非対話モードで即時初期化<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>bun<span class="w"> </span>init<span class="w"> </span>-y
+</code></pre></div>
+<hr />
+<h3 id="_13">スクリプトを実行する<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>bun<span class="w"> </span>run<span class="w"> </span>&lt;スクリプト名&gt;
+</code></pre></div>
+<h4 id="_14">使用例<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># package.json の &quot;dev&quot; スクリプトを実行</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>bun<span class="w"> </span>run<span class="w"> </span>dev
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="c1"># package.json の &quot;build&quot; スクリプトを実行</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>bun<span class="w"> </span>run<span class="w"> </span>build
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="c1"># package.json の &quot;test&quot; スクリプトを実行</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>bun<span class="w"> </span>run<span class="w"> </span><span class="nb">test</span>
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">省略形</p>
+<p><code>bun run</code> は多くの場合 <code>bun</code> だけでも動作します。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>bun<span class="w"> </span>dev
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>bun<span class="w"> </span>build
+</code></pre></div>
+</div>
+<hr />
+<h3 id="_15">ファイルを直接実行する<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>bun<span class="w"> </span>&lt;ファイル名&gt;
+</code></pre></div>
+<h4 id="_16">使用例<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1"># TypeScript ファイルをそのまま実行</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>bun<span class="w"> </span>index.ts
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="c1"># JavaScript ファイルを実行</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>bun<span class="w"> </span>app.js
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="c1"># REPL（対話モード）を起動</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>bun<span class="w"> </span>repl
+</code></pre></div>
+<hr />
+<h2 id="_17">パッケージ管理コマンド<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<h3 id="_18">パッケージをインストールする<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>bun<span class="w"> </span>install
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p><code>package.json</code> に記載されたすべての依存関係をインストールします。<code>bun.lockb</code> を利用して高速にインストールします。</p>
+</div>
+<h4 id="_19">使用例<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># 依存関係をすべてインストール</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>bun<span class="w"> </span>install
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="c1"># 本番依存のみインストール（devDependencies を除外）</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>bun<span class="w"> </span>install<span class="w"> </span>--production
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="c1"># lockfile を無視して再インストール</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>bun<span class="w"> </span>install<span class="w"> </span>--no-cache
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="c1"># インストール後の postinstall スクリプトを無効化</span>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>bun<span class="w"> </span>install<span class="w"> </span>--ignore-scripts
+</code></pre></div>
+<hr />
+<h3 id="_20">パッケージを追加する<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>bun<span class="w"> </span>add<span class="w"> </span>&lt;パッケージ名&gt;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>新しいパッケージを <code>dependencies</code> に追加します。</p>
+</div>
+<h4 id="_21">使用例<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1"># 通常の依存関係として追加</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>bun<span class="w"> </span>add<span class="w"> </span>express
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="c1"># 複数パッケージを一度に追加</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>bun<span class="w"> </span>add<span class="w"> </span>react<span class="w"> </span>react-dom
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="c1"># 特定バージョンを指定して追加</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>bun<span class="w"> </span>add<span class="w"> </span>lodash@4.17.21
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="c1"># 開発依存として追加（devDependencies）</span>
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>bun<span class="w"> </span>add<span class="w"> </span>--dev<span class="w"> </span>typescript
+<a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>
+<a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a><span class="c1"># 省略形</span>
+<a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a>bun<span class="w"> </span>add<span class="w"> </span>-d<span class="w"> </span>eslint
+<a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a>
+<a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a><span class="c1"># ピア依存として追加（peerDependencies）</span>
+<a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a>bun<span class="w"> </span>add<span class="w"> </span>--peer<span class="w"> </span>react
+<a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a>
+<a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a><span class="c1"># オプション依存として追加（optionalDependencies）</span>
+<a id="__codelineno-25-20" name="__codelineno-25-20" href="#__codelineno-25-20"></a>bun<span class="w"> </span>add<span class="w"> </span>--optional<span class="w"> </span>fsevents
+<a id="__codelineno-25-21" name="__codelineno-25-21" href="#__codelineno-25-21"></a>
+<a id="__codelineno-25-22" name="__codelineno-25-22" href="#__codelineno-25-22"></a><span class="c1"># グローバルにインストール</span>
+<a id="__codelineno-25-23" name="__codelineno-25-23" href="#__codelineno-25-23"></a>bun<span class="w"> </span>add<span class="w"> </span>--global<span class="w"> </span>typescript
+<a id="__codelineno-25-24" name="__codelineno-25-24" href="#__codelineno-25-24"></a>
+<a id="__codelineno-25-25" name="__codelineno-25-25" href="#__codelineno-25-25"></a><span class="c1"># 省略形</span>
+<a id="__codelineno-25-26" name="__codelineno-25-26" href="#__codelineno-25-26"></a>bun<span class="w"> </span>add<span class="w"> </span>-g<span class="w"> </span>bun-types
+</code></pre></div>
+<hr />
+<h3 id="_22">パッケージを削除する<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>bun<span class="w"> </span>remove<span class="w"> </span>&lt;パッケージ名&gt;
+</code></pre></div>
+<h4 id="_23">使用例<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="c1"># パッケージを削除</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>bun<span class="w"> </span>remove<span class="w"> </span>lodash
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="c1"># 複数パッケージを一度に削除</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>bun<span class="w"> </span>remove<span class="w"> </span>eslint<span class="w"> </span>prettier
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="c1"># グローバルパッケージを削除</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>bun<span class="w"> </span>remove<span class="w"> </span>--global<span class="w"> </span>typescript
+</code></pre></div>
+<hr />
+<h3 id="_24">パッケージを更新する<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>bun<span class="w"> </span>update
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p><code>package.json</code> のバージョン範囲に従ってパッケージを更新します。</p>
+</div>
+<h4 id="_25">使用例<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="c1"># すべてのパッケージを更新</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>bun<span class="w"> </span>update
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="c1"># 特定のパッケージだけ更新</span>
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>bun<span class="w"> </span>update<span class="w"> </span>react
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="c1"># 最新バージョンに強制更新（バージョン範囲を無視）</span>
+<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>bun<span class="w"> </span>update<span class="w"> </span>--latest
+</code></pre></div>
+<hr />
+<h3 id="_26">インストール済みパッケージ一覧を確認する<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>bun<span class="w"> </span>pm<span class="w"> </span>ls
+</code></pre></div>
+<h4 id="_27">使用例<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="c1"># インストール済みパッケージを表示</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>bun<span class="w"> </span>pm<span class="w"> </span>ls
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="c1"># グローバルパッケージを表示</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>bun<span class="w"> </span>pm<span class="w"> </span>ls<span class="w"> </span>--global
+</code></pre></div>
+<hr />
+<h3 id="lockfile">lockfile を確認・管理する<a class="headerlink" href="#lockfile" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="c1"># lockfile の内容をテキスト形式で表示</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>bun<span class="w"> </span>pm<span class="w"> </span><span class="nb">hash</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="c1"># lockfile を再生成</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>bun<span class="w"> </span>install<span class="w"> </span>--frozen-lockfile
+</code></pre></div>
+<hr />
+<h2 id="_28">テストコマンド<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h2>
+<h3 id="_29">テストを実行する<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>bun<span class="w"> </span><span class="nb">test</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p><code>*.test.ts</code> / <code>*.spec.ts</code> などのテストファイルを自動検出して実行します。</p>
+</div>
+<h4 id="_30">使用例<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="c1"># すべてのテストを実行</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>bun<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="c1"># 特定のファイルのみテスト</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>bun<span class="w"> </span><span class="nb">test</span><span class="w"> </span>src/utils.test.ts
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>
+<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a><span class="c1"># ファイルパターンを指定してテスト</span>
+<a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>bun<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--testPathPattern<span class="o">=</span><span class="s2">&quot;src/.*&quot;</span>
+<a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>
+<a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a><span class="c1"># ウォッチモードでテスト（ファイル変更時に自動再実行）</span>
+<a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a>bun<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--watch
+<a id="__codelineno-34-12" name="__codelineno-34-12" href="#__codelineno-34-12"></a>
+<a id="__codelineno-34-13" name="__codelineno-34-13" href="#__codelineno-34-13"></a><span class="c1"># カバレッジを取得</span>
+<a id="__codelineno-34-14" name="__codelineno-34-14" href="#__codelineno-34-14"></a>bun<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--coverage
+<a id="__codelineno-34-15" name="__codelineno-34-15" href="#__codelineno-34-15"></a>
+<a id="__codelineno-34-16" name="__codelineno-34-16" href="#__codelineno-34-16"></a><span class="c1"># タイムアウトを設定（ミリ秒）</span>
+<a id="__codelineno-34-17" name="__codelineno-34-17" href="#__codelineno-34-17"></a>bun<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--timeout<span class="w"> </span><span class="m">10000</span>
+<a id="__codelineno-34-18" name="__codelineno-34-18" href="#__codelineno-34-18"></a>
+<a id="__codelineno-34-19" name="__codelineno-34-19" href="#__codelineno-34-19"></a><span class="c1"># 特定のテスト名を絞り込み</span>
+<a id="__codelineno-34-20" name="__codelineno-34-20" href="#__codelineno-34-20"></a>bun<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--test-name-pattern<span class="w"> </span><span class="s2">&quot;ログイン&quot;</span>
+<a id="__codelineno-34-21" name="__codelineno-34-21" href="#__codelineno-34-21"></a>
+<a id="__codelineno-34-22" name="__codelineno-34-22" href="#__codelineno-34-22"></a><span class="c1"># 並列実行数を指定</span>
+<a id="__codelineno-34-23" name="__codelineno-34-23" href="#__codelineno-34-23"></a>bun<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--rerun-each<span class="w"> </span><span class="m">3</span>
+</code></pre></div>
+<hr />
+<h2 id="_31">ビルドコマンド<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h2>
+<h3 id="_32">ビルドを実行する<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>bun<span class="w"> </span>build<span class="w"> </span>&lt;エントリーポイント&gt;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>ファイルをバンドル・ビルドしてブラウザや Node.js 向けに最適化します。</p>
+</div>
+<h4 id="_33">使用例<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="c1"># index.ts をビルドして ./dist に出力</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>bun<span class="w"> </span>build<span class="w"> </span>./index.ts<span class="w"> </span>--outdir<span class="w"> </span>./dist
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="c1"># ブラウザ向けにビルド</span>
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>bun<span class="w"> </span>build<span class="w"> </span>./src/index.ts<span class="w"> </span>--outdir<span class="w"> </span>./dist<span class="w"> </span>--target<span class="w"> </span>browser
+<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>
+<a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a><span class="c1"># Node.js 向けにビルド</span>
+<a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a>bun<span class="w"> </span>build<span class="w"> </span>./src/index.ts<span class="w"> </span>--outdir<span class="w"> </span>./dist<span class="w"> </span>--target<span class="w"> </span>node
+<a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a>
+<a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a><span class="c1"># Bun ランタイム向けにビルド</span>
+<a id="__codelineno-36-11" name="__codelineno-36-11" href="#__codelineno-36-11"></a>bun<span class="w"> </span>build<span class="w"> </span>./src/index.ts<span class="w"> </span>--outdir<span class="w"> </span>./dist<span class="w"> </span>--target<span class="w"> </span>bun
+<a id="__codelineno-36-12" name="__codelineno-36-12" href="#__codelineno-36-12"></a>
+<a id="__codelineno-36-13" name="__codelineno-36-13" href="#__codelineno-36-13"></a><span class="c1"># ミニファイ（圧縮）して出力</span>
+<a id="__codelineno-36-14" name="__codelineno-36-14" href="#__codelineno-36-14"></a>bun<span class="w"> </span>build<span class="w"> </span>./index.ts<span class="w"> </span>--outdir<span class="w"> </span>./dist<span class="w"> </span>--minify
+<a id="__codelineno-36-15" name="__codelineno-36-15" href="#__codelineno-36-15"></a>
+<a id="__codelineno-36-16" name="__codelineno-36-16" href="#__codelineno-36-16"></a><span class="c1"># ソースマップを生成</span>
+<a id="__codelineno-36-17" name="__codelineno-36-17" href="#__codelineno-36-17"></a>bun<span class="w"> </span>build<span class="w"> </span>./index.ts<span class="w"> </span>--outdir<span class="w"> </span>./dist<span class="w"> </span>--sourcemap<span class="o">=</span>external
+<a id="__codelineno-36-18" name="__codelineno-36-18" href="#__codelineno-36-18"></a>
+<a id="__codelineno-36-19" name="__codelineno-36-19" href="#__codelineno-36-19"></a><span class="c1"># 単一ファイルにバンドル</span>
+<a id="__codelineno-36-20" name="__codelineno-36-20" href="#__codelineno-36-20"></a>bun<span class="w"> </span>build<span class="w"> </span>./index.ts<span class="w"> </span>--outfile<span class="w"> </span>bundle.js
+<a id="__codelineno-36-21" name="__codelineno-36-21" href="#__codelineno-36-21"></a>
+<a id="__codelineno-36-22" name="__codelineno-36-22" href="#__codelineno-36-22"></a><span class="c1"># 外部モジュールを除外</span>
+<a id="__codelineno-36-23" name="__codelineno-36-23" href="#__codelineno-36-23"></a>bun<span class="w"> </span>build<span class="w"> </span>./index.ts<span class="w"> </span>--outdir<span class="w"> </span>./dist<span class="w"> </span>--external<span class="w"> </span>react<span class="w"> </span>--external<span class="w"> </span>react-dom
+<a id="__codelineno-36-24" name="__codelineno-36-24" href="#__codelineno-36-24"></a>
+<a id="__codelineno-36-25" name="__codelineno-36-25" href="#__codelineno-36-25"></a><span class="c1"># コード分割を有効化</span>
+<a id="__codelineno-36-26" name="__codelineno-36-26" href="#__codelineno-36-26"></a>bun<span class="w"> </span>build<span class="w"> </span>./index.ts<span class="w"> </span>--outdir<span class="w"> </span>./dist<span class="w"> </span>--splitting
+</code></pre></div>
+<hr />
+<h2 id="_34">実行・スクリプト関連コマンド<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h2>
+<h3 id="bunx">パッケージのバイナリを実行する（bunx）<a class="headerlink" href="#bunx" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>bunx<span class="w"> </span>&lt;コマンド&gt;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p><code>npx</code> の Bun 版です。パッケージをインストールせずに一時的に実行します。</p>
+</div>
+<h4 id="_35">使用例<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="c1"># create-react-app を一時実行</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>bunx<span class="w"> </span>create-react-app<span class="w"> </span>my-app
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="c1"># prettier を一時実行</span>
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>bunx<span class="w"> </span>prettier<span class="w"> </span>--write<span class="w"> </span>.
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>
+<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a><span class="c1"># eslint を一時実行</span>
+<a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a>bunx<span class="w"> </span>eslint<span class="w"> </span>src/
+<a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a>
+<a id="__codelineno-38-10" name="__codelineno-38-10" href="#__codelineno-38-10"></a><span class="c1"># 特定バージョンを指定して実行</span>
+<a id="__codelineno-38-11" name="__codelineno-38-11" href="#__codelineno-38-11"></a>bunx<span class="w"> </span>typescript@5.0.0<span class="w"> </span>--version
+</code></pre></div>
+<hr />
+<h3 id="bun-shell">シェルスクリプトを実行する（Bun Shell）<a class="headerlink" href="#bun-shell" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>bun<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;&lt;シェルスクリプト&gt;&quot;</span>
+</code></pre></div>
+<h4 id="_36">使用例<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="c1"># ファイル一覧を表示</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>bun<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;const {</span>$<span class="s2">} = require(&#39;bun&#39;); await </span>$<span class="s2">`ls -la`&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="_37">上級者向けコマンド<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h2>
+<h3 id="_38">実行可能ファイルを作成する（コンパイル）<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>bun<span class="w"> </span>build<span class="w"> </span>--compile<span class="w"> </span>&lt;エントリーポイント&gt;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>アプリケーションを単一の実行可能バイナリにコンパイルします。Node.js や Bun のインストールなしで実行可能になります。</p>
+</div>
+<h4 id="_39">使用例<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="c1"># ./index.ts を単一バイナリにコンパイル</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>bun<span class="w"> </span>build<span class="w"> </span>--compile<span class="w"> </span>./index.ts<span class="w"> </span>--outfile<span class="w"> </span>myapp
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="c1"># Windows 向けにクロスコンパイル</span>
+<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>bun<span class="w"> </span>build<span class="w"> </span>--compile<span class="w"> </span>./index.ts<span class="w"> </span>--target<span class="w"> </span>bun-windows-x64<span class="w"> </span>--outfile<span class="w"> </span>myapp.exe
+<a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a>
+<a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a><span class="c1"># macOS (Apple Silicon) 向け</span>
+<a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a>bun<span class="w"> </span>build<span class="w"> </span>--compile<span class="w"> </span>./index.ts<span class="w"> </span>--target<span class="w"> </span>bun-darwin-arm64<span class="w"> </span>--outfile<span class="w"> </span>myapp
+<a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a>
+<a id="__codelineno-42-10" name="__codelineno-42-10" href="#__codelineno-42-10"></a><span class="c1"># Linux (x64) 向け</span>
+<a id="__codelineno-42-11" name="__codelineno-42-11" href="#__codelineno-42-11"></a>bun<span class="w"> </span>build<span class="w"> </span>--compile<span class="w"> </span>./index.ts<span class="w"> </span>--target<span class="w"> </span>bun-linux-x64<span class="w"> </span>--outfile<span class="w"> </span>myapp
+<a id="__codelineno-42-12" name="__codelineno-42-12" href="#__codelineno-42-12"></a>
+<a id="__codelineno-42-13" name="__codelineno-42-13" href="#__codelineno-42-13"></a><span class="c1"># ミニファイしてコンパイル</span>
+<a id="__codelineno-42-14" name="__codelineno-42-14" href="#__codelineno-42-14"></a>bun<span class="w"> </span>build<span class="w"> </span>--compile<span class="w"> </span>--minify<span class="w"> </span>./index.ts<span class="w"> </span>--outfile<span class="w"> </span>myapp
+</code></pre></div>
+<hr />
+<h3 id="_40">ワークスペースを管理する<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="c1"># ワークスペース内のすべてのパッケージにコマンドを実行</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>bun<span class="w"> </span>run<span class="w"> </span>--filter<span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="w"> </span>&lt;スクリプト名&gt;
+</code></pre></div>
+<h4 id="_41">使用例<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="c1"># すべてのワークスペースで build を実行</span>
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>bun<span class="w"> </span>run<span class="w"> </span>--filter<span class="w"> </span><span class="s2">&quot;*&quot;</span><span class="w"> </span>build
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="c1"># 特定のワークスペースのみ実行</span>
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a>bun<span class="w"> </span>run<span class="w"> </span>--filter<span class="w"> </span><span class="s2">&quot;packages/utils&quot;</span><span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a>
+<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a><span class="c1"># ワークスペースにパッケージを追加</span>
+<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a>bun<span class="w"> </span>add<span class="w"> </span>lodash<span class="w"> </span>--filter<span class="w"> </span><span class="s2">&quot;packages/api&quot;</span>
+</code></pre></div>
+<hr />
+<h3 id="_42">キャッシュを管理する<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="c1"># キャッシュの場所を確認</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>bun<span class="w"> </span>pm<span class="w"> </span>cache
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="c1"># キャッシュを削除</span>
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>bun<span class="w"> </span>pm<span class="w"> </span>cache<span class="w"> </span>rm
+</code></pre></div>
+<hr />
+<h3 id="_43">依存関係ツリーを確認する<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>bun<span class="w"> </span>pm<span class="w"> </span>ls<span class="w"> </span>--all
+</code></pre></div>
+<hr />
+<h3 id="_44">パッケージのパスを確認する<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>bun<span class="w"> </span>pm<span class="w"> </span>bin
+</code></pre></div>
+<h4 id="_45">使用例<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="c1"># ローカルの .bin ディレクトリを表示</span>
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>bun<span class="w"> </span>pm<span class="w"> </span>bin
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>
+<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="c1"># グローバルの bin ディレクトリを表示</span>
+<a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a>bun<span class="w"> </span>pm<span class="w"> </span>bin<span class="w"> </span>--global
+</code></pre></div>
+<hr />
+<h3 id="trust">trust（信頼済みスクリプト）を管理する<a class="headerlink" href="#trust" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="c1"># 信頼済みパッケージを一覧表示</span>
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>bun<span class="w"> </span>pm<span class="w"> </span>trust<span class="w"> </span>--all
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a>
+<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="c1"># 特定パッケージを信頼済みに追加</span>
+<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a>bun<span class="w"> </span>pm<span class="w"> </span>trust<span class="w"> </span>&lt;パッケージ名&gt;
+</code></pre></div>
+<hr />
+<h2 id="_46">知ってると便利なコマンド<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h2>
+<h3 id="_47">ホットリロードで実行する<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>bun<span class="w"> </span>--hot<span class="w"> </span>&lt;ファイル名&gt;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>ファイルの変更を検知してプロセスを再起動せずにモジュールをリロードします。開発中に便利です。</p>
+</div>
+<h4 id="_48">使用例<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>bun<span class="w"> </span>--hot<span class="w"> </span>server.ts
+</code></pre></div>
+<hr />
+<h3 id="_49">ウォッチモードで実行する<a class="headerlink" href="#_49" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>bun<span class="w"> </span>--watch<span class="w"> </span>&lt;ファイル名&gt;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>ファイルの変更を検知してプロセスを再起動します。<code>--hot</code> より確実な再起動が必要なときに使います。</p>
+</div>
+<h4 id="_50">使用例<a class="headerlink" href="#_50" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>bun<span class="w"> </span>--watch<span class="w"> </span>index.ts
+</code></pre></div>
+<hr />
+<h3 id="_51">環境変数ファイルを指定して実行する<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>bun<span class="w"> </span>run<span class="w"> </span>--env-file<span class="o">=</span>&lt;ファイル名&gt;<span class="w"> </span>&lt;スクリプト&gt;
+</code></pre></div>
+<h4 id="_52">使用例<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="c1"># .env.local を読み込んで dev を実行</span>
+<a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>bun<span class="w"> </span>run<span class="w"> </span>--env-file<span class="o">=</span>.env.local<span class="w"> </span>dev
+<a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a>
+<a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a><span class="c1"># 複数の env ファイルを読み込む</span>
+<a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a>bun<span class="w"> </span>run<span class="w"> </span>--env-file<span class="o">=</span>.env<span class="w"> </span>--env-file<span class="o">=</span>.env.local<span class="w"> </span>start
+</code></pre></div>
+<hr />
+<h3 id="typescript">TypeScript の型チェックを行う<a class="headerlink" href="#typescript" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>bun<span class="w"> </span>tsc
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>TypeScript コンパイラを呼び出して型エラーをチェックします（実行はしません）。</p>
+</div>
+<hr />
+<h3 id="_53">パッケージ情報を確認する<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>bun<span class="w"> </span>pm<span class="w"> </span>pack
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>パッケージを <code>.tgz</code> ファイルとしてパックします（公開前の確認に便利）。</p>
+</div>
+<hr />
+<h3 id="_54">シェバン付きスクリプトを作成する<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h3>
+<div class="highlight"><span class="filename">myscript.ts</span><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="ch">#!/usr/bin/env bun</span>
+<a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a><span class="c1">// Bun で直接実行できるスクリプト</span>
+<a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello from Bun!&quot;</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="_55">実行権限を付与して直接実行<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>myscript.ts
+<a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a>./myscript.ts
+</code></pre></div>
+<hr />
+<h3 id="repl">REPL（対話モード）を使う<a class="headerlink" href="#repl" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>bun<span class="w"> </span>repl
+</code></pre></div>
+<h4 id="_56">使用例<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>$<span class="w"> </span>bun<span class="w"> </span>repl
+<a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a>&gt;<span class="w"> </span><span class="m">1</span><span class="w"> </span>+<span class="w"> </span><span class="m">1</span>
+<a id="__codelineno-61-3" name="__codelineno-61-3" href="#__codelineno-61-3"></a><span class="m">2</span>
+<a id="__codelineno-61-4" name="__codelineno-61-4" href="#__codelineno-61-4"></a>&gt;<span class="w"> </span>const<span class="w"> </span><span class="nv">greet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">(</span>name:<span class="w"> </span>string<span class="o">)</span><span class="w"> </span><span class="o">=</span>&gt;<span class="w"> </span><span class="sb">`</span>Hello,<span class="w"> </span><span class="si">${</span><span class="nv">name</span><span class="si">}</span>!<span class="sb">`</span>
+<a id="__codelineno-61-5" name="__codelineno-61-5" href="#__codelineno-61-5"></a>&gt;<span class="w"> </span>greet<span class="o">(</span><span class="s2">&quot;World&quot;</span><span class="o">)</span>
+<a id="__codelineno-61-6" name="__codelineno-61-6" href="#__codelineno-61-6"></a><span class="s2">&quot;Hello, World!&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="_57">よく使うオプション<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h2>
+<h3 id="_58">グローバルオプション<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>省略形</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--help</code></td>
+<td><code>-h</code></td>
+<td>ヘルプを表示</td>
+</tr>
+<tr>
+<td><code>--version</code></td>
+<td><code>-v</code></td>
+<td>バージョンを表示</td>
+</tr>
+<tr>
+<td><code>--cwd &lt;ディレクトリ&gt;</code></td>
+<td>-</td>
+<td>作業ディレクトリを変更</td>
+</tr>
+<tr>
+<td><code>--env-file &lt;ファイル&gt;</code></td>
+<td>-</td>
+<td>環境変数ファイルを指定</td>
+</tr>
+<tr>
+<td><code>--silent</code></td>
+<td>-</td>
+<td>ログ出力を抑制</td>
+</tr>
+<tr>
+<td><code>--verbose</code></td>
+<td>-</td>
+<td>詳細なログを出力</td>
+</tr>
+<tr>
+<td><code>--no-install</code></td>
+<td>-</td>
+<td>自動インストールを無効化</td>
+</tr>
+<tr>
+<td><code>--hot</code></td>
+<td>-</td>
+<td>ホットリロードを有効化</td>
+</tr>
+<tr>
+<td><code>--watch</code></td>
+<td>-</td>
+<td>ウォッチモードを有効化</td>
+</tr>
+<tr>
+<td><code>--smol</code></td>
+<td>-</td>
+<td>メモリ使用量を削減するモード</td>
+</tr>
+<tr>
+<td><code>--inspect</code></td>
+<td>-</td>
+<td>デバッガを有効化</td>
+</tr>
+<tr>
+<td><code>--inspect-brk</code></td>
+<td>-</td>
+<td>最初の行で一時停止してデバッグ</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="bun-install"><code>bun install</code> のオプション一覧<a class="headerlink" href="#bun-install" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--production</code></td>
+<td>devDependencies を除外してインストール</td>
+</tr>
+<tr>
+<td><code>--frozen-lockfile</code></td>
+<td>lockfile を変更せずにインストール（CI 向け）</td>
+</tr>
+<tr>
+<td><code>--no-cache</code></td>
+<td>キャッシュを無視してインストール</td>
+</tr>
+<tr>
+<td><code>--ignore-scripts</code></td>
+<td>postinstall スクリプトを実行しない</td>
+</tr>
+<tr>
+<td><code>--dry-run</code></td>
+<td>実際にはインストールせず確認だけ</td>
+</tr>
+<tr>
+<td><code>--backend</code></td>
+<td>インストールバックエンドを指定（<code>hardlink</code>, <code>symlink</code>, <code>copyfile</code>）</td>
+</tr>
+<tr>
+<td><code>--concurrent-scripts &lt;数&gt;</code></td>
+<td>並列実行するスクリプト数を指定</td>
+</tr>
+<tr>
+<td><code>--global</code> / <code>-g</code></td>
+<td>グローバルにインストール</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="bun-build"><code>bun build</code> のオプション一覧<a class="headerlink" href="#bun-build" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--outdir &lt;ディレクトリ&gt;</code></td>
+<td>出力先ディレクトリを指定</td>
+</tr>
+<tr>
+<td><code>--outfile &lt;ファイル&gt;</code></td>
+<td>出力ファイル名を指定</td>
+</tr>
+<tr>
+<td><code>--target &lt;ターゲット&gt;</code></td>
+<td>実行環境（<code>browser</code>, <code>node</code>, <code>bun</code>）を指定</td>
+</tr>
+<tr>
+<td><code>--minify</code></td>
+<td>すべての最小化を有効化</td>
+</tr>
+<tr>
+<td><code>--minify-whitespace</code></td>
+<td>空白のみ最小化</td>
+</tr>
+<tr>
+<td><code>--minify-identifiers</code></td>
+<td>識別子のみ最小化</td>
+</tr>
+<tr>
+<td><code>--minify-syntax</code></td>
+<td>構文のみ最小化</td>
+</tr>
+<tr>
+<td><code>--sourcemap</code></td>
+<td>ソースマップの種類（<code>none</code>, <code>inline</code>, <code>external</code>）</td>
+</tr>
+<tr>
+<td><code>--splitting</code></td>
+<td>コード分割を有効化</td>
+</tr>
+<tr>
+<td><code>--external &lt;パッケージ&gt;</code></td>
+<td>外部モジュールとして扱う</td>
+</tr>
+<tr>
+<td><code>--compile</code></td>
+<td>単一実行バイナリを生成</td>
+</tr>
+<tr>
+<td><code>--define &lt;key=value&gt;</code></td>
+<td>グローバル定数を定義</td>
+</tr>
+<tr>
+<td><code>--loader &lt;拡張子:ローダー&gt;</code></td>
+<td>カスタムローダーを指定</td>
+</tr>
+<tr>
+<td><code>--format &lt;形式&gt;</code></td>
+<td>出力形式（<code>esm</code>, <code>cjs</code>, <code>iife</code>）</td>
+</tr>
+<tr>
+<td><code>--banner &lt;テキスト&gt;</code></td>
+<td>出力ファイルの先頭にテキストを追加</td>
+</tr>
+<tr>
+<td><code>--footer &lt;テキスト&gt;</code></td>
+<td>出力ファイルの末尾にテキストを追加</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="bun-test"><code>bun test</code> のオプション一覧<a class="headerlink" href="#bun-test" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--watch</code></td>
+<td>ウォッチモードでテスト</td>
+</tr>
+<tr>
+<td><code>--coverage</code></td>
+<td>コードカバレッジを取得</td>
+</tr>
+<tr>
+<td><code>--bail &lt;数&gt;</code></td>
+<td>指定数の失敗で停止</td>
+</tr>
+<tr>
+<td><code>--timeout &lt;ミリ秒&gt;</code></td>
+<td>テストのタイムアウトを設定</td>
+</tr>
+<tr>
+<td><code>--test-name-pattern &lt;正規表現&gt;</code></td>
+<td>テスト名で絞り込み</td>
+</tr>
+<tr>
+<td><code>--rerun-each &lt;数&gt;</code></td>
+<td>各テストを指定回数繰り返す</td>
+</tr>
+<tr>
+<td><code>--only</code></td>
+<td><code>.only</code> のついたテストだけ実行</td>
+</tr>
+<tr>
+<td><code>--todo</code></td>
+<td><code>.todo</code> のついたテストも実行</td>
+</tr>
+<tr>
+<td><code>--preload &lt;ファイル&gt;</code></td>
+<td>テスト前に指定ファイルを読み込む</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="bunfigtoml">設定（bunfig.toml）<a class="headerlink" href="#bunfigtoml" title="Permanent link">&para;</a></h2>
+<p><code>bunfig.toml</code> はプロジェクトルートに配置する Bun の設定ファイルです。</p>
+<p>ファイルの場所： <code>./bunfig.toml</code>（またはホームディレクトリの <code>~/.bunfig.toml</code>）</p>
+<h3 id="_59">基本設定例<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h3>
+<div class="highlight"><span class="filename">bunfig.toml</span><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="c1"># デフォルトのテストタイムアウト（ミリ秒）</span>
+<a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a><span class="k">[test]</span>
+<a id="__codelineno-62-3" name="__codelineno-62-3" href="#__codelineno-62-3"></a><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10000</span>
+<a id="__codelineno-62-4" name="__codelineno-62-4" href="#__codelineno-62-4"></a><span class="n">coverage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-62-5" name="__codelineno-62-5" href="#__codelineno-62-5"></a><span class="n">coverageReporter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;lcov&quot;</span><span class="p">]</span>
+<a id="__codelineno-62-6" name="__codelineno-62-6" href="#__codelineno-62-6"></a><span class="n">coverageDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;coverage&quot;</span>
+<a id="__codelineno-62-7" name="__codelineno-62-7" href="#__codelineno-62-7"></a><span class="n">preload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;./test-setup.ts&quot;</span><span class="p">]</span>
+<a id="__codelineno-62-8" name="__codelineno-62-8" href="#__codelineno-62-8"></a>
+<a id="__codelineno-62-9" name="__codelineno-62-9" href="#__codelineno-62-9"></a><span class="c1"># パッケージインストールの設定</span>
+<a id="__codelineno-62-10" name="__codelineno-62-10" href="#__codelineno-62-10"></a><span class="k">[install]</span>
+<a id="__codelineno-62-11" name="__codelineno-62-11" href="#__codelineno-62-11"></a><span class="c1"># デフォルトのレジストリを変更</span>
+<a id="__codelineno-62-12" name="__codelineno-62-12" href="#__codelineno-62-12"></a><span class="n">registry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://registry.npmjs.org&quot;</span>
+<a id="__codelineno-62-13" name="__codelineno-62-13" href="#__codelineno-62-13"></a><span class="c1"># キャッシュの場所を変更</span>
+<a id="__codelineno-62-14" name="__codelineno-62-14" href="#__codelineno-62-14"></a><span class="n">cache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;~/.bun/install/cache&quot;</span>
+<a id="__codelineno-62-15" name="__codelineno-62-15" href="#__codelineno-62-15"></a><span class="c1"># グローバルインストール先</span>
+<a id="__codelineno-62-16" name="__codelineno-62-16" href="#__codelineno-62-16"></a><span class="n">globalDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;~/.bun/install/global&quot;</span>
+<a id="__codelineno-62-17" name="__codelineno-62-17" href="#__codelineno-62-17"></a><span class="c1"># 自動インストールを有効化</span>
+<a id="__codelineno-62-18" name="__codelineno-62-18" href="#__codelineno-62-18"></a><span class="n">auto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;local&quot;</span>
+<a id="__codelineno-62-19" name="__codelineno-62-19" href="#__codelineno-62-19"></a>
+<a id="__codelineno-62-20" name="__codelineno-62-20" href="#__codelineno-62-20"></a><span class="c1"># スコープ別レジストリの設定（プライベートレジストリなど）</span>
+<a id="__codelineno-62-21" name="__codelineno-62-21" href="#__codelineno-62-21"></a><span class="k">[install.scoped]</span>
+<a id="__codelineno-62-22" name="__codelineno-62-22" href="#__codelineno-62-22"></a><span class="s2">&quot;@mycompany&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;https://npm.mycompany.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;YOUR_TOKEN&quot;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-62-23" name="__codelineno-62-23" href="#__codelineno-62-23"></a>
+<a id="__codelineno-62-24" name="__codelineno-62-24" href="#__codelineno-62-24"></a><span class="c1"># lockfile の設定</span>
+<a id="__codelineno-62-25" name="__codelineno-62-25" href="#__codelineno-62-25"></a><span class="k">[install.lockfile]</span>
+<a id="__codelineno-62-26" name="__codelineno-62-26" href="#__codelineno-62-26"></a><span class="n">save</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-62-27" name="__codelineno-62-27" href="#__codelineno-62-27"></a><span class="n">print</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;bun&quot;</span>
+<a id="__codelineno-62-28" name="__codelineno-62-28" href="#__codelineno-62-28"></a>
+<a id="__codelineno-62-29" name="__codelineno-62-29" href="#__codelineno-62-29"></a><span class="c1"># ランタイム設定</span>
+<a id="__codelineno-62-30" name="__codelineno-62-30" href="#__codelineno-62-30"></a><span class="k">[run]</span>
+<a id="__codelineno-62-31" name="__codelineno-62-31" href="#__codelineno-62-31"></a><span class="n">bun-flags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;--smol&quot;</span><span class="p">]</span>
+</code></pre></div>
+<hr />
+<h3 id="_60">レジストリを変更する<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h3>
+<div class="highlight"><span class="filename">bunfig.toml</span><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a><span class="c1"># npmjs.org 以外を使う場合</span>
+<a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a><span class="k">[install]</span>
+<a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a><span class="n">registry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://registry.npmjs.org&quot;</span>
+<a id="__codelineno-63-4" name="__codelineno-63-4" href="#__codelineno-63-4"></a>
+<a id="__codelineno-63-5" name="__codelineno-63-5" href="#__codelineno-63-5"></a><span class="c1"># GitHub Packages を使う場合</span>
+<a id="__codelineno-63-6" name="__codelineno-63-6" href="#__codelineno-63-6"></a><span class="k">[install.scoped]</span>
+<a id="__codelineno-63-7" name="__codelineno-63-7" href="#__codelineno-63-7"></a><span class="s2">&quot;@myorg&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;https://npm.pkg.github.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s2">&quot;$GITHUB_TOKEN&quot;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="_61">テスト設定例<a class="headerlink" href="#_61" title="Permanent link">&para;</a></h3>
+<div class="highlight"><span class="filename">bunfig.toml</span><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a><span class="k">[test]</span>
+<a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a><span class="c1"># タイムアウト（ミリ秒）</span>
+<a id="__codelineno-64-3" name="__codelineno-64-3" href="#__codelineno-64-3"></a><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5000</span>
+<a id="__codelineno-64-4" name="__codelineno-64-4" href="#__codelineno-64-4"></a>
+<a id="__codelineno-64-5" name="__codelineno-64-5" href="#__codelineno-64-5"></a><span class="c1"># カバレッジを常に取得</span>
+<a id="__codelineno-64-6" name="__codelineno-64-6" href="#__codelineno-64-6"></a><span class="n">coverage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-64-7" name="__codelineno-64-7" href="#__codelineno-64-7"></a>
+<a id="__codelineno-64-8" name="__codelineno-64-8" href="#__codelineno-64-8"></a><span class="c1"># カバレッジレポートの形式</span>
+<a id="__codelineno-64-9" name="__codelineno-64-9" href="#__codelineno-64-9"></a><span class="n">coverageReporter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;html&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;lcov&quot;</span><span class="p">]</span>
+<a id="__codelineno-64-10" name="__codelineno-64-10" href="#__codelineno-64-10"></a>
+<a id="__codelineno-64-11" name="__codelineno-64-11" href="#__codelineno-64-11"></a><span class="c1"># カバレッジの出力先</span>
+<a id="__codelineno-64-12" name="__codelineno-64-12" href="#__codelineno-64-12"></a><span class="n">coverageDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;./coverage&quot;</span>
+<a id="__codelineno-64-13" name="__codelineno-64-13" href="#__codelineno-64-13"></a>
+<a id="__codelineno-64-14" name="__codelineno-64-14" href="#__codelineno-64-14"></a><span class="c1"># テスト前に実行するセットアップファイル</span>
+<a id="__codelineno-64-15" name="__codelineno-64-15" href="#__codelineno-64-15"></a><span class="n">preload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;./tests/setup.ts&quot;</span><span class="p">]</span>
+<a id="__codelineno-64-16" name="__codelineno-64-16" href="#__codelineno-64-16"></a>
+<a id="__codelineno-64-17" name="__codelineno-64-17" href="#__codelineno-64-17"></a><span class="c1"># rootDir を指定</span>
+<a id="__codelineno-64-18" name="__codelineno-64-18" href="#__codelineno-64-18"></a><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;./src&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="_62">頻出コマンド早引き<a class="headerlink" href="#_62" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a><span class="c1"># プロジェクト初期化</span>
+<a id="__codelineno-65-2" name="__codelineno-65-2" href="#__codelineno-65-2"></a>bun<span class="w"> </span>init<span class="w"> </span>-y
+<a id="__codelineno-65-3" name="__codelineno-65-3" href="#__codelineno-65-3"></a>
+<a id="__codelineno-65-4" name="__codelineno-65-4" href="#__codelineno-65-4"></a><span class="c1"># 依存関係インストール</span>
+<a id="__codelineno-65-5" name="__codelineno-65-5" href="#__codelineno-65-5"></a>bun<span class="w"> </span>install
+<a id="__codelineno-65-6" name="__codelineno-65-6" href="#__codelineno-65-6"></a>
+<a id="__codelineno-65-7" name="__codelineno-65-7" href="#__codelineno-65-7"></a><span class="c1"># 開発サーバー起動</span>
+<a id="__codelineno-65-8" name="__codelineno-65-8" href="#__codelineno-65-8"></a>bun<span class="w"> </span>run<span class="w"> </span>dev
+<a id="__codelineno-65-9" name="__codelineno-65-9" href="#__codelineno-65-9"></a>
+<a id="__codelineno-65-10" name="__codelineno-65-10" href="#__codelineno-65-10"></a><span class="c1"># ビルド</span>
+<a id="__codelineno-65-11" name="__codelineno-65-11" href="#__codelineno-65-11"></a>bun<span class="w"> </span>run<span class="w"> </span>build
+<a id="__codelineno-65-12" name="__codelineno-65-12" href="#__codelineno-65-12"></a>
+<a id="__codelineno-65-13" name="__codelineno-65-13" href="#__codelineno-65-13"></a><span class="c1"># テスト実行</span>
+<a id="__codelineno-65-14" name="__codelineno-65-14" href="#__codelineno-65-14"></a>bun<span class="w"> </span><span class="nb">test</span>
+<a id="__codelineno-65-15" name="__codelineno-65-15" href="#__codelineno-65-15"></a>
+<a id="__codelineno-65-16" name="__codelineno-65-16" href="#__codelineno-65-16"></a><span class="c1"># テスト（ウォッチ）</span>
+<a id="__codelineno-65-17" name="__codelineno-65-17" href="#__codelineno-65-17"></a>bun<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--watch
+<a id="__codelineno-65-18" name="__codelineno-65-18" href="#__codelineno-65-18"></a>
+<a id="__codelineno-65-19" name="__codelineno-65-19" href="#__codelineno-65-19"></a><span class="c1"># パッケージ追加</span>
+<a id="__codelineno-65-20" name="__codelineno-65-20" href="#__codelineno-65-20"></a>bun<span class="w"> </span>add<span class="w"> </span>&lt;パッケージ名&gt;
+<a id="__codelineno-65-21" name="__codelineno-65-21" href="#__codelineno-65-21"></a>
+<a id="__codelineno-65-22" name="__codelineno-65-22" href="#__codelineno-65-22"></a><span class="c1"># 開発依存パッケージ追加</span>
+<a id="__codelineno-65-23" name="__codelineno-65-23" href="#__codelineno-65-23"></a>bun<span class="w"> </span>add<span class="w"> </span>-d<span class="w"> </span>&lt;パッケージ名&gt;
+<a id="__codelineno-65-24" name="__codelineno-65-24" href="#__codelineno-65-24"></a>
+<a id="__codelineno-65-25" name="__codelineno-65-25" href="#__codelineno-65-25"></a><span class="c1"># パッケージ削除</span>
+<a id="__codelineno-65-26" name="__codelineno-65-26" href="#__codelineno-65-26"></a>bun<span class="w"> </span>remove<span class="w"> </span>&lt;パッケージ名&gt;
+<a id="__codelineno-65-27" name="__codelineno-65-27" href="#__codelineno-65-27"></a>
+<a id="__codelineno-65-28" name="__codelineno-65-28" href="#__codelineno-65-28"></a><span class="c1"># パッケージ更新</span>
+<a id="__codelineno-65-29" name="__codelineno-65-29" href="#__codelineno-65-29"></a>bun<span class="w"> </span>update
+<a id="__codelineno-65-30" name="__codelineno-65-30" href="#__codelineno-65-30"></a>
+<a id="__codelineno-65-31" name="__codelineno-65-31" href="#__codelineno-65-31"></a><span class="c1"># ファイルをホットリロードで実行</span>
+<a id="__codelineno-65-32" name="__codelineno-65-32" href="#__codelineno-65-32"></a>bun<span class="w"> </span>--hot<span class="w"> </span>index.ts
+<a id="__codelineno-65-33" name="__codelineno-65-33" href="#__codelineno-65-33"></a>
+<a id="__codelineno-65-34" name="__codelineno-65-34" href="#__codelineno-65-34"></a><span class="c1"># 単一バイナリにコンパイル</span>
+<a id="__codelineno-65-35" name="__codelineno-65-35" href="#__codelineno-65-35"></a>bun<span class="w"> </span>build<span class="w"> </span>--compile<span class="w"> </span>./index.ts<span class="w"> </span>--outfile<span class="w"> </span>myapp
+<a id="__codelineno-65-36" name="__codelineno-65-36" href="#__codelineno-65-36"></a>
+<a id="__codelineno-65-37" name="__codelineno-65-37" href="#__codelineno-65-37"></a><span class="c1"># キャッシュ削除</span>
+<a id="__codelineno-65-38" name="__codelineno-65-38" href="#__codelineno-65-38"></a>bun<span class="w"> </span>pm<span class="w"> </span>cache<span class="w"> </span>rm
+<a id="__codelineno-65-39" name="__codelineno-65-39" href="#__codelineno-65-39"></a>
+<a id="__codelineno-65-40" name="__codelineno-65-40" href="#__codelineno-65-40"></a><span class="c1"># Bun 自体を更新</span>
+<a id="__codelineno-65-41" name="__codelineno-65-41" href="#__codelineno-65-41"></a>bun<span class="w"> </span>upgrade
+</code></pre></div>
+<hr />
+<div class="admonition info">
+<p class="admonition-title">公式ドキュメント</p>
+<p>詳細は <a href="https://bun.sh/docs">Bun 公式ドキュメント</a> を参照してください。</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.indexes", "content.code.copy", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

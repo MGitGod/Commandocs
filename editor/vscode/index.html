@@ -1,0 +1,4741 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../vim/">
+      
+      
+        <link rel="next" href="../../environment/docker-compose/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>VSCode - CommanDocs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vscode" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../.." title="CommanDocs" class="md-header__button md-logo" aria-label="CommanDocs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CommanDocs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              VSCode
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="ダークモードに切り替え"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="ダークモードに切り替え" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="ライトモードに切り替え"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="ライトモードに切り替え" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  CommanDocs
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ai/claude-code-cli/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../vim/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Editor
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../environment/docker-compose/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Environment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../framework/hono/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Framework
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../languages/nodejs-npm/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Languages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../private/memo/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Private
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../terminal/bash/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Terminal
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tools/bun/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CommanDocs" class="md-nav__button md-logo" aria-label="CommanDocs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CommanDocs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CommanDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/claude-code-cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/gemini-cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gemini CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ai/ollama/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ollama CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Editor
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Editor
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VSCode
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VSCode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インストール・アップデート・アンインストール
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="インストール・アップデート・アンインストール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インストールする
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="インストールする">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アップデートする
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="アップデートする">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アンインストールする
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="アンインストールする">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本コマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基本コマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ファイル・フォルダを開く
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ファイル・フォルダを開く">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バージョンを確認する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="バージョンを確認する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ヘルプを表示する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ヘルプを表示する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        よく使うコマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="よく使うコマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        新しいウィンドウで開く
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="新しいウィンドウで開く">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        既存ウィンドウで開く
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="既存ウィンドウで開く">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ファイルの差分を表示する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ファイルの差分を表示する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        指定行・列にジャンプして開く
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="指定行・列にジャンプして開く">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        拡張機能をインストールする
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="拡張機能をインストールする">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        拡張機能をアンインストールする
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="拡張機能をアンインストールする">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インストール済み拡張機能を一覧表示する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="インストール済み拡張機能を一覧表示する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コマンドの完了を待機する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="コマンドの完了を待機する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        上級者向けコマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="上級者向けコマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ステータス情報を表示する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ステータス情報を表示する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ログレベルを指定して起動する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ログレベルを指定して起動する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        起動プロファイルを計測する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="起動プロファイルを計測する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        すべての拡張機能を無効にして起動する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="すべての拡張機能を無効にして起動する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPU アクセラレーションを無効にして起動する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GPU アクセラレーションを無効にして起動する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユーザーデータディレクトリを指定して起動する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ユーザーデータディレクトリを指定して起動する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        拡張機能ディレクトリを指定して起動する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="拡張機能ディレクトリを指定して起動する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        詳細ログを出力する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="詳細ログを出力する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        知ってると便利なコマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="知ってると便利なコマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        標準入力からファイルを開く
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="標準入力からファイルを開く">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ワークスペースファイルを開く
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ワークスペースファイルを開く">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#settings-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コマンドラインから設定を変更する（settings CLI）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="コマンドラインから設定を変更する（settings CLI）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        トンネル（リモートアクセス）を作成する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="トンネル（リモートアクセス）を作成する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vsix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        拡張機能の VSIX ファイルをインストールする
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="拡張機能の VSIX ファイルをインストールする">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        キーボードショートカット（よく使うもの）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="キーボードショートカット（よく使うもの）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="オプション">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション一覧
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#settingsjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        settings.json のパスを確認する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="settings.json のパスを確認する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#settingsjson_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        よく使う settings.json の設定例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keybindingsjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        keybindings.json のパスを確認する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="keybindings.json のパスを確認する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tasksjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        tasks.json でタスクを自動化する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launchjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        launch.json でデバッグ設定をする
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        頻出コマンド早引き
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Environment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../environment/docker-compose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Compose
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../environment/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../environment/wsl-ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WSL (Ubuntu)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Framework
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Framework
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../framework/hono/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hono
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Languages
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Languages
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/nodejs-npm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Node.js / npm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Private
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Private
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../private/memo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    非公開メモ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terminal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Terminal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminal/bash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminal/cmd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows CMD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminal/lazyvim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LazyVim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminal/linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminal/powershell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PowerShell
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminal/tmux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    tmux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminal/warp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Warp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/bun/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bun
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git / GitHub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/mkdocs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MkDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/uv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    uv
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インストール・アップデート・アンインストール
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="インストール・アップデート・アンインストール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インストールする
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="インストールする">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アップデートする
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="アップデートする">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アンインストールする
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="アンインストールする">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本コマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基本コマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ファイル・フォルダを開く
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ファイル・フォルダを開く">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バージョンを確認する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="バージョンを確認する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ヘルプを表示する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ヘルプを表示する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        よく使うコマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="よく使うコマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        新しいウィンドウで開く
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="新しいウィンドウで開く">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        既存ウィンドウで開く
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="既存ウィンドウで開く">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ファイルの差分を表示する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ファイルの差分を表示する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        指定行・列にジャンプして開く
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="指定行・列にジャンプして開く">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        拡張機能をインストールする
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="拡張機能をインストールする">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        拡張機能をアンインストールする
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="拡張機能をアンインストールする">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インストール済み拡張機能を一覧表示する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="インストール済み拡張機能を一覧表示する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コマンドの完了を待機する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="コマンドの完了を待機する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        上級者向けコマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="上級者向けコマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ステータス情報を表示する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ステータス情報を表示する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ログレベルを指定して起動する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ログレベルを指定して起動する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        起動プロファイルを計測する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="起動プロファイルを計測する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        すべての拡張機能を無効にして起動する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="すべての拡張機能を無効にして起動する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPU アクセラレーションを無効にして起動する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GPU アクセラレーションを無効にして起動する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ユーザーデータディレクトリを指定して起動する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ユーザーデータディレクトリを指定して起動する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        拡張機能ディレクトリを指定して起動する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="拡張機能ディレクトリを指定して起動する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        詳細ログを出力する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="詳細ログを出力する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        知ってると便利なコマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="知ってると便利なコマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        標準入力からファイルを開く
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="標準入力からファイルを開く">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ワークスペースファイルを開く
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ワークスペースファイルを開く">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#settings-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コマンドラインから設定を変更する（settings CLI）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="コマンドラインから設定を変更する（settings CLI）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        トンネル（リモートアクセス）を作成する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="トンネル（リモートアクセス）を作成する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vsix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        拡張機能の VSIX ファイルをインストールする
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="拡張機能の VSIX ファイルをインストールする">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        キーボードショートカット（よく使うもの）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="キーボードショートカット（よく使うもの）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="オプション">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション一覧
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#settingsjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        settings.json のパスを確認する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="settings.json のパスを確認する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#settingsjson_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        よく使う settings.json の設定例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keybindingsjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        keybindings.json のパスを確認する
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="keybindings.json のパスを確認する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tasksjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        tasks.json でタスクを自動化する
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launchjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        launch.json でデバッグ設定をする
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        頻出コマンド早引き
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="vscode">VSCode<a class="headerlink" href="#vscode" title="Permanent link">&para;</a></h1>
+<p>Visual Studio Code（VSCode）の <code>code</code> CLI コマンド・キーボードショートカット・設定のまとめです。
+ターミナルから使える <code>code</code> コマンドを中心に、エディタ操作全般を網羅しています。</p>
+<hr />
+<h2 id="_1">インストール・アップデート・アンインストール<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">インストールする<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS (Homebrew)</label><label for="__tabbed_1_2">Ubuntu / Debian</label><label for="__tabbed_1_3">Windows (winget)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>visual-studio-code
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Microsoft の GPG キーとリポジトリを追加してインストール</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>wget<span class="w"> </span>-qO-<span class="w"> </span>https://packages.microsoft.com/keys/microsoft.asc<span class="w"> </span><span class="p">|</span><span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>&gt;<span class="w"> </span>packages.microsoft.gpg
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>sudo<span class="w"> </span>install<span class="w"> </span>-D<span class="w"> </span>-o<span class="w"> </span>root<span class="w"> </span>-g<span class="w"> </span>root<span class="w"> </span>-m<span class="w"> </span><span class="m">644</span><span class="w"> </span>packages.microsoft.gpg<span class="w"> </span>/etc/apt/keyrings/packages.microsoft.gpg
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] \</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="s2">  https://packages.microsoft.com/repos/code stable main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/vscode.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>code
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">winget</span> <span class="n">install</span> <span class="n">Microsoft</span><span class="p">.</span><span class="n">VisualStudioCode</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>macOS では Homebrew Cask でインストールするのが最も簡単です。
+Linux ではリポジトリを追加することで、以後 <code>apt upgrade</code> でアップデートも自動化できます。</p>
+</div>
+<h4 id="_3">使用例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># macOS：インストール後に PATH を通す（ターミナルで code コマンドを使えるようにする）</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="c1"># VSCode のコマンドパレット（Cmd+Shift+P）から</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1"># &quot;Shell Command: Install &#39;code&#39; command in PATH&quot; を実行する</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># PATH が通っているか確認する</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>which<span class="w"> </span>code
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># → /usr/local/bin/code などが表示されれば OK</span>
+</code></pre></div>
+<hr />
+<h3 id="_4">アップデートする<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">macOS (Homebrew)</label><label for="__tabbed_2_2">Ubuntu / Debian</label><label for="__tabbed_2_3">Windows (winget)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>brew<span class="w"> </span>upgrade<span class="w"> </span>--cask<span class="w"> </span>visual-studio-code
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>code
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">winget</span> <span class="n">upgrade</span> <span class="n">Microsoft</span><span class="p">.</span><span class="n">VisualStudioCode</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>GUI からは <strong>ヘルプ → 更新の確認</strong> でもアップデートできます。
+自動更新が有効な環境では、再起動時に自動で最新版が適用されます。</p>
+</div>
+<h4 id="_5">使用例<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># 現在インストールされているバージョンを確認する</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>code<span class="w"> </span>--version
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># → 1.90.0</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1">#    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1">#    x64</span>
+</code></pre></div>
+<hr />
+<h3 id="_6">アンインストールする<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS (Homebrew)</label><label for="__tabbed_3_2">Ubuntu / Debian</label><label for="__tabbed_3_3">Windows (winget)</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>brew<span class="w"> </span>uninstall<span class="w"> </span>--cask<span class="w"> </span>visual-studio-code
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>code
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">winget</span> <span class="n">uninstall</span> <span class="n">Microsoft</span><span class="p">.</span><span class="n">VisualStudioCode</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>設定・拡張機能のデータは <code>~/.vscode</code> および <code>~/Library/Application Support/Code</code>（macOS）に残ります。
+完全に削除したい場合はこれらのディレクトリも手動で削除してください。</p>
+</div>
+<h4 id="_7">使用例<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># macOS で設定ファイルも含めて完全削除する</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>rm<span class="w"> </span>-rf<span class="w"> </span>~/.vscode
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>rm<span class="w"> </span>-rf<span class="w"> </span>~/Library/Application<span class="se">\ </span>Support/Code
+</code></pre></div>
+<hr />
+<h2 id="_8">基本コマンド<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="_9">ファイル・フォルダを開く<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>code<span class="w"> </span>&lt;ファイルまたはディレクトリのパス&gt;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>最もよく使う基本コマンドです。
+パスにはファイル・ディレクトリどちらも指定できます。
+引数なしで <code>code</code> を実行すると VSCode が起動するだけです。</p>
+</div>
+<h4 id="_10">使用例<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># カレントディレクトリをプロジェクトとして開く</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>code<span class="w"> </span>.
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="c1"># 特定のファイルを開く</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>code<span class="w"> </span>README.md
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1"># 複数のファイルを同時に開く</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>code<span class="w"> </span>index.html<span class="w"> </span>style.css<span class="w"> </span>app.js
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="c1"># ホームディレクトリのプロジェクトフォルダを開く</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>code<span class="w"> </span>~/projects/my-app
+</code></pre></div>
+<hr />
+<h3 id="_11">バージョンを確認する<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>code<span class="w"> </span>--version
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>インストールされている VSCode のバージョン・コミットハッシュ・アーキテクチャを表示します。
+バグ報告や環境確認のときに使います。</p>
+</div>
+<h4 id="_12">使用例<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>code<span class="w"> </span>--version
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="c1"># → 1.90.0</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="c1">#    abcdef1234567890abcdef1234567890abcdef12</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="c1">#    x64</span>
+</code></pre></div>
+<hr />
+<h3 id="_13">ヘルプを表示する<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>code<span class="w"> </span>--help
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>使用できるすべての CLI オプションとその説明を表示します。
+使い方を忘れたときに役立ちます。</p>
+</div>
+<h4 id="_14">使用例<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>code<span class="w"> </span>--help
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="c1"># → Usage: code [options][paths...]</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="c1">#    オプション一覧が出力される</span>
+</code></pre></div>
+<hr />
+<h2 id="_15">よく使うコマンド<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<h3 id="_16">新しいウィンドウで開く<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>code<span class="w"> </span>--new-window<span class="w"> </span>&lt;パス&gt;
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="c1"># 短縮形</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>code<span class="w"> </span>-n<span class="w"> </span>&lt;パス&gt;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>既存のウィンドウには影響せず、新しいウィンドウを起動してファイル・フォルダを開きます。
+複数プロジェクトを並行して作業するときに便利です。</p>
+</div>
+<h4 id="_17">使用例<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># 新しいウィンドウでカレントディレクトリを開く</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>code<span class="w"> </span>-n<span class="w"> </span>.
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="c1"># 新しいウィンドウで別プロジェクトを開く</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>code<span class="w"> </span>-n<span class="w"> </span>~/projects/another-app
+</code></pre></div>
+<hr />
+<h3 id="_18">既存ウィンドウで開く<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>code<span class="w"> </span>--reuse-window<span class="w"> </span>&lt;パス&gt;
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="c1"># 短縮形</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>code<span class="w"> </span>-r<span class="w"> </span>&lt;パス&gt;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>最後にフォーカスしていた VSCode ウィンドウでファイルを開きます。
+新しいウィンドウを増やしたくないときに使います。</p>
+</div>
+<h4 id="_19">使用例<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1"># 既存ウィンドウで設定ファイルを開く</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>code<span class="w"> </span>-r<span class="w"> </span>~/.zshrc
+</code></pre></div>
+<hr />
+<h3 id="_20">ファイルの差分を表示する<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>code<span class="w"> </span>--diff<span class="w"> </span>&lt;ファイル1&gt;<span class="w"> </span>&lt;ファイル2&gt;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>2 つのファイルの差分を VSCode の diff ビューアで表示します。
+<code>git diff</code> の代わりにビジュアルで確認したいときに便利です。</p>
+</div>
+<h4 id="_21">使用例<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c1"># 2 ファイルの差分を確認する</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>code<span class="w"> </span>--diff<span class="w"> </span>old_config.json<span class="w"> </span>new_config.json
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="c1"># git のマージコンフリクト解消に使う</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>code<span class="w"> </span>--diff<span class="w"> </span>HEAD~1:README.md<span class="w"> </span>README.md
+</code></pre></div>
+<hr />
+<h3 id="_22">指定行・列にジャンプして開く<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>code<span class="w"> </span>--goto<span class="w"> </span>&lt;ファイル:行<span class="o">[</span>:列<span class="o">]</span>&gt;
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="c1"># 短縮形</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>code<span class="w"> </span>-g<span class="w"> </span>&lt;ファイル:行<span class="o">[</span>:列<span class="o">]</span>&gt;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>ファイルを開いたとき、指定した行・列にカーソルを移動します。
+エラーログのパスをそのままコピーして開くときに役立ちます。</p>
+</div>
+<h4 id="_23">使用例<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1"># app.js の 42 行目を開く</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>code<span class="w"> </span>-g<span class="w"> </span>app.js:42
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="c1"># app.js の 42 行目・10 列目を開く</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>code<span class="w"> </span>-g<span class="w"> </span>app.js:42:10
+</code></pre></div>
+<hr />
+<h3 id="_24">拡張機能をインストールする<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>code<span class="w"> </span>--install-extension<span class="w"> </span>&lt;拡張機能ID&gt;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>拡張機能の ID（<code>発行者.拡張機能名</code> の形式）を指定してインストールします。
+複数指定する場合はフラグを繰り返します。
+拡張機能 ID は Marketplace のページ URL や <code>--list-extensions</code> で確認できます。</p>
+</div>
+<h4 id="_25">使用例<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="c1"># Python 拡張機能をインストールする</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>code<span class="w"> </span>--install-extension<span class="w"> </span>ms-python.python
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="c1"># GitLens をインストールする</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>code<span class="w"> </span>--install-extension<span class="w"> </span>eamodio.gitlens
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="c1"># 複数まとめてインストールする</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>code<span class="w"> </span>--install-extension<span class="w"> </span>ms-python.python<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a><span class="w">     </span>--install-extension<span class="w"> </span>dbaeumer.vscode-eslint<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a><span class="w">     </span>--install-extension<span class="w"> </span>esbenp.prettier-vscode
+</code></pre></div>
+<hr />
+<h3 id="_26">拡張機能をアンインストールする<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>code<span class="w"> </span>--uninstall-extension<span class="w"> </span>&lt;拡張機能ID&gt;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>指定した拡張機能をアンインストールします。
+ID は <code>--list-extensions</code> で確認できます。</p>
+</div>
+<h4 id="_27">使用例<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="c1"># ESLint 拡張機能をアンインストールする</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>code<span class="w"> </span>--uninstall-extension<span class="w"> </span>dbaeumer.vscode-eslint
+</code></pre></div>
+<hr />
+<h3 id="_28">インストール済み拡張機能を一覧表示する<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>code<span class="w"> </span>--list-extensions
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>現在インストールされているすべての拡張機能の ID を一覧表示します。
+環境のバックアップや新環境への移行に活用できます。</p>
+</div>
+<h4 id="_29">使用例<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="c1"># 一覧をファイルに保存する（環境バックアップ）</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>code<span class="w"> </span>--list-extensions<span class="w"> </span>&gt;<span class="w"> </span>extensions.txt
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="c1"># バージョン番号も含めて一覧表示する</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>code<span class="w"> </span>--list-extensions<span class="w"> </span>--show-versions
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>
+<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="c1"># 保存した一覧から一括インストールする</span>
+<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a>cat<span class="w"> </span>extensions.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-L1<span class="w"> </span>code<span class="w"> </span>--install-extension
+</code></pre></div>
+<hr />
+<h3 id="_30">コマンドの完了を待機する<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>code<span class="w"> </span>--wait<span class="w"> </span>&lt;ファイル&gt;
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="c1"># 短縮形</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>code<span class="w"> </span>-w<span class="w"> </span>&lt;ファイル&gt;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>VSCode でファイルを開き、そのウィンドウが閉じられるまでターミナルをブロックします。
+git のコミットメッセージエディタや、スクリプトから VSCode を呼び出すときに使います。</p>
+</div>
+<h4 id="_31">使用例<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="c1"># git のエディタとして VSCode を設定する</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span><span class="s2">&quot;code --wait&quot;</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="c1"># git commit のメッセージを VSCode で編集する</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>git<span class="w"> </span>commit
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="c1"># → VSCode が開き、閉じると git commit が続行される</span>
+</code></pre></div>
+<hr />
+<h2 id="_32">上級者向けコマンド<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h2>
+<h3 id="_33">ステータス情報を表示する<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>code<span class="w"> </span>--status
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>実行中のプロセス・ログパス・拡張機能ホストの状態など、診断に役立つ情報を出力します。
+VSCode が重い・動作がおかしいときのデバッグに使います。</p>
+</div>
+<h4 id="_34">使用例<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>code<span class="w"> </span>--status
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="c1"># → Version: 1.90.0</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="c1">#    OS Version: Darwin x64 ...</span>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="c1">#    CPUs: ...</span>
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="c1">#    Memory: ...</span>
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="c1">#    ログパスや実行中プロセスが表示される</span>
+</code></pre></div>
+<hr />
+<h3 id="_35">ログレベルを指定して起動する<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>code<span class="w"> </span>--log<span class="w"> </span>&lt;level&gt;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>起動時のログの詳細レベルを指定します。
+<code>critical</code> / <code>error</code> / <code>warn</code> / <code>info</code> / <code>debug</code> / <code>trace</code> / <code>off</code> が指定できます。
+問題の調査をするときは <code>debug</code> や <code>trace</code> が役立ちます。</p>
+</div>
+<h4 id="_36">使用例<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="c1"># デバッグログを有効にして起動する</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>code<span class="w"> </span>--log<span class="w"> </span>debug
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="c1"># ログを無効にして起動する（パフォーマンス優先）</span>
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>code<span class="w"> </span>--log<span class="w"> </span>off
+</code></pre></div>
+<hr />
+<h3 id="_37">起動プロファイルを計測する<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>code<span class="w"> </span>--prof-startup
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>起動時のパフォーマンスプロファイルを記録します。
+VSCode の起動が遅い原因を調査するときに使います。
+プロファイルデータは一時ディレクトリに保存されます。</p>
+</div>
+<h4 id="_38">使用例<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="c1"># 起動プロファイルを取得する</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>code<span class="w"> </span>--prof-startup<span class="w"> </span>.
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="c1"># プロファイルファイルが保存されたパスを確認する</span>
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>code<span class="w"> </span>--status<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;Logs Path&quot;</span>
+</code></pre></div>
+<hr />
+<h3 id="_39">すべての拡張機能を無効にして起動する<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>code<span class="w"> </span>--disable-extensions
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>インストール済みの拡張機能をすべて無効にして VSCode を起動します。
+「拡張機能が原因で動作がおかしい」と疑われる場合の切り分けに使います。</p>
+</div>
+<h4 id="_40">使用例<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="c1"># 拡張機能なしで起動して問題を切り分ける</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>code<span class="w"> </span>--disable-extensions<span class="w"> </span>.
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="c1"># 特定の拡張機能だけ無効にして起動する</span>
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>code<span class="w"> </span>--disable-extension<span class="w"> </span>ms-python.python<span class="w"> </span>.
+</code></pre></div>
+<hr />
+<h3 id="gpu">GPU アクセラレーションを無効にして起動する<a class="headerlink" href="#gpu" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>code<span class="w"> </span>--disable-gpu
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>GPU レンダリングを無効にして起動します。
+画面のちらつき・クラッシュ・描画崩れが発生するときの回避策として有効です。</p>
+</div>
+<h4 id="_41">使用例<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="c1"># GPU 無効で起動する（描画崩れが起きるときに試す）</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>code<span class="w"> </span>--disable-gpu<span class="w"> </span>.
+</code></pre></div>
+<hr />
+<h3 id="_42">ユーザーデータディレクトリを指定して起動する<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>code<span class="w"> </span>--user-data-dir<span class="w"> </span>&lt;ディレクトリパス&gt;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>設定・キーバインド・ワークスペース情報を保存するディレクトリを変更して起動します。
+設定を分離した「クリーンな VSCode 環境」で動作確認したいときに使います。</p>
+</div>
+<h4 id="_43">使用例<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="c1"># 一時ディレクトリを使って設定ゼロの状態で起動する</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>code<span class="w"> </span>--user-data-dir<span class="w"> </span>/tmp/vscode-clean<span class="w"> </span>.
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="c1"># プロジェクト専用の設定で起動する</span>
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>code<span class="w"> </span>--user-data-dir<span class="w"> </span>~/vscode-profiles/work<span class="w"> </span>.
+</code></pre></div>
+<hr />
+<h3 id="_44">拡張機能ディレクトリを指定して起動する<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>code<span class="w"> </span>--extensions-dir<span class="w"> </span>&lt;ディレクトリパス&gt;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>拡張機能のインストール先ディレクトリを変更して起動します。
+<code>--user-data-dir</code> と組み合わせることで、完全に独立した VSCode 環境を作れます。</p>
+</div>
+<h4 id="_45">使用例<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="c1"># 拡張機能ディレクトリと設定ディレクトリを両方カスタムにする</span>
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>code<span class="w"> </span>--user-data-dir<span class="w"> </span>/tmp/vscode-test<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="w">     </span>--extensions-dir<span class="w"> </span>/tmp/vscode-test-ext<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a><span class="w">     </span>.
+</code></pre></div>
+<hr />
+<h3 id="_46">詳細ログを出力する<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>code<span class="w"> </span>--verbose
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>すべての操作の詳細ログをターミナルに出力します。
+問題の診断やデバッグ時に <code>--log debug</code> と合わせて使うと効果的です。</p>
+</div>
+<h4 id="_47">使用例<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="c1"># 詳細ログを有効にして起動する</span>
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>code<span class="w"> </span>--verbose<span class="w"> </span>.
+</code></pre></div>
+<hr />
+<h2 id="_48">知ってると便利なコマンド<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h2>
+<h3 id="_49">標準入力からファイルを開く<a class="headerlink" href="#_49" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>&lt;コマンド&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>code<span class="w"> </span>-
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>パイプでつなぐことで、標準入力の内容を新しいファイルとして VSCode で開きます。
+コマンドの出力結果をすぐに確認・編集したいときに便利です。</p>
+</div>
+<h4 id="_50">使用例<a class="headerlink" href="#_50" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="c1"># ls の結果を VSCode で開く</span>
+<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>ls<span class="w"> </span>-la<span class="w"> </span><span class="p">|</span><span class="w"> </span>code<span class="w"> </span>-
+<a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>
+<a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a><span class="c1"># curl の結果（JSON など）を VSCode で開く</span>
+<a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a>curl<span class="w"> </span>https://api.example.com/data<span class="w"> </span><span class="p">|</span><span class="w"> </span>code<span class="w"> </span>-
+<a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a>
+<a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a><span class="c1"># git log を VSCode で見る</span>
+<a id="__codelineno-51-8" name="__codelineno-51-8" href="#__codelineno-51-8"></a>git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w"> </span><span class="p">|</span><span class="w"> </span>code<span class="w"> </span>-
+</code></pre></div>
+<hr />
+<h3 id="_51">ワークスペースファイルを開く<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>code<span class="w"> </span>&lt;ファイル名&gt;.code-workspace
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p><code>.code-workspace</code> ファイルを開くことで、複数フォルダを含むマルチルートワークスペースを起動できます。
+モノレポや関連プロジェクトを同時に管理するときに便利です。</p>
+</div>
+<h4 id="_52">使用例<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="c1"># ワークスペースファイルを開く</span>
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>code<span class="w"> </span>myproject.code-workspace
+</code></pre></div>
+<hr />
+<h3 id="settings-cli">コマンドラインから設定を変更する（settings CLI）<a class="headerlink" href="#settings-cli" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="c1"># settings.json のパスを直接開いて編集する</span>
+<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>code<span class="w"> </span>~/.config/Code/User/settings.json
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p><code>settings.json</code> を直接開いて編集することで、GUI を使わずに設定変更できます。
+パスは OS によって異なります（後述の「設定」セクションも参照）。</p>
+</div>
+<h4 id="_53">使用例<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="c1"># macOS の settings.json を開く</span>
+<a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>code<span class="w"> </span>~/Library/Application<span class="se">\ </span>Support/Code/User/settings.json
+<a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a>
+<a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a><span class="c1"># Linux の settings.json を開く</span>
+<a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a>code<span class="w"> </span>~/.config/Code/User/settings.json
+<a id="__codelineno-55-6" name="__codelineno-55-6" href="#__codelineno-55-6"></a>
+<a id="__codelineno-55-7" name="__codelineno-55-7" href="#__codelineno-55-7"></a><span class="c1"># Windows の settings.json を開く（PowerShell）</span>
+<a id="__codelineno-55-8" name="__codelineno-55-8" href="#__codelineno-55-8"></a>code<span class="w"> </span><span class="nv">$env</span>:APPDATA<span class="se">\C</span>ode<span class="se">\U</span>ser<span class="se">\s</span>ettings.json
+</code></pre></div>
+<hr />
+<h3 id="_54">トンネル（リモートアクセス）を作成する<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>code<span class="w"> </span>tunnel
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>VSCode Server のトンネルを作成し、ブラウザや別の VSCode から遠隔マシンに接続できるようにします。
+SSH が使えない環境でのリモート開発に役立ちます（要 GitHub / Microsoft アカウント）。</p>
+</div>
+<h4 id="_55">使用例<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="c1"># トンネルを起動する（初回はアカウント認証が必要）</span>
+<a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a>code<span class="w"> </span>tunnel
+<a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a>
+<a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a><span class="c1"># トンネルをサービスとして登録する（ログアウト後も動作）</span>
+<a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a>code<span class="w"> </span>tunnel<span class="w"> </span>service<span class="w"> </span>install
+<a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a>
+<a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a><span class="c1"># トンネルの状態を確認する</span>
+<a id="__codelineno-57-8" name="__codelineno-57-8" href="#__codelineno-57-8"></a>code<span class="w"> </span>tunnel<span class="w"> </span>status
+<a id="__codelineno-57-9" name="__codelineno-57-9" href="#__codelineno-57-9"></a>
+<a id="__codelineno-57-10" name="__codelineno-57-10" href="#__codelineno-57-10"></a><span class="c1"># トンネルサービスを停止・削除する</span>
+<a id="__codelineno-57-11" name="__codelineno-57-11" href="#__codelineno-57-11"></a>code<span class="w"> </span>tunnel<span class="w"> </span>service<span class="w"> </span>uninstall
+</code></pre></div>
+<hr />
+<h3 id="vsix">拡張機能の VSIX ファイルをインストールする<a class="headerlink" href="#vsix" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>code<span class="w"> </span>--install-extension<span class="w"> </span>&lt;ファイル名&gt;.vsix
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>Marketplace を経由せず、ローカルの <code>.vsix</code> ファイルから拡張機能をインストールします。
+オフライン環境・社内配布・ベータ版テストに使います。</p>
+</div>
+<h4 id="_56">使用例<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="c1"># ローカルの VSIX ファイルをインストールする</span>
+<a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a>code<span class="w"> </span>--install-extension<span class="w"> </span>my-extension-1.0.0.vsix
+<a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a>
+<a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a><span class="c1"># VSIX ファイルをエクスポートする（拡張機能開発者向け）</span>
+<a id="__codelineno-59-5" name="__codelineno-59-5" href="#__codelineno-59-5"></a><span class="c1"># vsce コマンドが必要（npm install -g @vscode/vsce）</span>
+<a id="__codelineno-59-6" name="__codelineno-59-6" href="#__codelineno-59-6"></a>vsce<span class="w"> </span>package
+<a id="__codelineno-59-7" name="__codelineno-59-7" href="#__codelineno-59-7"></a><span class="c1"># → my-extension-1.0.0.vsix が生成される</span>
+</code></pre></div>
+<hr />
+<h3 id="_57">キーボードショートカット（よく使うもの）<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>CLI コマンドではありませんが、日常作業で特に重要なショートカットをまとめています。
+<code>Ctrl</code> は macOS では <code>Cmd</code> に読み替えてください。</p>
+</div>
+<h4 id="_58">使用例<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:5"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">ファイル操作</label><label for="__tabbed_4_2">編集・カーソル操作</label><label for="__tabbed_4_3">検索・置換</label><label for="__tabbed_4_4">表示・レイアウト</label><label for="__tabbed_4_5">コード補完・IntelliSense</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>Ctrl+P              クイックオープン（ファイル名検索）
+<a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>Ctrl+Shift+P        コマンドパレットを開く
+<a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a>Ctrl+N              新規ファイルを作成する
+<a id="__codelineno-60-4" name="__codelineno-60-4" href="#__codelineno-60-4"></a>Ctrl+S              上書き保存する
+<a id="__codelineno-60-5" name="__codelineno-60-5" href="#__codelineno-60-5"></a>Ctrl+Shift+S        名前を付けて保存する
+<a id="__codelineno-60-6" name="__codelineno-60-6" href="#__codelineno-60-6"></a>Ctrl+W              タブを閉じる
+<a id="__codelineno-60-7" name="__codelineno-60-7" href="#__codelineno-60-7"></a>Ctrl+K Ctrl+W       すべてのタブを閉じる
+<a id="__codelineno-60-8" name="__codelineno-60-8" href="#__codelineno-60-8"></a>Ctrl+Z              元に戻す
+<a id="__codelineno-60-9" name="__codelineno-60-9" href="#__codelineno-60-9"></a>Ctrl+Shift+Z        やり直す
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>Ctrl+/              行コメントをトグルする
+<a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a>Ctrl+Shift+/        ブロックコメントをトグルする
+<a id="__codelineno-61-3" name="__codelineno-61-3" href="#__codelineno-61-3"></a>Alt+Up / Alt+Down   行を上下に移動する
+<a id="__codelineno-61-4" name="__codelineno-61-4" href="#__codelineno-61-4"></a>Shift+Alt+Up/Down   行を上下にコピーする
+<a id="__codelineno-61-5" name="__codelineno-61-5" href="#__codelineno-61-5"></a>Ctrl+D              同じ単語を連続選択する（マルチカーソル）
+<a id="__codelineno-61-6" name="__codelineno-61-6" href="#__codelineno-61-6"></a>Ctrl+Shift+L        同じ単語をすべて選択する
+<a id="__codelineno-61-7" name="__codelineno-61-7" href="#__codelineno-61-7"></a>Ctrl+G              指定行にジャンプする
+<a id="__codelineno-61-8" name="__codelineno-61-8" href="#__codelineno-61-8"></a>Home / End          行頭 / 行末に移動する
+<a id="__codelineno-61-9" name="__codelineno-61-9" href="#__codelineno-61-9"></a>Ctrl+Home / End     ファイルの先頭 / 末尾に移動する
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>Ctrl+F              現在のファイル内を検索する
+<a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a>Ctrl+H              現在のファイル内で置換する
+<a id="__codelineno-62-3" name="__codelineno-62-3" href="#__codelineno-62-3"></a>Ctrl+Shift+F        ワークスペース全体を検索する
+<a id="__codelineno-62-4" name="__codelineno-62-4" href="#__codelineno-62-4"></a>Ctrl+Shift+H        ワークスペース全体で置換する
+<a id="__codelineno-62-5" name="__codelineno-62-5" href="#__codelineno-62-5"></a>F3 / Shift+F3       次 / 前の検索結果に移動する
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>Ctrl+B              サイドバーを開閉する
+<a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a>Ctrl+`              統合ターミナルを開閉する
+<a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a>Ctrl+Shift+`        新しいターミナルを開く
+<a id="__codelineno-63-4" name="__codelineno-63-4" href="#__codelineno-63-4"></a>Ctrl+\ （バックスラッシュ）  エディタを分割する
+<a id="__codelineno-63-5" name="__codelineno-63-5" href="#__codelineno-63-5"></a>Ctrl+1 / 2 / 3      分割したエディタを切り替える
+<a id="__codelineno-63-6" name="__codelineno-63-6" href="#__codelineno-63-6"></a>Ctrl+= / -          フォントサイズを拡大 / 縮小する
+<a id="__codelineno-63-7" name="__codelineno-63-7" href="#__codelineno-63-7"></a>Ctrl+Shift+E        エクスプローラーを開く
+<a id="__codelineno-63-8" name="__codelineno-63-8" href="#__codelineno-63-8"></a>Ctrl+Shift+G        ソース管理パネルを開く
+<a id="__codelineno-63-9" name="__codelineno-63-9" href="#__codelineno-63-9"></a>Ctrl+Shift+X        拡張機能パネルを開く
+<a id="__codelineno-63-10" name="__codelineno-63-10" href="#__codelineno-63-10"></a>Ctrl+Shift+D        デバッグパネルを開く
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>Ctrl+Space          補完候補を表示する
+<a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a>Ctrl+Shift+Space    シグネチャヘルプを表示する
+<a id="__codelineno-64-3" name="__codelineno-64-3" href="#__codelineno-64-3"></a>F12                 定義に移動する
+<a id="__codelineno-64-4" name="__codelineno-64-4" href="#__codelineno-64-4"></a>Alt+F12             定義をピーク表示する
+<a id="__codelineno-64-5" name="__codelineno-64-5" href="#__codelineno-64-5"></a>Shift+F12           参照をすべて表示する
+<a id="__codelineno-64-6" name="__codelineno-64-6" href="#__codelineno-64-6"></a>F2                  シンボルをリネームする
+<a id="__codelineno-64-7" name="__codelineno-64-7" href="#__codelineno-64-7"></a>Shift+Alt+F         ドキュメントをフォーマットする
+</code></pre></div>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="_59">オプション<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h2>
+<h3 id="_60">オプション一覧<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>オプション</th>
+<th>短縮形</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--new-window</code></td>
+<td><code>-n</code></td>
+<td>新しいウィンドウで開く</td>
+</tr>
+<tr>
+<td><code>--reuse-window</code></td>
+<td><code>-r</code></td>
+<td>既存のウィンドウで開く</td>
+</tr>
+<tr>
+<td><code>--diff &lt;file1&gt; &lt;file2&gt;</code></td>
+<td>-</td>
+<td>2 ファイルの差分を表示する</td>
+</tr>
+<tr>
+<td><code>--merge &lt;base&gt; &lt;theirs&gt; &lt;ours&gt; &lt;result&gt;</code></td>
+<td>-</td>
+<td>マージエディタを開く</td>
+</tr>
+<tr>
+<td><code>--goto &lt;file:line[:col]&gt;</code></td>
+<td><code>-g</code></td>
+<td>指定行・列を開く</td>
+</tr>
+<tr>
+<td><code>--wait</code></td>
+<td><code>-w</code></td>
+<td>ウィンドウが閉じられるまで待機する</td>
+</tr>
+<tr>
+<td><code>--install-extension &lt;id&gt;</code></td>
+<td>-</td>
+<td>拡張機能をインストールする</td>
+</tr>
+<tr>
+<td><code>--uninstall-extension &lt;id&gt;</code></td>
+<td>-</td>
+<td>拡張機能をアンインストールする</td>
+</tr>
+<tr>
+<td><code>--list-extensions</code></td>
+<td>-</td>
+<td>インストール済み拡張機能を一覧表示する</td>
+</tr>
+<tr>
+<td><code>--show-versions</code></td>
+<td>-</td>
+<td><code>--list-extensions</code> と組み合わせてバージョンも表示する</td>
+</tr>
+<tr>
+<td><code>--disable-extensions</code></td>
+<td>-</td>
+<td>すべての拡張機能を無効にして起動する</td>
+</tr>
+<tr>
+<td><code>--disable-extension &lt;id&gt;</code></td>
+<td>-</td>
+<td>指定の拡張機能だけ無効にして起動する</td>
+</tr>
+<tr>
+<td><code>--disable-gpu</code></td>
+<td>-</td>
+<td>GPU アクセラレーションを無効にする</td>
+</tr>
+<tr>
+<td><code>--user-data-dir &lt;dir&gt;</code></td>
+<td>-</td>
+<td>ユーザーデータディレクトリを変更する</td>
+</tr>
+<tr>
+<td><code>--extensions-dir &lt;dir&gt;</code></td>
+<td>-</td>
+<td>拡張機能ディレクトリを変更する</td>
+</tr>
+<tr>
+<td><code>--log &lt;level&gt;</code></td>
+<td>-</td>
+<td>ログレベルを指定する</td>
+</tr>
+<tr>
+<td><code>--verbose</code></td>
+<td>-</td>
+<td>詳細ログを出力する</td>
+</tr>
+<tr>
+<td><code>--prof-startup</code></td>
+<td>-</td>
+<td>起動プロファイルを記録する</td>
+</tr>
+<tr>
+<td><code>--status</code></td>
+<td>-</td>
+<td>ステータス情報を表示する</td>
+</tr>
+<tr>
+<td><code>--version</code></td>
+<td><code>-v</code></td>
+<td>バージョンを表示する</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td><code>-h</code></td>
+<td>ヘルプを表示する</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_61">設定<a class="headerlink" href="#_61" title="Permanent link">&para;</a></h2>
+<h3 id="settingsjson">settings.json のパスを確認する<a class="headerlink" href="#settingsjson" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a><span class="c1"># macOS</span>
+<a id="__codelineno-65-2" name="__codelineno-65-2" href="#__codelineno-65-2"></a>~/Library/Application<span class="w"> </span>Support/Code/User/settings.json
+<a id="__codelineno-65-3" name="__codelineno-65-3" href="#__codelineno-65-3"></a>
+<a id="__codelineno-65-4" name="__codelineno-65-4" href="#__codelineno-65-4"></a><span class="c1"># Linux</span>
+<a id="__codelineno-65-5" name="__codelineno-65-5" href="#__codelineno-65-5"></a>~/.config/Code/User/settings.json
+<a id="__codelineno-65-6" name="__codelineno-65-6" href="#__codelineno-65-6"></a>
+<a id="__codelineno-65-7" name="__codelineno-65-7" href="#__codelineno-65-7"></a><span class="c1"># Windows</span>
+<a id="__codelineno-65-8" name="__codelineno-65-8" href="#__codelineno-65-8"></a>%APPDATA%<span class="se">\C</span>ode<span class="se">\U</span>ser<span class="se">\s</span>ettings.json
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>VSCode のすべての設定は <code>settings.json</code> に JSON 形式で保存されます。
+GUI の設定画面（<code>Ctrl+,</code>）で変更した内容はこのファイルに反映されます。</p>
+</div>
+<h4 id="_62">使用例<a class="headerlink" href="#_62" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a><span class="c1"># settings.json を VSCode で開く（macOS）</span>
+<a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a>code<span class="w"> </span>~/Library/Application<span class="se">\ </span>Support/Code/User/settings.json
+<a id="__codelineno-66-3" name="__codelineno-66-3" href="#__codelineno-66-3"></a>
+<a id="__codelineno-66-4" name="__codelineno-66-4" href="#__codelineno-66-4"></a><span class="c1"># settings.json を VSCode で開く（Linux）</span>
+<a id="__codelineno-66-5" name="__codelineno-66-5" href="#__codelineno-66-5"></a>code<span class="w"> </span>~/.config/Code/User/settings.json
+</code></pre></div>
+<hr />
+<h3 id="settingsjson_1">よく使う settings.json の設定例<a class="headerlink" href="#settingsjson_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a><span class="p">{</span>
+<a id="__codelineno-67-2" name="__codelineno-67-2" href="#__codelineno-67-2"></a><span class="w">  </span><span class="c1">// フォントサイズを変更する</span>
+<a id="__codelineno-67-3" name="__codelineno-67-3" href="#__codelineno-67-3"></a><span class="w">  </span><span class="nt">&quot;editor.fontSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
+<a id="__codelineno-67-4" name="__codelineno-67-4" href="#__codelineno-67-4"></a>
+<a id="__codelineno-67-5" name="__codelineno-67-5" href="#__codelineno-67-5"></a><span class="w">  </span><span class="c1">// フォントファミリーを指定する</span>
+<a id="__codelineno-67-6" name="__codelineno-67-6" href="#__codelineno-67-6"></a><span class="w">  </span><span class="nt">&quot;editor.fontFamily&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&#39;JetBrains Mono&#39;, &#39;Fira Code&#39;, monospace&quot;</span><span class="p">,</span>
+<a id="__codelineno-67-7" name="__codelineno-67-7" href="#__codelineno-67-7"></a>
+<a id="__codelineno-67-8" name="__codelineno-67-8" href="#__codelineno-67-8"></a><span class="w">  </span><span class="c1">// リガチャ（合字）を有効にする</span>
+<a id="__codelineno-67-9" name="__codelineno-67-9" href="#__codelineno-67-9"></a><span class="w">  </span><span class="nt">&quot;editor.fontLigatures&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-67-10" name="__codelineno-67-10" href="#__codelineno-67-10"></a>
+<a id="__codelineno-67-11" name="__codelineno-67-11" href="#__codelineno-67-11"></a><span class="w">  </span><span class="c1">// タブをスペースに変換する</span>
+<a id="__codelineno-67-12" name="__codelineno-67-12" href="#__codelineno-67-12"></a><span class="w">  </span><span class="nt">&quot;editor.insertSpaces&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-67-13" name="__codelineno-67-13" href="#__codelineno-67-13"></a>
+<a id="__codelineno-67-14" name="__codelineno-67-14" href="#__codelineno-67-14"></a><span class="w">  </span><span class="c1">// タブ幅を 2 スペースにする</span>
+<a id="__codelineno-67-15" name="__codelineno-67-15" href="#__codelineno-67-15"></a><span class="w">  </span><span class="nt">&quot;editor.tabSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-67-16" name="__codelineno-67-16" href="#__codelineno-67-16"></a>
+<a id="__codelineno-67-17" name="__codelineno-67-17" href="#__codelineno-67-17"></a><span class="w">  </span><span class="c1">// 保存時に自動フォーマットする</span>
+<a id="__codelineno-67-18" name="__codelineno-67-18" href="#__codelineno-67-18"></a><span class="w">  </span><span class="nt">&quot;editor.formatOnSave&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-67-19" name="__codelineno-67-19" href="#__codelineno-67-19"></a>
+<a id="__codelineno-67-20" name="__codelineno-67-20" href="#__codelineno-67-20"></a><span class="w">  </span><span class="c1">// 保存時に末尾の空白を削除する</span>
+<a id="__codelineno-67-21" name="__codelineno-67-21" href="#__codelineno-67-21"></a><span class="w">  </span><span class="nt">&quot;files.trimTrailingWhitespace&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-67-22" name="__codelineno-67-22" href="#__codelineno-67-22"></a>
+<a id="__codelineno-67-23" name="__codelineno-67-23" href="#__codelineno-67-23"></a><span class="w">  </span><span class="c1">// 保存時に末尾に改行を追加する</span>
+<a id="__codelineno-67-24" name="__codelineno-67-24" href="#__codelineno-67-24"></a><span class="w">  </span><span class="nt">&quot;files.insertFinalNewline&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-67-25" name="__codelineno-67-25" href="#__codelineno-67-25"></a>
+<a id="__codelineno-67-26" name="__codelineno-67-26" href="#__codelineno-67-26"></a><span class="w">  </span><span class="c1">// 自動保存を設定する（off / afterDelay / onFocusChange / onWindowChange）</span>
+<a id="__codelineno-67-27" name="__codelineno-67-27" href="#__codelineno-67-27"></a><span class="w">  </span><span class="nt">&quot;files.autoSave&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;afterDelay&quot;</span><span class="p">,</span>
+<a id="__codelineno-67-28" name="__codelineno-67-28" href="#__codelineno-67-28"></a><span class="w">  </span><span class="nt">&quot;files.autoSaveDelay&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span>
+<a id="__codelineno-67-29" name="__codelineno-67-29" href="#__codelineno-67-29"></a>
+<a id="__codelineno-67-30" name="__codelineno-67-30" href="#__codelineno-67-30"></a><span class="w">  </span><span class="c1">// ミニマップを非表示にする</span>
+<a id="__codelineno-67-31" name="__codelineno-67-31" href="#__codelineno-67-31"></a><span class="w">  </span><span class="nt">&quot;editor.minimap.enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-67-32" name="__codelineno-67-32" href="#__codelineno-67-32"></a>
+<a id="__codelineno-67-33" name="__codelineno-67-33" href="#__codelineno-67-33"></a><span class="w">  </span><span class="c1">// 行末の表示形式を統一する（LF に固定）</span>
+<a id="__codelineno-67-34" name="__codelineno-67-34" href="#__codelineno-67-34"></a><span class="w">  </span><span class="nt">&quot;files.eol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;\n&quot;</span><span class="p">,</span>
+<a id="__codelineno-67-35" name="__codelineno-67-35" href="#__codelineno-67-35"></a>
+<a id="__codelineno-67-36" name="__codelineno-67-36" href="#__codelineno-67-36"></a><span class="w">  </span><span class="c1">// ターミナルのフォントサイズを変更する</span>
+<a id="__codelineno-67-37" name="__codelineno-67-37" href="#__codelineno-67-37"></a><span class="w">  </span><span class="nt">&quot;terminal.integrated.fontSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span>
+<a id="__codelineno-67-38" name="__codelineno-67-38" href="#__codelineno-67-38"></a>
+<a id="__codelineno-67-39" name="__codelineno-67-39" href="#__codelineno-67-39"></a><span class="w">  </span><span class="c1">// デフォルトのフォーマッタを指定する（Prettier など）</span>
+<a id="__codelineno-67-40" name="__codelineno-67-40" href="#__codelineno-67-40"></a><span class="w">  </span><span class="nt">&quot;editor.defaultFormatter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;esbenp.prettier-vscode&quot;</span><span class="p">,</span>
+<a id="__codelineno-67-41" name="__codelineno-67-41" href="#__codelineno-67-41"></a>
+<a id="__codelineno-67-42" name="__codelineno-67-42" href="#__codelineno-67-42"></a><span class="w">  </span><span class="c1">// ブラケットのカラーペアリングを有効にする</span>
+<a id="__codelineno-67-43" name="__codelineno-67-43" href="#__codelineno-67-43"></a><span class="w">  </span><span class="nt">&quot;editor.bracketPairColorization.enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<a id="__codelineno-67-44" name="__codelineno-67-44" href="#__codelineno-67-44"></a>
+<a id="__codelineno-67-45" name="__codelineno-67-45" href="#__codelineno-67-45"></a><span class="w">  </span><span class="c1">// 空白文字を表示する</span>
+<a id="__codelineno-67-46" name="__codelineno-67-46" href="#__codelineno-67-46"></a><span class="w">  </span><span class="nt">&quot;editor.renderWhitespace&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boundary&quot;</span><span class="p">,</span>
+<a id="__codelineno-67-47" name="__codelineno-67-47" href="#__codelineno-67-47"></a>
+<a id="__codelineno-67-48" name="__codelineno-67-48" href="#__codelineno-67-48"></a><span class="w">  </span><span class="c1">// ワードラップを有効にする</span>
+<a id="__codelineno-67-49" name="__codelineno-67-49" href="#__codelineno-67-49"></a><span class="w">  </span><span class="nt">&quot;editor.wordWrap&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;on&quot;</span>
+<a id="__codelineno-67-50" name="__codelineno-67-50" href="#__codelineno-67-50"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h3 id="keybindingsjson">keybindings.json のパスを確認する<a class="headerlink" href="#keybindingsjson" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a><span class="c1"># macOS</span>
+<a id="__codelineno-68-2" name="__codelineno-68-2" href="#__codelineno-68-2"></a>~/Library/Application<span class="w"> </span>Support/Code/User/keybindings.json
+<a id="__codelineno-68-3" name="__codelineno-68-3" href="#__codelineno-68-3"></a>
+<a id="__codelineno-68-4" name="__codelineno-68-4" href="#__codelineno-68-4"></a><span class="c1"># Linux</span>
+<a id="__codelineno-68-5" name="__codelineno-68-5" href="#__codelineno-68-5"></a>~/.config/Code/User/keybindings.json
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p>キーバインドのカスタマイズは <code>keybindings.json</code> で行います。
+<code>Ctrl+K Ctrl+S</code> または コマンドパレットから「キーボードショートカットを開く (JSON)」で開けます。</p>
+</div>
+<h4 id="_63">使用例<a class="headerlink" href="#_63" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a><span class="c1">// keybindings.json の記述例</span>
+<a id="__codelineno-69-2" name="__codelineno-69-2" href="#__codelineno-69-2"></a><span class="p">[</span>
+<a id="__codelineno-69-3" name="__codelineno-69-3" href="#__codelineno-69-3"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-69-4" name="__codelineno-69-4" href="#__codelineno-69-4"></a><span class="w">    </span><span class="c1">// Ctrl+Shift+T で新しいターミナルを開く（上書き設定の例）</span>
+<a id="__codelineno-69-5" name="__codelineno-69-5" href="#__codelineno-69-5"></a><span class="w">    </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ctrl+shift+t&quot;</span><span class="p">,</span>
+<a id="__codelineno-69-6" name="__codelineno-69-6" href="#__codelineno-69-6"></a><span class="w">    </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;workbench.action.terminal.new&quot;</span>
+<a id="__codelineno-69-7" name="__codelineno-69-7" href="#__codelineno-69-7"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-69-8" name="__codelineno-69-8" href="#__codelineno-69-8"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-69-9" name="__codelineno-69-9" href="#__codelineno-69-9"></a><span class="w">    </span><span class="c1">// Ctrl+Alt+F でファイル全体をフォーマットする</span>
+<a id="__codelineno-69-10" name="__codelineno-69-10" href="#__codelineno-69-10"></a><span class="w">    </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ctrl+alt+f&quot;</span><span class="p">,</span>
+<a id="__codelineno-69-11" name="__codelineno-69-11" href="#__codelineno-69-11"></a><span class="w">    </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;editor.action.formatDocument&quot;</span>
+<a id="__codelineno-69-12" name="__codelineno-69-12" href="#__codelineno-69-12"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-69-13" name="__codelineno-69-13" href="#__codelineno-69-13"></a><span class="p">]</span>
+</code></pre></div>
+<hr />
+<h3 id="tasksjson">tasks.json でタスクを自動化する<a class="headerlink" href="#tasksjson" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a><span class="c1">// .vscode/tasks.json</span>
+<a id="__codelineno-70-2" name="__codelineno-70-2" href="#__codelineno-70-2"></a><span class="p">{</span>
+<a id="__codelineno-70-3" name="__codelineno-70-3" href="#__codelineno-70-3"></a><span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.0.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-70-4" name="__codelineno-70-4" href="#__codelineno-70-4"></a><span class="w">  </span><span class="nt">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-70-5" name="__codelineno-70-5" href="#__codelineno-70-5"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-70-6" name="__codelineno-70-6" href="#__codelineno-70-6"></a><span class="w">      </span><span class="c1">// タスク名</span>
+<a id="__codelineno-70-7" name="__codelineno-70-7" href="#__codelineno-70-7"></a><span class="w">      </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MkDocs サーバーを起動する&quot;</span><span class="p">,</span>
+<a id="__codelineno-70-8" name="__codelineno-70-8" href="#__codelineno-70-8"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shell&quot;</span><span class="p">,</span>
+<a id="__codelineno-70-9" name="__codelineno-70-9" href="#__codelineno-70-9"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mkdocs serve&quot;</span><span class="p">,</span>
+<a id="__codelineno-70-10" name="__codelineno-70-10" href="#__codelineno-70-10"></a><span class="w">      </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-70-11" name="__codelineno-70-11" href="#__codelineno-70-11"></a><span class="w">        </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;build&quot;</span><span class="p">,</span>
+<a id="__codelineno-70-12" name="__codelineno-70-12" href="#__codelineno-70-12"></a><span class="w">        </span><span class="nt">&quot;isDefault&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-70-13" name="__codelineno-70-13" href="#__codelineno-70-13"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-70-14" name="__codelineno-70-14" href="#__codelineno-70-14"></a><span class="w">      </span><span class="nt">&quot;presentation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-70-15" name="__codelineno-70-15" href="#__codelineno-70-15"></a><span class="w">        </span><span class="nt">&quot;reveal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;always&quot;</span><span class="p">,</span>
+<a id="__codelineno-70-16" name="__codelineno-70-16" href="#__codelineno-70-16"></a><span class="w">        </span><span class="nt">&quot;panel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;new&quot;</span>
+<a id="__codelineno-70-17" name="__codelineno-70-17" href="#__codelineno-70-17"></a><span class="w">      </span><span class="p">}</span>
+<a id="__codelineno-70-18" name="__codelineno-70-18" href="#__codelineno-70-18"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-70-19" name="__codelineno-70-19" href="#__codelineno-70-19"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-70-20" name="__codelineno-70-20" href="#__codelineno-70-20"></a><span class="p">}</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p><code>Ctrl+Shift+B</code> でデフォルトビルドタスクを実行できます。
+MkDocs・npm スクリプト・テスト実行など、よく使うコマンドを登録しておくと便利です。</p>
+</div>
+<hr />
+<h3 id="launchjson">launch.json でデバッグ設定をする<a class="headerlink" href="#launchjson" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a><span class="c1">// .vscode/launch.json</span>
+<a id="__codelineno-71-2" name="__codelineno-71-2" href="#__codelineno-71-2"></a><span class="p">{</span>
+<a id="__codelineno-71-3" name="__codelineno-71-3" href="#__codelineno-71-3"></a><span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-71-4" name="__codelineno-71-4" href="#__codelineno-71-4"></a><span class="w">  </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-71-5" name="__codelineno-71-5" href="#__codelineno-71-5"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-71-6" name="__codelineno-71-6" href="#__codelineno-71-6"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Python: 現在のファイル&quot;</span><span class="p">,</span>
+<a id="__codelineno-71-7" name="__codelineno-71-7" href="#__codelineno-71-7"></a><span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;debugpy&quot;</span><span class="p">,</span>
+<a id="__codelineno-71-8" name="__codelineno-71-8" href="#__codelineno-71-8"></a><span class="w">      </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<a id="__codelineno-71-9" name="__codelineno-71-9" href="#__codelineno-71-9"></a><span class="w">      </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${file}&quot;</span><span class="p">,</span>
+<a id="__codelineno-71-10" name="__codelineno-71-10" href="#__codelineno-71-10"></a><span class="w">      </span><span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integratedTerminal&quot;</span>
+<a id="__codelineno-71-11" name="__codelineno-71-11" href="#__codelineno-71-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-71-12" name="__codelineno-71-12" href="#__codelineno-71-12"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-71-13" name="__codelineno-71-13" href="#__codelineno-71-13"></a><span class="p">}</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">説明</p>
+<p><code>F5</code> でデバッグを開始できます。
+<code>${file}</code> は現在開いているファイルのパスに展開されます。</p>
+</div>
+<hr />
+<h2 id="_64">頻出コマンド早引き<a class="headerlink" href="#_64" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a><span class="c1"># カレントディレクトリを開く（最もよく使う）</span>
+<a id="__codelineno-72-2" name="__codelineno-72-2" href="#__codelineno-72-2"></a>code<span class="w"> </span>.
+<a id="__codelineno-72-3" name="__codelineno-72-3" href="#__codelineno-72-3"></a>
+<a id="__codelineno-72-4" name="__codelineno-72-4" href="#__codelineno-72-4"></a><span class="c1"># 新しいウィンドウで開く</span>
+<a id="__codelineno-72-5" name="__codelineno-72-5" href="#__codelineno-72-5"></a>code<span class="w"> </span>-n<span class="w"> </span>.
+<a id="__codelineno-72-6" name="__codelineno-72-6" href="#__codelineno-72-6"></a>
+<a id="__codelineno-72-7" name="__codelineno-72-7" href="#__codelineno-72-7"></a><span class="c1"># ファイルの差分を確認する</span>
+<a id="__codelineno-72-8" name="__codelineno-72-8" href="#__codelineno-72-8"></a>code<span class="w"> </span>--diff<span class="w"> </span>&lt;ファイル1&gt;<span class="w"> </span>&lt;ファイル2&gt;
+<a id="__codelineno-72-9" name="__codelineno-72-9" href="#__codelineno-72-9"></a>
+<a id="__codelineno-72-10" name="__codelineno-72-10" href="#__codelineno-72-10"></a><span class="c1"># 指定行を開く</span>
+<a id="__codelineno-72-11" name="__codelineno-72-11" href="#__codelineno-72-11"></a>code<span class="w"> </span>-g<span class="w"> </span>&lt;ファイル&gt;:&lt;行&gt;
+<a id="__codelineno-72-12" name="__codelineno-72-12" href="#__codelineno-72-12"></a>
+<a id="__codelineno-72-13" name="__codelineno-72-13" href="#__codelineno-72-13"></a><span class="c1"># 拡張機能をインストールする</span>
+<a id="__codelineno-72-14" name="__codelineno-72-14" href="#__codelineno-72-14"></a>code<span class="w"> </span>--install-extension<span class="w"> </span>&lt;拡張機能ID&gt;
+<a id="__codelineno-72-15" name="__codelineno-72-15" href="#__codelineno-72-15"></a>
+<a id="__codelineno-72-16" name="__codelineno-72-16" href="#__codelineno-72-16"></a><span class="c1"># インストール済み拡張機能を一覧表示してファイルに保存する</span>
+<a id="__codelineno-72-17" name="__codelineno-72-17" href="#__codelineno-72-17"></a>code<span class="w"> </span>--list-extensions<span class="w"> </span>&gt;<span class="w"> </span>extensions.txt
+<a id="__codelineno-72-18" name="__codelineno-72-18" href="#__codelineno-72-18"></a>
+<a id="__codelineno-72-19" name="__codelineno-72-19" href="#__codelineno-72-19"></a><span class="c1"># 保存済み一覧から一括インストールする</span>
+<a id="__codelineno-72-20" name="__codelineno-72-20" href="#__codelineno-72-20"></a>cat<span class="w"> </span>extensions.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>-L1<span class="w"> </span>code<span class="w"> </span>--install-extension
+<a id="__codelineno-72-21" name="__codelineno-72-21" href="#__codelineno-72-21"></a>
+<a id="__codelineno-72-22" name="__codelineno-72-22" href="#__codelineno-72-22"></a><span class="c1"># 拡張機能なしで起動する（トラブルシューティング）</span>
+<a id="__codelineno-72-23" name="__codelineno-72-23" href="#__codelineno-72-23"></a>code<span class="w"> </span>--disable-extensions<span class="w"> </span>.
+<a id="__codelineno-72-24" name="__codelineno-72-24" href="#__codelineno-72-24"></a>
+<a id="__codelineno-72-25" name="__codelineno-72-25" href="#__codelineno-72-25"></a><span class="c1"># git コミットメッセージエディタを VSCode にする</span>
+<a id="__codelineno-72-26" name="__codelineno-72-26" href="#__codelineno-72-26"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>core.editor<span class="w"> </span><span class="s2">&quot;code --wait&quot;</span>
+<a id="__codelineno-72-27" name="__codelineno-72-27" href="#__codelineno-72-27"></a>
+<a id="__codelineno-72-28" name="__codelineno-72-28" href="#__codelineno-72-28"></a><span class="c1"># 標準入力の内容を VSCode で開く</span>
+<a id="__codelineno-72-29" name="__codelineno-72-29" href="#__codelineno-72-29"></a>&lt;コマンド&gt;<span class="w"> </span><span class="p">|</span><span class="w"> </span>code<span class="w"> </span>-
+<a id="__codelineno-72-30" name="__codelineno-72-30" href="#__codelineno-72-30"></a>
+<a id="__codelineno-72-31" name="__codelineno-72-31" href="#__codelineno-72-31"></a><span class="c1"># バージョン確認</span>
+<a id="__codelineno-72-32" name="__codelineno-72-32" href="#__codelineno-72-32"></a>code<span class="w"> </span>--version
+<a id="__codelineno-72-33" name="__codelineno-72-33" href="#__codelineno-72-33"></a>
+<a id="__codelineno-72-34" name="__codelineno-72-34" href="#__codelineno-72-34"></a><span class="c1"># ステータス確認（重い・おかしいとき）</span>
+<a id="__codelineno-72-35" name="__codelineno-72-35" href="#__codelineno-72-35"></a>code<span class="w"> </span>--status
+</code></pre></div>
+<hr />
+<div class="admonition info">
+<p class="admonition-title">公式ドキュメント</p>
+<ul>
+<li><a href="https://code.visualstudio.com/docs">Visual Studio Code ドキュメント（英語）</a></li>
+<li><a href="https://code.visualstudio.com/docs/editor/command-line">VS Code CLI リファレンス</a></li>
+<li><a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">キーボードショートカット（macOS）</a></li>
+<li><a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">キーボードショートカット（Windows）</a></li>
+<li><a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf">キーボードショートカット（Linux）</a></li>
+<li><a href="https://marketplace.visualstudio.com/vscode">拡張機能 Marketplace</a></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.indexes", "content.code.copy", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

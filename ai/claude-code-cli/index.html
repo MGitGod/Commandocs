@@ -1,0 +1,4884 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../gemini-cli/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Claude Code CLI - CommanDocs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#claude-code-cli" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../.." title="CommanDocs" class="md-header__button md-logo" aria-label="CommanDocs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CommanDocs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Claude Code CLI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="ダークモードに切り替え"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="ダークモードに切り替え" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="ライトモードに切り替え"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="ライトモードに切り替え" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="タブ" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  CommanDocs
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../editor/vim/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Editor
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../environment/docker-compose/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Environment
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../framework/hono/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Framework
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../languages/nodejs-npm/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Languages
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../private/memo/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Private
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../terminal/bash/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Terminal
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tools/bun/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CommanDocs" class="md-nav__button md-logo" aria-label="CommanDocs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CommanDocs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CommanDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code CLI
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claude Code CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インストール・アップデート・アンインストール
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="インストール・アップデート・アンインストール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インストール
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アップデート
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アンインストール
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本コマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基本コマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        起動
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        終了
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        認証
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        よく使うスラッシュコマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="よく使うスラッシュコマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コンテキスト管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セッション操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コスト・使用量確認
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        モデル切り替え
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        情報確認・ヘルプ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        よく使うプロンプト入力パターン
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="よく使うプロンプト入力パターン">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ファイル参照
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シェルコマンドの直接実行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックグラウンド実行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        サイドクエスチョン（処理中でも質問可能）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        上級者向けコマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="上級者向けコマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        プランモード
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マルチエージェント・バッチ処理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ループ実行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ワークツリー（隔離環境）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セキュリティレビュー
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インサイト分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        リモートコントロール
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        デバッグスキル
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        知ってると便利なコマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="知ってると便利なコマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ファスト（高速）モード
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vim モード
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ボイス入力
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コピー
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        エクスポート
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ターミナル設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        カラー設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コンテキスト追加
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        スキル一覧
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claudemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLAUDE.md 初期化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        メモリ管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP 管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IDE 連携
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PR コメント確認
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パーミッション設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フック確認
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        キーボードショートカット
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="キーボードショートカット">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        全般操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        テキスト編集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        複数行入力
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション（CLI フラグ）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="オプション（CLI フラグ）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セッション管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        プリントモード（非インタラクティブ）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        モデル・思考レベル
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        システムプロンプトのカスタマイズ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パーミッション・セキュリティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP・プラグイン・外部連携
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        出力・フォーマット
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        エージェント・サブエージェント
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        リモート・その他
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定ファイルの構成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#settingsjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        settings.json の設定例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        カスタムスキルの作成
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="カスタムスキルの作成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        スキルのフロントマター一覧
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        カスタムサブエージェントの作成
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        環境変数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="環境変数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        モデル・パフォーマンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bash・タイムアウト
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        機能のオン・オフ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        認証・プロバイダー
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        トラブルシューティング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="トラブルシューティング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        よくある問題と解決策
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        デバッグコマンドまとめ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考リンク
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gemini-cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gemini CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ollama/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ollama CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Editor
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Editor
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../editor/vim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../editor/vscode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VSCode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Environment
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../environment/docker-compose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Compose
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../environment/docker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../environment/wsl-ubuntu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WSL (Ubuntu)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Framework
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Framework
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../framework/hono/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hono
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Languages
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Languages
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/nodejs-npm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Node.js / npm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../languages/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Private
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Private
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../private/memo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    非公開メモ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terminal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Terminal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminal/bash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bash
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminal/cmd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Windows CMD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminal/lazyvim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LazyVim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminal/linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminal/powershell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PowerShell
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminal/tmux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    tmux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../terminal/warp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Warp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/bun/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bun
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git / GitHub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/mkdocs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MkDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/uv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    uv
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インストール・アップデート・アンインストール
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="インストール・アップデート・アンインストール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インストール
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アップデート
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        アンインストール
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本コマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基本コマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        起動
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        終了
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        認証
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        よく使うスラッシュコマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="よく使うスラッシュコマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コンテキスト管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セッション操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コスト・使用量確認
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        モデル切り替え
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        情報確認・ヘルプ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        よく使うプロンプト入力パターン
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="よく使うプロンプト入力パターン">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ファイル参照
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        シェルコマンドの直接実行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        バックグラウンド実行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        サイドクエスチョン（処理中でも質問可能）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        上級者向けコマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="上級者向けコマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        プランモード
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        マルチエージェント・バッチ処理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ループ実行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ワークツリー（隔離環境）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セキュリティレビュー
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        インサイト分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        リモートコントロール
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        デバッグスキル
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        知ってると便利なコマンド
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="知ってると便利なコマンド">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ファスト（高速）モード
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vim モード
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ボイス入力
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コピー
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        エクスポート
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ターミナル設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        カラー設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        コンテキスト追加
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        スキル一覧
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claudemd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLAUDE.md 初期化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        メモリ管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP 管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IDE 連携
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PR コメント確認
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パーミッション設定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        フック確認
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        キーボードショートカット
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="キーボードショートカット">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        全般操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        テキスト編集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        複数行入力
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        オプション（CLI フラグ）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="オプション（CLI フラグ）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        セッション管理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        プリントモード（非インタラクティブ）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        モデル・思考レベル
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        システムプロンプトのカスタマイズ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        パーミッション・セキュリティ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP・プラグイン・外部連携
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        出力・フォーマット
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        エージェント・サブエージェント
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        リモート・その他
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        設定ファイルの構成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#settingsjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        settings.json の設定例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        カスタムスキルの作成
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="カスタムスキルの作成">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        スキルのフロントマター一覧
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        カスタムサブエージェントの作成
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        環境変数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="環境変数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        モデル・パフォーマンス
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bash・タイムアウト
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        機能のオン・オフ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        認証・プロバイダー
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        トラブルシューティング
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="トラブルシューティング">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        よくある問題と解決策
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        デバッグコマンドまとめ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考リンク
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="claude-code-cli">Claude Code CLI<a class="headerlink" href="#claude-code-cli" title="Permanent link">&para;</a></h1>
+<p>Claude Code は Anthropic が開発したターミナル上で動作するエージェント型コーディングアシスタントです。
+コードの読み取り・編集・Git 操作・コマンド実行を自然言語で指示できます。</p>
+<blockquote>
+<p><strong>情報の鮮度について</strong>
+Claude Code は活発に開発が続いています。最新情報は <a href="https://docs.claude.com/en/docs/claude-code/overview">公式ドキュメント</a> を参照してください。
+本ページの情報は <strong>2026年3月時点</strong> のものです（v2.1.77 以降）。</p>
+</blockquote>
+<hr />
+<h2 id="_1">インストール・アップデート・アンインストール<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">インストール<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>公式推奨は<strong>ネイティブインストーラー</strong>です。
+<code>npm install -g</code> による方法は <strong>deprecated（非推奨）</strong> になりました。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS / Linux</label><label for="__tabbed_1_2">macOS（Homebrew）</label><label for="__tabbed_1_3">Windows（PowerShell）</label><label for="__tabbed_1_4">Windows（WinGet）</label><label for="__tabbed_1_5">WSL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>ターミナルで以下のコマンドを実行します（<a href="https://claude.ai/download">claude.ai/download</a> のページにも記載されています）。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://claude.ai/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">自動アップデート対応</p>
+<p>ネイティブインストーラーでインストールした場合、バックグラウンドで自動更新されます。</p>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>brew<span class="w"> </span>install<span class="w"> </span>claude-code
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Homebrew は自動更新なし</p>
+<p>手動で更新してください。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>brew<span class="w"> </span>upgrade<span class="w"> </span>claude-code
+</code></pre></div>
+</div>
+</div>
+<div class="tabbed-block">
+<p>Git for Windows が必要です。先にインストールしておいてください。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">irm </span><span class="n">https</span><span class="p">://</span><span class="n">claude</span><span class="p">.</span><span class="n">ai</span><span class="p">/</span><span class="n">install</span><span class="p">.</span><span class="n">ps1</span> <span class="p">|</span> <span class="nb">iex</span>
+</code></pre></div>
+<p>CMD の場合は以下のコマンドを使います。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>powershell -Command &quot;irm https://claude.ai/install.ps1 | iex&quot;
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">自動アップデート対応</p>
+<p>ネイティブインストーラーでインストールした場合、バックグラウンドで自動更新されます。</p>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">winget</span> <span class="n">install</span> <span class="n">Anthropic</span><span class="p">.</span><span class="n">ClaudeCode</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">WinGet は自動更新なし</p>
+<p>手動で更新してください。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">winget</span> <span class="n">upgrade</span> <span class="n">Anthropic</span><span class="p">.</span><span class="n">ClaudeCode</span>
+</code></pre></div>
+</div>
+</div>
+<div class="tabbed-block">
+<p>WSL 1・WSL 2 どちらも対応しています（WSL 2 推奨）。
+WSL 上では macOS / Linux と同じコマンドを使います。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://claude.ai/install.sh<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">WSL 2 と Sandbox</p>
+<p>WSL 2 では Bash ツールのサンドボックス機能（セキュリティ強化）が利用できます。WSL 1 は非対応です。</p>
+</div>
+</div>
+</div>
+</div>
+<p>インストール後はバージョン確認でセットアップを確認できます。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>claude<span class="w"> </span>--version
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>claude<span class="w"> </span>-v
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># インストール状態の診断</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>claude<span class="w"> </span>doctor
+</code></pre></div>
+<p>既存の npm インストールをネイティブへ移行するには以下を実行します。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>claude<span class="w"> </span>install
+</code></pre></div>
+<h3 id="_3">アップデート<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>ネイティブインストールの場合はバックグラウンドで自動更新されます。手動でも実行できます。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>claude<span class="w"> </span>update
+</code></pre></div>
+<p>Homebrew・WinGet でインストールした場合は自動更新されません。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Homebrew の場合</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>brew<span class="w"> </span>upgrade<span class="w"> </span>claude-code
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># WinGet の場合</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>winget<span class="w"> </span>upgrade<span class="w"> </span>Anthropic.ClaudeCode
+</code></pre></div>
+<p>セッション内でリリースノートを確認することもできます。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>/release-notes
+</code></pre></div>
+<h3 id="_4">アンインストール<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">macOS / Linux / WSL</label><label for="__tabbed_2_2">Windows</label><label for="__tabbed_2_3">Homebrew</label><label for="__tabbed_2_4">WinGet</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># バイナリとバージョンファイルを削除</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>rm<span class="w"> </span>-f<span class="w"> </span>~/.local/bin/claude
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>rm<span class="w"> </span>-rf<span class="w"> </span>~/.local/share/claude
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1"># 設定・履歴も含めて完全削除する場合</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>rm<span class="w"> </span>-rf<span class="w"> </span>~/.claude
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>rm<span class="w"> </span>-f<span class="w"> </span>~/.claude.json
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="c1"># プロジェクト固有の設定を削除する場合（プロジェクトルートで実行）</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>rm<span class="w"> </span>-rf<span class="w"> </span>.claude
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>rm<span class="w"> </span>-f<span class="w"> </span>.mcp.json
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c"># バイナリを削除</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">Remove-Item</span> <span class="n">-Path</span> <span class="s2">&quot;$env:USERPROFILE\.local\bin\claude.exe&quot;</span> <span class="n">-Force</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="nb">Remove-Item</span> <span class="n">-Path</span> <span class="s2">&quot;$env:USERPROFILE\.local\share\claude&quot;</span> <span class="n">-Recurse</span> <span class="n">-Force</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="c"># 設定・履歴も含めて完全削除する場合</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="nb">Remove-Item</span> <span class="n">-Path</span> <span class="s2">&quot;$env:USERPROFILE\.claude&quot;</span> <span class="n">-Recurse</span> <span class="n">-Force</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="nb">Remove-Item</span> <span class="n">-Path</span> <span class="s2">&quot;$env:USERPROFILE\.claude.json&quot;</span> <span class="n">-Force</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="c"># プロジェクト固有の設定を削除する場合（プロジェクトルートで実行）</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="nb">Remove-Item</span> <span class="n">-Path</span> <span class="s2">&quot;.claude&quot;</span> <span class="n">-Recurse</span> <span class="n">-Force</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="nb">Remove-Item</span> <span class="n">-Path</span> <span class="s2">&quot;.mcp.json&quot;</span> <span class="n">-Force</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>brew<span class="w"> </span>uninstall<span class="w"> </span>claude-code
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">winget</span> <span class="n">uninstall</span> <span class="n">Anthropic</span><span class="p">.</span><span class="n">ClaudeCode</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">設定削除に注意</p>
+<p>設定ファイルを削除すると、許可ツール設定・MCP サーバー設定・セッション履歴がすべて消えます。バイナリだけ削除して設定を残すこともできます。</p>
+</div>
+<hr />
+<h2 id="_5">基本コマンド<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Claude Code の起動と終了に関する最も基本的なコマンドです。</p>
+<h3 id="_6">起動<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># インタラクティブモードで起動</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>claude
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># 初期プロンプトを指定して起動</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>claude<span class="w"> </span><span class="s2">&quot;auth モジュールのバグを修正して&quot;</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="c1"># 直前のセッションを続きから再開</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>claude<span class="w"> </span>-c
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a><span class="c1"># セッションに名前を付けて起動</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>claude<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;feature-payments&quot;</span>
+</code></pre></div>
+<p><strong>使い方の例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># プロジェクトルートに移動してから起動する（重要）</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="nb">cd</span><span class="w"> </span>~/projects/my-app
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>claude
+</code></pre></div>
+<h3 id="_7">終了<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># セッション内で終了</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>/exit
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>/quit
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="c1"># EOF シグナルで終了</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="c1"># Ctrl+D</span>
+</code></pre></div>
+<h3 id="_8">認証<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="c1"># Anthropic アカウントでログイン</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>claude<span class="w"> </span>auth<span class="w"> </span>login
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="c1"># SSO でログイン（企業ユーザー向け）</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>claude<span class="w"> </span>auth<span class="w"> </span>login<span class="w"> </span>--sso
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="c1"># 認証状態を確認</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>claude<span class="w"> </span>auth<span class="w"> </span>status
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>claude<span class="w"> </span>auth<span class="w"> </span>status<span class="w"> </span>--text
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="c1"># ログアウト</span>
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>claude<span class="w"> </span>auth<span class="w"> </span><span class="nb">logout</span>
+<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>
+<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="c1"># セッション内でのログイン</span>
+<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>/login
+<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>/logout
+</code></pre></div>
+<p><strong>API キーを使う場合：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">ANTHROPIC_API_KEY</span><span class="o">=</span><span class="s2">&quot;sk-ant-...&quot;</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>claude
+</code></pre></div>
+<hr />
+<h2 id="_9">よく使うスラッシュコマンド<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>セッション内で <code>/</code> から始めるコマンドです。
+<code>/</code> と入力すると一覧が表示され、続けて文字を打つと絞り込めます。</p>
+<h3 id="_10">コンテキスト管理<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>/clear
+</code></pre></div>
+<p>会話履歴をリセットして新しいセッションを開始します（エイリアス: <code>/reset</code>, <code>/new</code>）。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>/compact
+</code></pre></div>
+<p>会話を圧縮してトークン使用量を削減します。フォーカスする内容を引数で指定可能。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>/compact 認証周りのエラーハンドリングは残して
+</code></pre></div>
+<p><strong>使い方の目安：</strong> コンテキスト使用量が 80% を超えたら <code>/compact</code>、タスクを切り替えるなら <code>/clear</code>。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>/context
+</code></pre></div>
+<p>コンテキスト使用量をカラーグリッドで可視化し、最適化のヒントを表示します。</p>
+<h3 id="_11">セッション操作<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>/resume
+</code></pre></div>
+<p>過去のセッションを ID・名前・ピッカーで再開します（エイリアス: <code>/continue</code>）。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>/resume auth-refactor
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>/fork
+</code></pre></div>
+<p>現在の会話をこのポイントでフォーク（分岐）します。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>/fork experiment-v2
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>/rename
+</code></pre></div>
+<p>セッションに名前を付けます。引数なしで自動生成。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>/rename feature-payments
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>/rewind
+</code></pre></div>
+<p>会話やコードを過去のポイントに巻き戻します（エイリアス: <code>/checkpoint</code>）。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="c1"># Esc を2回押して巻き戻しメニューを開く</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="c1"># → &quot;Rewind code only&quot;（コードのみ戻す）</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="c1"># → &quot;Rewind conversation&quot;（会話ごと戻す）</span>
+</code></pre></div>
+<h3 id="_12">コスト・使用量確認<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>/cost
+</code></pre></div>
+<p>トークン使用量とコストの詳細統計を表示します。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>/usage
+</code></pre></div>
+<p>プランの使用量上限とレートリミットの状況を確認します。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>/status
+</code></pre></div>
+<p>バージョン・モデル・アカウント・接続状況を確認します（<code>/config</code> からも開けます）。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>/stats
+</code></pre></div>
+<p>日次の使用量・セッション履歴・連続利用日数・モデル利用傾向を可視化します。</p>
+<h3 id="_13">モデル切り替え<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>/model
+</code></pre></div>
+<p>AIモデルを切り替えます。左右矢印キーで努力レベルも調整できます。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>/model sonnet
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>/model opus
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>/model claude-sonnet-4-6
+</code></pre></div>
+<p><strong>使い方の例：</strong> 複雑な設計判断には Opus、通常作業には Sonnet を使うと費用対効果が良いです。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>/effort
+</code></pre></div>
+<p>努力レベルを設定します（low / medium / high / max / auto）。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>/effort high
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>/effort medium
+</code></pre></div>
+<h3 id="_14">情報確認・ヘルプ<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>/help
+</code></pre></div>
+<p>利用可能なすべてのスラッシュコマンドと説明を表示します。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>/doctor
+</code></pre></div>
+<p>Claude Code のインストール状態を診断します。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>/diff
+</code></pre></div>
+<p>未コミットの変更と各ターンの差分をインタラクティブに確認します（矢印キーで操作）。</p>
+<hr />
+<h2 id="_15">よく使うプロンプト入力パターン<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<h3 id="_16">ファイル参照<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>@src/auth.py のバグを調査して
+</code></pre></div>
+<p><code>@</code> でファイルパスの補完が起動します。ファイル名が分からなくても Claude が grep で探してくれます。</p>
+<h3 id="_17">シェルコマンドの直接実行<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>! git log --oneline -10
+</code></pre></div>
+<p><code>!</code> で始めると Claude の会話モードを経由せずシェルコマンドを直接実行します。トークンを節約できます。</p>
+<h3 id="_18">バックグラウンド実行<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>&amp; npm run dev
+</code></pre></div>
+<p>コマンドをバックグラウンドで実行しながら作業を続けられます。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>/tasks
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>/bashes
+</code></pre></div>
+<p>バックグラウンドタスクの一覧を確認します。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>/kill &lt;task-id&gt;
+</code></pre></div>
+<p>バックグラウンドタスクを終了します。</p>
+<h3 id="_19">サイドクエスチョン（処理中でも質問可能）<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>/btw このエラーって何が原因？
+</code></pre></div>
+<p>Claude が処理中でも割り込みで質問できます。会話履歴には残りません。</p>
+<hr />
+<h2 id="_20">上級者向けコマンド<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<h3 id="_21">プランモード<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>/plan
+</code></pre></div>
+<p>コードを書く前にまず計画を立てるモードに入ります。複雑なタスクや大規模変更に有効です。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>/plan 認証システムを JWT から OAuth2 に移行する
+</code></pre></div>
+<p><strong>使い方の例：</strong> 実装の前に必ずプランモードで設計を固めることが公式チームも推奨しています。</p>
+<h3 id="_22">マルチエージェント・バッチ処理<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>/batch &lt;指示&gt;
+</code></pre></div>
+<p>並列エージェントで大規模変更を一括処理します。5〜30 ユニットに分解して各エージェントが独立した git worktree で作業し、PR を自動作成します。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>/batch &quot;src/ の全ファイルを CommonJS から ESModule に移行して&quot;
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>/simplify
+</code></pre></div>
+<p>変更済みファイルを3エージェント並列でレビュー。コードの重複・品質・効率の問題を検出して修正します。PR 前のコード品質チェックに最適。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>/simplify 型安全性を重点的にチェック
+</code></pre></div>
+<h3 id="_23">ループ実行<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>/loop [間隔] &lt;プロンプト&gt;
+</code></pre></div>
+<p>指定した間隔でプロンプトを繰り返し実行します。デプロイ監視や PR 確認に活用できます。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>/loop 5m &quot;デプロイが完了したか確認して&quot;
+</code></pre></div>
+<h3 id="_24">ワークツリー（隔離環境）<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="c1"># 独立した git worktree でセッションを開始</span>
+<a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a>claude<span class="w"> </span>-w<span class="w"> </span>feature-auth
+<a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a>claude<span class="w"> </span>--worktree<span class="w"> </span>feature-auth
+</code></pre></div>
+<p>コードの変更が互いに干渉しないよう、複数タスクを並列処理するときに使います。変更がなければ自動でクリーンアップされます。</p>
+<h3 id="_25">セキュリティレビュー<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>/security-review
+</code></pre></div>
+<p>保留中の変更をスキャンしてセキュリティの脆弱性（インジェクション・認証問題・データ露出）を分析します。</p>
+<h3 id="_26">インサイト分析<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>/insights
+</code></pre></div>
+<p>過去1ヶ月のセッション履歴を分析し、プロジェクト傾向・操作パターン・摩擦ポイントを HTML レポートとして生成します。</p>
+<h3 id="_27">リモートコントロール<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>/remote-control
+<a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a>/rc
+</code></pre></div>
+<p>セッションを claude.ai やモバイルアプリから操作可能にします。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a><span class="c1"># CLI から起動する場合</span>
+<a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a>claude<span class="w"> </span>remote-control<span class="w"> </span>--name<span class="w"> </span><span class="s2">&quot;My Project&quot;</span>
+<a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a>claude<span class="w"> </span>--rc<span class="w"> </span><span class="s2">&quot;My Project&quot;</span>
+</code></pre></div>
+<h3 id="_28">デバッグスキル<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>/debug
+<a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a>/debug セッションが重くなった
+</code></pre></div>
+<p>デバッグログを読み取り、問題を分析します。</p>
+<hr />
+<h2 id="_29">知ってると便利なコマンド<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h2>
+<h3 id="_30">ファスト（高速）モード<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>/fast
+<a id="__codelineno-65-2" name="__codelineno-65-2" href="#__codelineno-65-2"></a>/fast on
+<a id="__codelineno-65-3" name="__codelineno-65-3" href="#__codelineno-65-3"></a>/fast off
+</code></pre></div>
+<p>Opus 4.6 の高速設定を切り替えます。通常より 2.5 倍高速ですがトークンコストが増加します。インタラクティブな素早い反復作業や Live デバッグに最適。</p>
+<h3 id="vim">Vim モード<a class="headerlink" href="#vim" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>/vim
+</code></pre></div>
+<p>Vim スタイルの入力モードと通常モードを切り替えます。</p>
+<h3 id="_31">ボイス入力<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>/voice
+</code></pre></div>
+<p>プッシュトゥトーク音声モードを起動します。スペースキーを押しながら話してください。20以上の言語に対応。</p>
+<h3 id="_32">コピー<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a>/copy
+</code></pre></div>
+<p>最後のレスポンスをクリップボードにコピーします。コードブロックが複数ある場合はインタラクティブなピッカーが起動します。</p>
+<h3 id="_33">エクスポート<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a>/export
+<a id="__codelineno-69-2" name="__codelineno-69-2" href="#__codelineno-69-2"></a>/export output.txt
+</code></pre></div>
+<p>会話をプレーンテキストとして保存します。ファイル名を指定すると直接書き込みます。</p>
+<h3 id="_34">ターミナル設定<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a>/terminal-setup
+</code></pre></div>
+<p>Shift+Enter のキーバインドを設定します（VS Code, Alacritty, Warp 対応）。</p>
+<h3 id="_35">カラー設定<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>/color red
+<a id="__codelineno-71-2" name="__codelineno-71-2" href="#__codelineno-71-2"></a>/color blue
+<a id="__codelineno-71-3" name="__codelineno-71-3" href="#__codelineno-71-3"></a>/color default
+</code></pre></div>
+<p>プロンプトバーの色を変更します（red / blue / green / yellow / purple / orange / pink / cyan）。</p>
+<h3 id="_36">コンテキスト追加<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a>/add-dir &lt;パス&gt;
+</code></pre></div>
+<p>現在のセッションに追加の作業ディレクトリを追加します。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a>/add-dir ../shared-lib
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a><span class="c1"># CLI 起動時に指定する場合</span>
+<a id="__codelineno-74-2" name="__codelineno-74-2" href="#__codelineno-74-2"></a>claude<span class="w"> </span>--add-dir<span class="w"> </span>../apps<span class="w"> </span>../lib
+</code></pre></div>
+<h3 id="_37">スキル一覧<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>/skills
+</code></pre></div>
+<p>利用可能なすべてのスキルを一覧表示します。</p>
+<h3 id="claudemd">CLAUDE.md 初期化<a class="headerlink" href="#claudemd" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>/init
+</code></pre></div>
+<p>プロジェクトに CLAUDE.md ガイドファイルを作成します。Claude のコンテキストとして自動的に読み込まれます。</p>
+<h3 id="_38">メモリ管理<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a>/memory
+</code></pre></div>
+<p>CLAUDE.md メモリファイルの編集・自動メモリの有効化/無効化・自動メモリエントリの確認ができます。</p>
+<h3 id="mcp">MCP 管理<a class="headerlink" href="#mcp" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a>/mcp
+</code></pre></div>
+<p>MCP サーバーの接続管理と OAuth 認証を行います。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a><span class="c1"># CLI から MCP サーバーを追加</span>
+<a id="__codelineno-79-2" name="__codelineno-79-2" href="#__codelineno-79-2"></a>claude<span class="w"> </span>mcp<span class="w"> </span>add<span class="w"> </span>--transport<span class="w"> </span>http<span class="w"> </span>github<span class="w"> </span>https://mcp.github.com
+<a id="__codelineno-79-3" name="__codelineno-79-3" href="#__codelineno-79-3"></a>
+<a id="__codelineno-79-4" name="__codelineno-79-4" href="#__codelineno-79-4"></a><span class="c1"># デバッグモードで MCP 確認</span>
+<a id="__codelineno-79-5" name="__codelineno-79-5" href="#__codelineno-79-5"></a>claude<span class="w"> </span>--debug<span class="w"> </span><span class="s2">&quot;mcp&quot;</span>
+<a id="__codelineno-79-6" name="__codelineno-79-6" href="#__codelineno-79-6"></a>
+<a id="__codelineno-79-7" name="__codelineno-79-7" href="#__codelineno-79-7"></a><span class="c1"># Claude Code 自体を MCP サーバーとして公開</span>
+<a id="__codelineno-79-8" name="__codelineno-79-8" href="#__codelineno-79-8"></a>claude<span class="w"> </span>mcp<span class="w"> </span>serve
+</code></pre></div>
+<h3 id="ide">IDE 連携<a class="headerlink" href="#ide" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a>/ide
+</code></pre></div>
+<p>VS Code・JetBrains との連携状態を管理・表示します。</p>
+<h3 id="pr">PR コメント確認<a class="headerlink" href="#pr" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a>/pr-comments
+<a id="__codelineno-81-2" name="__codelineno-81-2" href="#__codelineno-81-2"></a>/pr-comments 123
+<a id="__codelineno-81-3" name="__codelineno-81-3" href="#__codelineno-81-3"></a>/pr-comments https://github.com/org/repo/pull/123
+</code></pre></div>
+<p>GitHub の PR コメントを表示します。現在のブランチから PR を自動検出します。</p>
+<h3 id="_39">パーミッション設定<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a>/permissions
+</code></pre></div>
+<p>ツールの使用許可を確認・更新します（エイリアス: <code>/allowed-tools</code>）。</p>
+<h3 id="_40">フック確認<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a>/hooks
+</code></pre></div>
+<p>ツールイベントに設定されているフック（自動実行スクリプト）を確認します。</p>
+<hr />
+<h2 id="_41">キーボードショートカット<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h2>
+<h3 id="_42">全般操作<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ショートカット</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl+C</code></td>
+<td>現在の入力または生成をキャンセル</td>
+</tr>
+<tr>
+<td><code>Ctrl+D</code></td>
+<td>セッションを終了（EOF）</td>
+</tr>
+<tr>
+<td><code>Ctrl+G</code></td>
+<td>外部エディタでプロンプトを開く</td>
+</tr>
+<tr>
+<td><code>Ctrl+L</code></td>
+<td>ターミナル画面をクリア（会話履歴は保持）</td>
+</tr>
+<tr>
+<td><code>Ctrl+O</code></td>
+<td>詳細ツール出力のオン/オフ切り替え</td>
+</tr>
+<tr>
+<td><code>Ctrl+R</code></td>
+<td>コマンド履歴をインタラクティブに検索</td>
+</tr>
+<tr>
+<td><code>Ctrl+T</code></td>
+<td>タスクリストの表示/非表示を切り替え</td>
+</tr>
+<tr>
+<td><code>Ctrl+V</code> / <code>Alt+V</code></td>
+<td>クリップボードから画像をペースト（Mac/Linux か Windows）</td>
+</tr>
+<tr>
+<td><code>Ctrl+B</code></td>
+<td>現在のタスクをバックグラウンドに送る</td>
+</tr>
+<tr>
+<td><code>Ctrl+F</code> （2回）</td>
+<td>すべてのバックグラウンドエージェントを終了（3秒以内に2回）</td>
+</tr>
+<tr>
+<td><code>↑</code> / <code>↓</code></td>
+<td>コマンド履歴を前後に移動</td>
+</tr>
+<tr>
+<td><code>←</code> / <code>→</code></td>
+<td>ダイアログのタブを切り替え</td>
+</tr>
+<tr>
+<td><code>Esc</code> + <code>Esc</code></td>
+<td>巻き戻しメニューを開く</td>
+</tr>
+<tr>
+<td><code>Option+T</code> / <code>Alt+T</code></td>
+<td>拡張思考（Extended Thinking）をトグル</td>
+</tr>
+<tr>
+<td><code>Option+P</code> / <code>Alt+P</code></td>
+<td>モデルピッカーを開く（プロンプトはそのまま保持）</td>
+</tr>
+<tr>
+<td><code>Shift+Tab</code> / <code>Alt+M</code></td>
+<td>パーミッションモードを切り替え（Auto-Accept / Plan / Normal）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_43">テキスト編集<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ショートカット</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl+K</code></td>
+<td>カーソル位置から行末まで削除（削除テキストを保存）</td>
+</tr>
+<tr>
+<td><code>Ctrl+U</code></td>
+<td>行全体を削除（削除テキストを保存）</td>
+</tr>
+<tr>
+<td><code>Ctrl+Y</code></td>
+<td>直前に削除したテキストをペースト</td>
+</tr>
+<tr>
+<td><code>Alt+Y</code> （Ctrl+Y の後）</td>
+<td>ペースト履歴を循環</td>
+</tr>
+<tr>
+<td><code>Alt+B</code></td>
+<td>1ワード分カーソルを左に移動</td>
+</tr>
+<tr>
+<td><code>Alt+F</code></td>
+<td>1ワード分カーソルを右に移動</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_44">複数行入力<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>バックスラッシュ + Enter</td>
+<td><code>\</code> （スペースなし）+ Enter — すべてのターミナルで動作</td>
+</tr>
+<tr>
+<td>macOS 標準</td>
+<td>Option+Enter</td>
+</tr>
+<tr>
+<td>Shift+Enter</td>
+<td>iTerm2, WezTerm, Ghostty, Kitty では標準動作。他は <code>/terminal-setup</code> を実行</td>
+</tr>
+<tr>
+<td>Ctrl+J</td>
+<td>ラインフィード（複数行入力）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="cli">オプション（CLI フラグ）<a class="headerlink" href="#cli" title="Permanent link">&para;</a></h2>
+<p><code>claude</code> コマンドの起動時に指定するフラグです。</p>
+<h3 id="_45">セッション管理<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>フラグ</th>
+<th>説明</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-c</code>, <code>--continue</code></td>
+<td>直前のセッションを続ける</td>
+<td><code>claude -c</code></td>
+</tr>
+<tr>
+<td><code>-r</code>, <code>--resume</code></td>
+<td>セッションを ID または名前で再開</td>
+<td><code>claude -r "auth-refactor" "PR を仕上げて"</code></td>
+</tr>
+<tr>
+<td><code>-n</code>, <code>--name</code></td>
+<td>セッションの表示名を設定</td>
+<td><code>claude -n "feature-work"</code></td>
+</tr>
+<tr>
+<td><code>-w</code>, <code>--worktree</code></td>
+<td>独立した git worktree で起動</td>
+<td><code>claude -w feature-auth</code></td>
+</tr>
+<tr>
+<td><code>--session-id</code></td>
+<td>特定のセッション ID（UUID）を使用</td>
+<td><code>claude --session-id "550e8400-..."</code></td>
+</tr>
+<tr>
+<td><code>--fork-session</code></td>
+<td>再開時に新しいセッション ID を作成</td>
+<td><code>claude --resume abc123 --fork-session</code></td>
+</tr>
+<tr>
+<td><code>--no-session-persistence</code></td>
+<td>セッションを保存しない（プリントモードのみ）</td>
+<td><code>claude -p --no-session-persistence "query"</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_46">プリントモード（非インタラクティブ）<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a><span class="c1"># 結果を出力して終了（スクリプトや CI/CD 向け）</span>
+<a id="__codelineno-84-2" name="__codelineno-84-2" href="#__codelineno-84-2"></a>claude<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;このコードを説明して&quot;</span>
+<a id="__codelineno-84-3" name="__codelineno-84-3" href="#__codelineno-84-3"></a>claude<span class="w"> </span>--print<span class="w"> </span><span class="s2">&quot;このコードを説明して&quot;</span>
+<a id="__codelineno-84-4" name="__codelineno-84-4" href="#__codelineno-84-4"></a>
+<a id="__codelineno-84-5" name="__codelineno-84-5" href="#__codelineno-84-5"></a><span class="c1"># パイプで渡す</span>
+<a id="__codelineno-84-6" name="__codelineno-84-6" href="#__codelineno-84-6"></a>cat<span class="w"> </span>error.log<span class="w"> </span><span class="p">|</span><span class="w"> </span>claude<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;エラーの原因を説明して&quot;</span>
+<a id="__codelineno-84-7" name="__codelineno-84-7" href="#__codelineno-84-7"></a>
+<a id="__codelineno-84-8" name="__codelineno-84-8" href="#__codelineno-84-8"></a><span class="c1"># JSON 形式で出力</span>
+<a id="__codelineno-84-9" name="__codelineno-84-9" href="#__codelineno-84-9"></a>claude<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;query&quot;</span><span class="w"> </span>--output-format<span class="w"> </span>json
+<a id="__codelineno-84-10" name="__codelineno-84-10" href="#__codelineno-84-10"></a>
+<a id="__codelineno-84-11" name="__codelineno-84-11" href="#__codelineno-84-11"></a><span class="c1"># JSON スキーマに沿った出力（バリデーション付き）</span>
+<a id="__codelineno-84-12" name="__codelineno-84-12" href="#__codelineno-84-12"></a>claude<span class="w"> </span>-p<span class="w"> </span>--json-schema<span class="w"> </span><span class="s1">&#39;{&quot;type&quot;: &quot;object&quot;, &quot;properties&quot;: {...}}&#39;</span><span class="w"> </span><span class="s2">&quot;query&quot;</span>
+<a id="__codelineno-84-13" name="__codelineno-84-13" href="#__codelineno-84-13"></a>
+<a id="__codelineno-84-14" name="__codelineno-84-14" href="#__codelineno-84-14"></a><span class="c1"># ストリーミング JSON</span>
+<a id="__codelineno-84-15" name="__codelineno-84-15" href="#__codelineno-84-15"></a>claude<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;query&quot;</span><span class="w"> </span>--output-format<span class="w"> </span>stream-json
+<a id="__codelineno-84-16" name="__codelineno-84-16" href="#__codelineno-84-16"></a>
+<a id="__codelineno-84-17" name="__codelineno-84-17" href="#__codelineno-84-17"></a><span class="c1"># エージェントのターン数を制限</span>
+<a id="__codelineno-84-18" name="__codelineno-84-18" href="#__codelineno-84-18"></a>claude<span class="w"> </span>-p<span class="w"> </span>--max-turns<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="s2">&quot;query&quot;</span>
+<a id="__codelineno-84-19" name="__codelineno-84-19" href="#__codelineno-84-19"></a>
+<a id="__codelineno-84-20" name="__codelineno-84-20" href="#__codelineno-84-20"></a><span class="c1"># 予算を USD で制限</span>
+<a id="__codelineno-84-21" name="__codelineno-84-21" href="#__codelineno-84-21"></a>claude<span class="w"> </span>-p<span class="w"> </span>--max-budget-usd<span class="w"> </span><span class="m">5</span>.00<span class="w"> </span><span class="s2">&quot;query&quot;</span>
+<a id="__codelineno-84-22" name="__codelineno-84-22" href="#__codelineno-84-22"></a>
+<a id="__codelineno-84-23" name="__codelineno-84-23" href="#__codelineno-84-23"></a><span class="c1"># 過負荷時のフォールバックモデルを指定</span>
+<a id="__codelineno-84-24" name="__codelineno-84-24" href="#__codelineno-84-24"></a>claude<span class="w"> </span>-p<span class="w"> </span>--fallback-model<span class="w"> </span>sonnet<span class="w"> </span><span class="s2">&quot;query&quot;</span>
+</code></pre></div>
+<h3 id="_47">モデル・思考レベル<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>フラグ</th>
+<th>説明</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--model</code></td>
+<td>モデルをエイリアスまたはフルネームで指定</td>
+<td><code>claude --model claude-sonnet-4-6</code></td>
+</tr>
+<tr>
+<td><code>--effort</code></td>
+<td>努力レベル指定（low / medium / high / max）</td>
+<td><code>claude --effort high</code></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a><span class="c1"># よく使うモデル指定</span>
+<a id="__codelineno-85-2" name="__codelineno-85-2" href="#__codelineno-85-2"></a>claude<span class="w"> </span>--model<span class="w"> </span>sonnet<span class="w">     </span><span class="c1"># Sonnet 4.6（バランス型・省コスト）</span>
+<a id="__codelineno-85-3" name="__codelineno-85-3" href="#__codelineno-85-3"></a>claude<span class="w"> </span>--model<span class="w"> </span>opus<span class="w">       </span><span class="c1"># Opus 4.6（高性能・複雑タスク向け）</span>
+<a id="__codelineno-85-4" name="__codelineno-85-4" href="#__codelineno-85-4"></a>claude<span class="w"> </span>--model<span class="w"> </span>haiku<span class="w">      </span><span class="c1"># Haiku（軽量・高速・CI/CD 向け）</span>
+</code></pre></div>
+<h3 id="_48">システムプロンプトのカスタマイズ<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>フラグ</th>
+<th>説明</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--system-prompt</code></td>
+<td>システムプロンプト全体を置き換える</td>
+<td><code>claude --system-prompt "あなたは Python の専門家です"</code></td>
+</tr>
+<tr>
+<td><code>--system-prompt-file</code></td>
+<td>ファイルからシステムプロンプトを読み込む</td>
+<td><code>claude --system-prompt-file ./prompt.txt</code></td>
+</tr>
+<tr>
+<td><code>--append-system-prompt</code></td>
+<td>デフォルトのシステムプロンプトに追記</td>
+<td><code>claude --append-system-prompt "常に TypeScript を使って"</code></td>
+</tr>
+<tr>
+<td><code>--append-system-prompt-file</code></td>
+<td>ファイルの内容をシステムプロンプトに追記</td>
+<td><code>claude --append-system-prompt-file ./rules.txt</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>ヒント：</strong> ほとんどの場合は <code>--append-*</code> フラグを使います。Claude Code の組み込み機能を保持したまま独自の指示を追加できます。</p>
+</blockquote>
+<h3 id="_49">パーミッション・セキュリティ<a class="headerlink" href="#_49" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>フラグ</th>
+<th>説明</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--allowedTools</code></td>
+<td>許可プロンプトなしにツールを許可</td>
+<td><code>claude --allowedTools "Bash(git log *)" "Read"</code></td>
+</tr>
+<tr>
+<td><code>--disallowedTools</code></td>
+<td>ツールを完全に無効化</td>
+<td><code>claude --disallowedTools "Edit"</code></td>
+</tr>
+<tr>
+<td><code>--tools</code></td>
+<td>利用可能ツールを制限（<code>""</code> で全なし、<code>"default"</code> で全部）</td>
+<td><code>claude --tools "Bash,Edit,Read"</code></td>
+</tr>
+<tr>
+<td><code>--permission-mode</code></td>
+<td>起動時のパーミッションモードを指定</td>
+<td><code>claude --permission-mode plan</code></td>
+</tr>
+<tr>
+<td><code>--dangerously-skip-permissions</code></td>
+<td>すべてのパーミッションプロンプトをスキップ（CI/CD 用・要注意）</td>
+<td><code>claude --dangerously-skip-permissions</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mcp_1">MCP・プラグイン・外部連携<a class="headerlink" href="#mcp_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>フラグ</th>
+<th>説明</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--mcp-config</code></td>
+<td>JSON ファイルから MCP サーバーを読み込む</td>
+<td><code>claude --mcp-config ./mcp.json</code></td>
+</tr>
+<tr>
+<td><code>--strict-mcp-config</code></td>
+<td><code>--mcp-config</code> のみを使用し他の MCP ソースを無視</td>
+<td><code>claude --strict-mcp-config --mcp-config ./mcp.json</code></td>
+</tr>
+<tr>
+<td><code>--plugin-dir</code></td>
+<td>ディレクトリからプラグインを読み込む</td>
+<td><code>claude --plugin-dir ./my-plugins</code></td>
+</tr>
+<tr>
+<td><code>--chrome</code> / <code>--no-chrome</code></td>
+<td>Chrome ブラウザ統合を有効/無効</td>
+<td><code>claude --chrome</code></td>
+</tr>
+<tr>
+<td><code>--ide</code></td>
+<td>起動時に IDE に自動接続</td>
+<td><code>claude --ide</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_50">出力・フォーマット<a class="headerlink" href="#_50" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>フラグ</th>
+<th>説明</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--output-format</code></td>
+<td>出力形式（text / json / stream-json）</td>
+<td><code>claude -p "query" --output-format json</code></td>
+</tr>
+<tr>
+<td><code>--input-format</code></td>
+<td>入力形式（text / stream-json）</td>
+<td><code>claude -p --input-format stream-json</code></td>
+</tr>
+<tr>
+<td><code>--verbose</code></td>
+<td>詳細ログを有効化</td>
+<td><code>claude --verbose</code></td>
+</tr>
+<tr>
+<td><code>--debug</code></td>
+<td>デバッグモード（カテゴリ指定可能）</td>
+<td><code>claude --debug "api,mcp"</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_51">エージェント・サブエージェント<a class="headerlink" href="#_51" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>フラグ</th>
+<th>説明</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--agent</code></td>
+<td>セッション用のエージェントを指定</td>
+<td><code>claude --agent my-custom-agent</code></td>
+</tr>
+<tr>
+<td><code>--agents</code></td>
+<td>JSON でカスタムサブエージェントを定義</td>
+<td><code>claude --agents '{"reviewer":{...}}'</code></td>
+</tr>
+<tr>
+<td><code>--teammate-mode</code></td>
+<td>エージェントチームの表示モード（auto / in-process / tmux）</td>
+<td><code>claude --teammate-mode tmux</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_52">リモート・その他<a class="headerlink" href="#_52" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>フラグ</th>
+<th>説明</th>
+<th>例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--remote</code></td>
+<td>claude.ai 上でウェブセッションを作成</td>
+<td><code>claude --remote "バグを全部直して"</code></td>
+</tr>
+<tr>
+<td><code>--rc</code>, <code>--remote-control</code></td>
+<td>リモートコントロールを有効にして起動</td>
+<td><code>claude --rc "My Project"</code></td>
+</tr>
+<tr>
+<td><code>--teleport</code></td>
+<td>リモートウェブセッションをローカルに引き継ぐ</td>
+<td><code>claude --teleport</code></td>
+</tr>
+<tr>
+<td><code>--add-dir</code></td>
+<td>追加の作業ディレクトリを指定</td>
+<td><code>claude --add-dir ../apps ../lib</code></td>
+</tr>
+<tr>
+<td><code>--from-pr</code></td>
+<td>GitHub PR に紐づいたセッションを再開</td>
+<td><code>claude --from-pr 123</code></td>
+</tr>
+<tr>
+<td><code>--init</code> / <code>--init-only</code></td>
+<td>セッションを初期化、または初期化フックのみ実行して終了</td>
+<td><code>claude --init-only</code></td>
+</tr>
+<tr>
+<td><code>--settings</code></td>
+<td>JSON ファイルまたは文字列から設定を読み込む</td>
+<td><code>claude --settings ./settings.json</code></td>
+</tr>
+<tr>
+<td><code>--disable-slash-commands</code></td>
+<td>このセッションでスキルとコマンドを無効化</td>
+<td><code>claude --disable-slash-commands</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_53">設定<a class="headerlink" href="#_53" title="Permanent link">&para;</a></h2>
+<h3 id="_54">設定ファイルの構成<a class="headerlink" href="#_54" title="Permanent link">&para;</a></h3>
+<p>Claude Code の設定はいくつかの場所に保存されます。</p>
+<table>
+<thead>
+<tr>
+<th>ファイル</th>
+<th>対象</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>~/.claude/settings.json</code></td>
+<td>グローバル（ユーザー）</td>
+<td>すべてのプロジェクトに適用される個人設定</td>
+</tr>
+<tr>
+<td><code>.claude/settings.json</code></td>
+<td>プロジェクト</td>
+<td>チーム共有の設定（Git 管理推奨）</td>
+</tr>
+<tr>
+<td><code>.claude/settings.local.json</code></td>
+<td>プロジェクトローカル</td>
+<td>個人用のプロジェクト設定（Git 除外推奨）</td>
+</tr>
+<tr>
+<td><code>~/.claude/CLAUDE.md</code></td>
+<td>グローバル</td>
+<td>すべてのプロジェクトに適用されるメモリ</td>
+</tr>
+<tr>
+<td><code>.claude/CLAUDE.md</code></td>
+<td>プロジェクト</td>
+<td>プロジェクト固有のメモリ・指示</td>
+</tr>
+<tr>
+<td><code>.claude/skills/</code></td>
+<td>プロジェクト</td>
+<td>プロジェクト共有のカスタムスキル</td>
+</tr>
+<tr>
+<td><code>~/.claude/skills/</code></td>
+<td>グローバル</td>
+<td>個人用のカスタムスキル</td>
+</tr>
+<tr>
+<td><code>.claude/agents/</code></td>
+<td>プロジェクト</td>
+<td>カスタムサブエージェント定義</td>
+</tr>
+</tbody>
+</table>
+<h3 id="settingsjson">settings.json の設定例<a class="headerlink" href="#settingsjson" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a><span class="p">{</span>
+<a id="__codelineno-86-2" name="__codelineno-86-2" href="#__codelineno-86-2"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;claude-sonnet-4-6&quot;</span><span class="p">,</span>
+<a id="__codelineno-86-3" name="__codelineno-86-3" href="#__codelineno-86-3"></a><span class="w">  </span><span class="nt">&quot;fastMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-86-4" name="__codelineno-86-4" href="#__codelineno-86-4"></a><span class="w">  </span><span class="nt">&quot;theme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dark&quot;</span><span class="p">,</span>
+<a id="__codelineno-86-5" name="__codelineno-86-5" href="#__codelineno-86-5"></a><span class="w">  </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-86-6" name="__codelineno-86-6" href="#__codelineno-86-6"></a><span class="w">    </span><span class="nt">&quot;CLAUDE_CODE_EFFORT_LEVEL&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;medium&quot;</span><span class="p">,</span>
+<a id="__codelineno-86-7" name="__codelineno-86-7" href="#__codelineno-86-7"></a><span class="w">    </span><span class="nt">&quot;BASH_DEFAULT_TIMEOUT_MS&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30000&quot;</span>
+<a id="__codelineno-86-8" name="__codelineno-86-8" href="#__codelineno-86-8"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-86-9" name="__codelineno-86-9" href="#__codelineno-86-9"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="_55">カスタムスキルの作成<a class="headerlink" href="#_55" title="Permanent link">&para;</a></h3>
+<p>スキルはスラッシュコマンドとして呼び出せる再利用可能なプロンプトです。</p>
+<p>プロジェクト用スキルの場所：<code>.claude/skills/&lt;スキル名&gt;/SKILL.md</code></p>
+<p>個人用スキルの場所：<code>~/.claude/skills/&lt;スキル名&gt;/SKILL.md</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a><span class="c1"># スキルファイルを作成</span>
+<a id="__codelineno-87-2" name="__codelineno-87-2" href="#__codelineno-87-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>.claude/skills/test-all
+<a id="__codelineno-87-3" name="__codelineno-87-3" href="#__codelineno-87-3"></a>vim<span class="w"> </span>.claude/skills/test-all/SKILL.md
+</code></pre></div>
+<p>スキルのサンプル（<code>.claude/skills/test-all/SKILL.md</code>）：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-88-1" name="__codelineno-88-1" href="#__codelineno-88-1"></a>---
+<a id="__codelineno-88-2" name="__codelineno-88-2" href="#__codelineno-88-2"></a>name: test-all
+<a id="__codelineno-88-3" name="__codelineno-88-3" href="#__codelineno-88-3"></a>description: すべてのテストとリンターを実行する
+<a id="__codelineno-88-4" name="__codelineno-88-4" href="#__codelineno-88-4"></a>argument-hint: &quot;[テストスイート] [フラグ]&quot;
+<a id="__codelineno-88-5" name="__codelineno-88-5" href="#__codelineno-88-5"></a>allowed-tools: Bash(npm test:*), Bash(npm run:*)
+<a id="__codelineno-88-6" name="__codelineno-88-6" href="#__codelineno-88-6"></a>model: sonnet
+<a id="__codelineno-88-7" name="__codelineno-88-7" href="#__codelineno-88-7"></a>context: fork
+<a id="__codelineno-88-8" name="__codelineno-88-8" href="#__codelineno-88-8"></a>---
+<a id="__codelineno-88-9" name="__codelineno-88-9" href="#__codelineno-88-9"></a>
+<a id="__codelineno-88-10" name="__codelineno-88-10" href="#__codelineno-88-10"></a>以下のテストをすべて実行してください：
+<a id="__codelineno-88-11" name="__codelineno-88-11" href="#__codelineno-88-11"></a>
+<a id="__codelineno-88-12" name="__codelineno-88-12" href="#__codelineno-88-12"></a>1. npm test $ARGUMENTS
+<a id="__codelineno-88-13" name="__codelineno-88-13" href="#__codelineno-88-13"></a>2. npm run lint
+<a id="__codelineno-88-14" name="__codelineno-88-14" href="#__codelineno-88-14"></a>3. npm run typecheck
+<a id="__codelineno-88-15" name="__codelineno-88-15" href="#__codelineno-88-15"></a>
+<a id="__codelineno-88-16" name="__codelineno-88-16" href="#__codelineno-88-16"></a>結果のサマリーを表示してください。
+</code></pre></div>
+<p>作成後は <code>/test-all</code> で呼び出せます。</p>
+<h4 id="_56">スキルのフロントマター一覧<a class="headerlink" href="#_56" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>フィールド</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>スキルの名前（スラッシュコマンド名）</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>スキルの説明（Claude による自動呼び出しの判断に使用）</td>
+</tr>
+<tr>
+<td><code>argument-hint</code></td>
+<td>引数のヒントテキスト</td>
+</tr>
+<tr>
+<td><code>allowed-tools</code></td>
+<td>許可するツールの一覧</td>
+</tr>
+<tr>
+<td><code>model</code></td>
+<td>使用するモデル</td>
+</tr>
+<tr>
+<td><code>disable-model-invocation</code></td>
+<td>モデル呼び出しを無効化（シェル処理のみ）</td>
+</tr>
+<tr>
+<td><code>user-invocable</code></td>
+<td>ユーザーが手動で呼び出せるか</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td><code>fork</code> を指定するとサブエージェントとして実行</td>
+</tr>
+<tr>
+<td><code>agent</code></td>
+<td>使用するエージェント（Explore / Plan など）</td>
+</tr>
+</tbody>
+</table>
+<p>スキル内で使える変数：<code>$ARGUMENTS</code>, <code>$0</code>, <code>$1</code>, <code>${CLAUDE_SKILL_DIR}</code>, <code>${CLAUDE_SESSION_ID}</code></p>
+<h3 id="_57">カスタムサブエージェントの作成<a class="headerlink" href="#_57" title="Permanent link">&para;</a></h3>
+<p>特定のタスクに特化したエージェントを定義できます。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>.claude/agents/code-reviewer
+<a id="__codelineno-89-2" name="__codelineno-89-2" href="#__codelineno-89-2"></a>vim<span class="w"> </span>.claude/agents/code-reviewer/AGENT.md
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-90-1" name="__codelineno-90-1" href="#__codelineno-90-1"></a>---
+<a id="__codelineno-90-2" name="__codelineno-90-2" href="#__codelineno-90-2"></a>name: code-reviewer
+<a id="__codelineno-90-3" name="__codelineno-90-3" href="#__codelineno-90-3"></a>description: コードレビューの専門家。コード変更後に積極的に使用してください。
+<a id="__codelineno-90-4" name="__codelineno-90-4" href="#__codelineno-90-4"></a>tools: Read, Grep, Glob, Bash
+<a id="__codelineno-90-5" name="__codelineno-90-5" href="#__codelineno-90-5"></a>model: sonnet
+<a id="__codelineno-90-6" name="__codelineno-90-6" href="#__codelineno-90-6"></a>---
+<a id="__codelineno-90-7" name="__codelineno-90-7" href="#__codelineno-90-7"></a>
+<a id="__codelineno-90-8" name="__codelineno-90-8" href="#__codelineno-90-8"></a>あなたはシニアコードレビュアーです。レビュー時は以下を確認してください：
+<a id="__codelineno-90-9" name="__codelineno-90-9" href="#__codelineno-90-9"></a>
+<a id="__codelineno-90-10" name="__codelineno-90-10" href="#__codelineno-90-10"></a>- セキュリティの脆弱性（SQL インジェクション、XSS など）
+<a id="__codelineno-90-11" name="__codelineno-90-11" href="#__codelineno-90-11"></a>- パフォーマンスの問題
+<a id="__codelineno-90-12" name="__codelineno-90-12" href="#__codelineno-90-12"></a>- コードの可読性と保守性
+<a id="__codelineno-90-13" name="__codelineno-90-13" href="#__codelineno-90-13"></a>- テストカバレッジ
+</code></pre></div>
+<hr />
+<h2 id="_58">環境変数<a class="headerlink" href="#_58" title="Permanent link">&para;</a></h2>
+<p>環境変数でさらに細かく動作をコントロールできます。
+シェルで <code>export</code> するか、<code>settings.json</code> の <code>env</code> キーに設定すると永続化できます。</p>
+<h3 id="_59">モデル・パフォーマンス<a class="headerlink" href="#_59" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>変数</th>
+<th>説明</th>
+<th>デフォルト</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ANTHROPIC_MODEL</code></td>
+<td>デフォルトモデルを上書き</td>
+<td>なし</td>
+</tr>
+<tr>
+<td><code>CLAUDE_CODE_EFFORT_LEVEL</code></td>
+<td>努力レベル（low / medium / high）</td>
+<td>high</td>
+</tr>
+<tr>
+<td><code>CLAUDE_CODE_MAX_OUTPUT_TOKENS</code></td>
+<td>1レスポンスの最大出力トークン数</td>
+<td>32768</td>
+</tr>
+<tr>
+<td><code>MAX_THINKING_TOKENS</code></td>
+<td>拡張思考のトークン予算</td>
+<td>10000</td>
+</tr>
+<tr>
+<td><code>CLAUDE_CODE_SUBAGENT_MODEL</code></td>
+<td>サブエージェントが使用するモデル</td>
+<td>なし</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bash">Bash・タイムアウト<a class="headerlink" href="#bash" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>変数</th>
+<th>説明</th>
+<th>デフォルト</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BASH_MAX_TIMEOUT_MS</code></td>
+<td>Bash コマンドの最大タイムアウト（ミリ秒）</td>
+<td>約60000</td>
+</tr>
+<tr>
+<td><code>BASH_DEFAULT_TIMEOUT_MS</code></td>
+<td>Bash コマンドのデフォルトタイムアウト（ミリ秒）</td>
+<td>約60000</td>
+</tr>
+<tr>
+<td><code>BASH_MAX_OUTPUT_LENGTH</code></td>
+<td>Bash 出力の最大文字数</td>
+<td>30000</td>
+</tr>
+<tr>
+<td><code>MAX_MCP_OUTPUT_TOKENS</code></td>
+<td>MCP ツール出力のトークン上限</td>
+<td>なし</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_60">機能のオン・オフ<a class="headerlink" href="#_60" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>変数</th>
+<th>説明</th>
+<th>値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CLAUDE_CODE_DISABLE_AUTO_MEMORY</code></td>
+<td>自動メモリ作成を無効化</td>
+<td><code>1</code> で無効</td>
+</tr>
+<tr>
+<td><code>CLAUDE_CODE_DISABLE_BACKGROUND_TASKS</code></td>
+<td>バックグラウンドタスクを無効化</td>
+<td><code>1</code> で無効</td>
+</tr>
+<tr>
+<td><code>CLAUDE_CODE_DISABLE_CRON</code></td>
+<td>セッション中のスケジュールされた cron を停止</td>
+<td><code>1</code> で無効</td>
+</tr>
+<tr>
+<td><code>CLAUDE_CODE_DISABLE_1M_CONTEXT</code></td>
+<td>1M トークンコンテキストウィンドウを無効化</td>
+<td><code>1</code> で無効</td>
+</tr>
+<tr>
+<td><code>CLAUDE_CODE_DISABLE_GIT_INSTRUCTIONS</code></td>
+<td>システムプロンプトから git 指示を削除</td>
+<td><code>1</code> で無効</td>
+</tr>
+<tr>
+<td><code>CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION</code></td>
+<td>プロンプトサジェストを制御</td>
+<td><code>false</code> で無効</td>
+</tr>
+<tr>
+<td><code>ENABLE_TOOL_SEARCH</code></td>
+<td>MCP のツール検索（遅延ロード）を有効化</td>
+<td><code>1</code> で有効</td>
+</tr>
+<tr>
+<td><code>DISABLE_AUTOUPDATER</code></td>
+<td>自動更新を無効化</td>
+<td><code>1</code> で無効</td>
+</tr>
+<tr>
+<td><code>DISABLE_TELEMETRY</code></td>
+<td>テレメトリを無効化</td>
+<td><code>1</code> で無効</td>
+</tr>
+<tr>
+<td><code>DISABLE_PROMPT_CACHING</code></td>
+<td>プロンプトキャッシュを無効化</td>
+<td><code>1</code> で無効</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_61">認証・プロバイダー<a class="headerlink" href="#_61" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>変数</th>
+<th>説明</th>
+<th>備考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ANTHROPIC_API_KEY</code></td>
+<td>Anthropic API キー</td>
+<td>サブスクリプションがない場合に必要</td>
+</tr>
+<tr>
+<td><code>CLAUDE_CODE_USE_BEDROCK</code></td>
+<td>AWS Bedrock をプロバイダーとして使用</td>
+<td><code>1</code> で有効</td>
+</tr>
+<tr>
+<td><code>CLAUDE_CODE_USE_VERTEX</code></td>
+<td>Google Vertex AI をプロバイダーとして使用</td>
+<td><code>1</code> で有効</td>
+</tr>
+<tr>
+<td><code>HTTP_PROXY</code> / <code>HTTPS_PROXY</code></td>
+<td>プロキシ設定</td>
+<td>企業ネットワーク向け</td>
+</tr>
+</tbody>
+</table>
+<p><strong>settings.json に環境変数を永続化する例：</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-91-1" name="__codelineno-91-1" href="#__codelineno-91-1"></a><span class="p">{</span>
+<a id="__codelineno-91-2" name="__codelineno-91-2" href="#__codelineno-91-2"></a><span class="w">  </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-91-3" name="__codelineno-91-3" href="#__codelineno-91-3"></a><span class="w">    </span><span class="nt">&quot;CLAUDE_CODE_EFFORT_LEVEL&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;medium&quot;</span><span class="p">,</span>
+<a id="__codelineno-91-4" name="__codelineno-91-4" href="#__codelineno-91-4"></a><span class="w">    </span><span class="nt">&quot;DISABLE_TELEMETRY&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span>
+<a id="__codelineno-91-5" name="__codelineno-91-5" href="#__codelineno-91-5"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-91-6" name="__codelineno-91-6" href="#__codelineno-91-6"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="_62">トラブルシューティング<a class="headerlink" href="#_62" title="Permanent link">&para;</a></h2>
+<h3 id="_63">よくある問題と解決策<a class="headerlink" href="#_63" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>問題</th>
+<th>原因</th>
+<th>解決策</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude がプロジェクトを理解しない</td>
+<td>起動フォルダが間違っている</td>
+<td>プロジェクトルートで起動し、<code>/init</code> で CLAUDE.md を作成</td>
+</tr>
+<tr>
+<td>トークン上限に達した</td>
+<td>コンテキストが多すぎる</td>
+<td><code>/compact</code> で圧縮、または <code>/clear</code> でリセット</td>
+</tr>
+<tr>
+<td>コマンドが動かない</td>
+<td>バージョンが古い</td>
+<td><code>claude update</code> で更新</td>
+</tr>
+<tr>
+<td>MCP サーバーが繋がらない</td>
+<td>設定ミス</td>
+<td><code>claude --debug "mcp"</code> で診断</td>
+</tr>
+<tr>
+<td>Shift+Enter が効かない</td>
+<td>ターミナル設定が未実施</td>
+<td><code>/terminal-setup</code> を実行</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_64">デバッグコマンドまとめ<a class="headerlink" href="#_64" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-92-1" name="__codelineno-92-1" href="#__codelineno-92-1"></a><span class="c1"># インストール状態の確認</span>
+<a id="__codelineno-92-2" name="__codelineno-92-2" href="#__codelineno-92-2"></a>/doctor
+<a id="__codelineno-92-3" name="__codelineno-92-3" href="#__codelineno-92-3"></a>
+<a id="__codelineno-92-4" name="__codelineno-92-4" href="#__codelineno-92-4"></a><span class="c1"># コンテキスト使用量の確認</span>
+<a id="__codelineno-92-5" name="__codelineno-92-5" href="#__codelineno-92-5"></a>/context
+<a id="__codelineno-92-6" name="__codelineno-92-6" href="#__codelineno-92-6"></a>
+<a id="__codelineno-92-7" name="__codelineno-92-7" href="#__codelineno-92-7"></a><span class="c1"># トークンコストの確認</span>
+<a id="__codelineno-92-8" name="__codelineno-92-8" href="#__codelineno-92-8"></a>/cost
+<a id="__codelineno-92-9" name="__codelineno-92-9" href="#__codelineno-92-9"></a>
+<a id="__codelineno-92-10" name="__codelineno-92-10" href="#__codelineno-92-10"></a><span class="c1"># 認証状態の確認</span>
+<a id="__codelineno-92-11" name="__codelineno-92-11" href="#__codelineno-92-11"></a>claude<span class="w"> </span>auth<span class="w"> </span>status<span class="w"> </span>--text
+<a id="__codelineno-92-12" name="__codelineno-92-12" href="#__codelineno-92-12"></a>
+<a id="__codelineno-92-13" name="__codelineno-92-13" href="#__codelineno-92-13"></a><span class="c1"># 詳細ログを有効化して起動</span>
+<a id="__codelineno-92-14" name="__codelineno-92-14" href="#__codelineno-92-14"></a>claude<span class="w"> </span>--verbose
+<a id="__codelineno-92-15" name="__codelineno-92-15" href="#__codelineno-92-15"></a>
+<a id="__codelineno-92-16" name="__codelineno-92-16" href="#__codelineno-92-16"></a><span class="c1"># デバッグモードで起動（カテゴリ指定）</span>
+<a id="__codelineno-92-17" name="__codelineno-92-17" href="#__codelineno-92-17"></a>claude<span class="w"> </span>--debug<span class="w"> </span><span class="s2">&quot;api,mcp&quot;</span>
+<a id="__codelineno-92-18" name="__codelineno-92-18" href="#__codelineno-92-18"></a>
+<a id="__codelineno-92-19" name="__codelineno-92-19" href="#__codelineno-92-19"></a><span class="c1"># セッションのトラブルシューティング</span>
+<a id="__codelineno-92-20" name="__codelineno-92-20" href="#__codelineno-92-20"></a>/debug<span class="w"> </span><span class="s2">&quot;問題の説明&quot;</span>
+<a id="__codelineno-92-21" name="__codelineno-92-21" href="#__codelineno-92-21"></a>
+<a id="__codelineno-92-22" name="__codelineno-92-22" href="#__codelineno-92-22"></a><span class="c1"># 設定画面を開く</span>
+<a id="__codelineno-92-23" name="__codelineno-92-23" href="#__codelineno-92-23"></a>/config
+</code></pre></div>
+<hr />
+<h2 id="_65">参考リンク<a class="headerlink" href="#_65" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.claude.com/en/docs/claude-code/overview">Claude Code 公式ドキュメント</a></li>
+<li><a href="https://code.claude.com/docs/en/cli-reference">CLI リファレンス</a></li>
+<li><a href="https://www.npmjs.com/package/@anthropic-ai/claude-code">npm パッケージ</a></li>
+<li><a href="https://github.com/hesreallyhim/awesome-claude-code">Awesome Claude Code</a></li>
+<li><a href="https://github.com/Cranot/claude-code-guide">Claude Code Guide（コミュニティ）</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "navigation.indexes", "content.code.copy", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
